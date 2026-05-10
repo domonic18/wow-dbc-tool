@@ -1,0 +1,2 @@
+[console_scripts]
+wow-dbc-tool = wow_dbc_tool.cli:main
