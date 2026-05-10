@@ -1,1 +1,1 @@
-# wow-dbc-tool
+# wow-dbc-tool\n\n魔兽世界 3.3.5 DBC 文件操作工具（面向 Agent）\n\n## 功能\n- 读取 DBC 文件\n- 增删改查记录\n- 对比两个 DBC 文件版本差异\n\n## 安装\n```bash\npip install -e .\n```\n\n## 使用\n```bash\n# 查询\nwow-dbc query --file Spell.dbc --field SpellName --contains Fire\n\n# 修改\nwow-dbc edit --file Spell.dbc --id 123 --field SpellName --value "Fireball II"\n\n# 对比\nwow-dbc diff --file1 Spell_old.dbc --file2 Spell_new.dbc\n```
