@@ -49,13 +49,8 @@ class DBCHeader:
 
         record_count, field_count, record_size, string_block_size = struct.unpack("<4I", data[4:20])
 
-        # 验证尺寸一致性
-        expected_size = field_count * 4
-        if record_size != expected_size:
-            raise DBCFormatError(
-                f"记录大小不匹配: field_count={field_count}, "
-                f"record_size={record_size}, 预期={expected_size}"
-            )
+        # 注意：某些 DBC 文件（如 CharBaseInfo.dbc）的 record_size 不等于 field_count * 4
+        # 这是正常的，我们信任文件头声明的尺寸
 
         return cls(
             magic=magic,

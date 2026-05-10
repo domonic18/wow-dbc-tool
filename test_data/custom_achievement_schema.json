@@ -1,0 +1,316 @@
+{
+  "Achievement.dbc": {
+    "fields": [
+      {
+        "name": "ID",
+        "type": "uint32",
+        "offset": 0
+      },
+      {
+        "name": "Faction",
+        "type": "int32",
+        "offset": 4
+      },
+      {
+        "name": "InstanceID",
+        "type": "int32",
+        "offset": 8
+      },
+      {
+        "name": "Supercedes",
+        "type": "uint32",
+        "offset": 12
+      },
+      {
+        "name": "Title_Lang",
+        "type": "string",
+        "offset": 16
+      },
+      {
+        "name": "Title_Lang2",
+        "type": "string",
+        "offset": 20
+      },
+      {
+        "name": "Title_Lang3",
+        "type": "string",
+        "offset": 24
+      },
+      {
+        "name": "Title_Lang4",
+        "type": "string",
+        "offset": 28
+      },
+      {
+        "name": "Title_Lang5",
+        "type": "string",
+        "offset": 32
+      },
+      {
+        "name": "Title_Lang6",
+        "type": "string",
+        "offset": 36
+      },
+      {
+        "name": "Title_Lang7",
+        "type": "string",
+        "offset": 40
+      },
+      {
+        "name": "Title_Lang8",
+        "type": "string",
+        "offset": 44
+      },
+      {
+        "name": "Title_Lang9",
+        "type": "string",
+        "offset": 48
+      },
+      {
+        "name": "Title_Lang10",
+        "type": "string",
+        "offset": 52
+      },
+      {
+        "name": "Title_Lang11",
+        "type": "string",
+        "offset": 56
+      },
+      {
+        "name": "Title_Lang12",
+        "type": "string",
+        "offset": 60
+      },
+      {
+        "name": "Title_Lang13",
+        "type": "string",
+        "offset": 64
+      },
+      {
+        "name": "Title_Lang14",
+        "type": "string",
+        "offset": 68
+      },
+      {
+        "name": "Title_Lang15",
+        "type": "string",
+        "offset": 72
+      },
+      {
+        "name": "Title_Lang16",
+        "type": "string",
+        "offset": 76
+      },
+      {
+        "name": "Description_Lang",
+        "type": "string",
+        "offset": 80
+      },
+      {
+        "name": "Description_Lang2",
+        "type": "string",
+        "offset": 84
+      },
+      {
+        "name": "Description_Lang3",
+        "type": "string",
+        "offset": 88
+      },
+      {
+        "name": "Description_Lang4",
+        "type": "string",
+        "offset": 92
+      },
+      {
+        "name": "Description_Lang5",
+        "type": "string",
+        "offset": 96
+      },
+      {
+        "name": "Description_Lang6",
+        "type": "string",
+        "offset": 100
+      },
+      {
+        "name": "Description_Lang7",
+        "type": "string",
+        "offset": 104
+      },
+      {
+        "name": "Description_Lang8",
+        "type": "string",
+        "offset": 108
+      },
+      {
+        "name": "Description_Lang9",
+        "type": "string",
+        "offset": 112
+      },
+      {
+        "name": "Description_Lang10",
+        "type": "string",
+        "offset": 116
+      },
+      {
+        "name": "Description_Lang11",
+        "type": "string",
+        "offset": 120
+      },
+      {
+        "name": "Description_Lang12",
+        "type": "string",
+        "offset": 124
+      },
+      {
+        "name": "Description_Lang13",
+        "type": "string",
+        "offset": 128
+      },
+      {
+        "name": "Description_Lang14",
+        "type": "string",
+        "offset": 132
+      },
+      {
+        "name": "Description_Lang15",
+        "type": "string",
+        "offset": 136
+      },
+      {
+        "name": "Description_Lang16",
+        "type": "string",
+        "offset": 140
+      },
+      {
+        "name": "Category",
+        "type": "uint32",
+        "offset": 144
+      },
+      {
+        "name": "Points",
+        "type": "uint32",
+        "offset": 148
+      },
+      {
+        "name": "UI_Order",
+        "type": "uint32",
+        "offset": 152
+      },
+      {
+        "name": "Flags",
+        "type": "uint32",
+        "offset": 156
+      },
+      {
+        "name": "IconID",
+        "type": "uint32",
+        "offset": 160
+      },
+      {
+        "name": "RewardItemID",
+        "type": "uint32",
+        "offset": 164
+      },
+      {
+        "name": "RewardItemQuantity",
+        "type": "uint32",
+        "offset": 168
+      },
+      {
+        "name": "Unknown1",
+        "type": "uint32",
+        "offset": 172
+      },
+      {
+        "name": "Unknown2",
+        "type": "uint32",
+        "offset": 176
+      },
+      {
+        "name": "CriteriaQuantity",
+        "type": "uint32",
+        "offset": 180
+      },
+      {
+        "name": "Unknown3",
+        "type": "uint32",
+        "offset": 184
+      },
+      {
+        "name": "Unknown4",
+        "type": "uint32",
+        "offset": 188
+      },
+      {
+        "name": "Unknown5",
+        "type": "uint32",
+        "offset": 192
+      },
+      {
+        "name": "Unknown6",
+        "type": "uint32",
+        "offset": 196
+      },
+      {
+        "name": "Unknown7",
+        "type": "uint32",
+        "offset": 200
+      },
+      {
+        "name": "Unknown8",
+        "type": "uint32",
+        "offset": 204
+      },
+      {
+        "name": "Unknown9",
+        "type": "uint32",
+        "offset": 208
+      },
+      {
+        "name": "Unknown10",
+        "type": "uint32",
+        "offset": 212
+      },
+      {
+        "name": "Unknown11",
+        "type": "uint32",
+        "offset": 216
+      },
+      {
+        "name": "Unknown12",
+        "type": "uint32",
+        "offset": 220
+      },
+      {
+        "name": "Unknown13",
+        "type": "uint32",
+        "offset": 224
+      },
+      {
+        "name": "Unknown14",
+        "type": "uint32",
+        "offset": 228
+      },
+      {
+        "name": "Unknown15",
+        "type": "uint32",
+        "offset": 232
+      },
+      {
+        "name": "Unknown16",
+        "type": "uint32",
+        "offset": 236
+      },
+      {
+        "name": "Unknown17",
+        "type": "uint32",
+        "offset": 240
+      },
+      {
+        "name": "Unknown18",
+        "type": "uint32",
+        "offset": 244
+      }
+    ]
+  }
+}

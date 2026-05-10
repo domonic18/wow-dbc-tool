@@ -39,11 +39,16 @@ class TestDBCHeader:
         with pytest.raises(DBCFormatError, match="文件头数据不足"):
             DBCHeader.from_bytes(data)
 
-    def test_from_bytes_size_mismatch(self):
-        """测试记录大小不匹配."""
+    def test_from_bytes_non_standard_size(self):
+        """测试非标准记录大小 - 某些 DBC 文件 record_size != field_count * 4."""
+        # 如 CharBaseInfo.dbc 等文件的 record_size 不等于 field_count * 4
         data = b"WDBC" + struct.pack("<4I", 100, 5, 30, 1024)
-        with pytest.raises(DBCFormatError, match="记录大小不匹配"):
-            DBCHeader.from_bytes(data)
+        # 不再抛出异常，允许非标准尺寸
+        header = DBCHeader.from_bytes(data)
+        assert header.record_count == 100
+        assert header.field_count == 5
+        assert header.record_size == 30  # 不等于 5 * 4 = 20
+        assert header.string_block_size == 1024
 
     def test_to_bytes(self):
         """测试转为字节."""

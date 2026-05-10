@@ -39,23 +39,27 @@ class DBCRecord:
         self._string_block = string_block
         self._schema_by_name: dict[str, FieldDef] = {f.name: f for f in schema}
 
-    def get(self, field_name: str) -> int | float | str | None:
+    def get(self, field_name: str, default: Any = None) -> int | float | str | None:
         """获取字段值.
 
         优先返回 pending strings（由 set() 设置但未保存的值），
-        然后尝试从 raw 数据解析。
+        然后尝试从 raw 数据解析.
 
         Args:
             field_name: 字段名
+            default: 字段不存在时的默认值
 
         Returns:
             字段值。uint32/int32 -> int, float -> float, string -> str
 
         Raises:
-            DBCSchemaError: 字段不存在
+            DBCSchemaError: 字段不存在且未提供 default
         """
         field = self._schema_by_name.get(field_name)
         if field is None:
+            if default is not None:
+                return default
+            # 对于空字符串默认值，也返回 default
             raise DBCSchemaError(f"字段不存在: {field_name!r}")
 
         # 优先返回 pending strings
