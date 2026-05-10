@@ -1,0 +1,31 @@
+{
+  "TestSpell.dbc": {
+    "fields": [
+      {
+        "name": "ID",
+        "type": "uint32",
+        "offset": 0
+      },
+      {
+        "name": "SpellName",
+        "type": "string",
+        "offset": 4
+      },
+      {
+        "name": "Rank",
+        "type": "string",
+        "offset": 8
+      },
+      {
+        "name": "ManaCost",
+        "type": "uint32",
+        "offset": 12
+      },
+      {
+        "name": "CastTime",
+        "type": "uint32",
+        "offset": 16
+      }
+    ]
+  }
+}

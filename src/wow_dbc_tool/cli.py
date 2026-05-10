@@ -13,12 +13,44 @@ from wow_dbc_tool.diff.engine import DBCDiff
 from wow_dbc_tool.schema.registry import SchemaRegistry
 
 
+class _JSONEncoder(json.JSONEncoder):
+    """自定义 JSON 编码器，处理 NaN/Inf 等特殊浮点值."""
+
+    def default(self, obj: Any) -> Any:
+        if isinstance(obj, float):
+            if obj != obj:  # NaN
+                return None
+            if obj == float("inf"):
+                return None
+            if obj == float("-inf"):
+                return None
+        return super().default(obj)
+
+    def encode(self, obj: Any) -> str:
+        """重写 encode 以处理 JSON 默认不支持的 NaN/Inf."""
+        # 预处理对象，将 NaN/Inf 替换为 None
+        obj = self._sanitize_floats(obj)
+        return super().encode(obj)
+
+    def _sanitize_floats(self, obj: Any) -> Any:
+        """递归清理浮点特殊值."""
+        if isinstance(obj, float):
+            if obj != obj or obj == float("inf") or obj == float("-inf"):
+                return None
+            return obj
+        elif isinstance(obj, dict):
+            return {k: self._sanitize_floats(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._sanitize_floats(item) for item in obj]
+        return obj
+
+
 def _output_json(data: dict, pretty: bool = True) -> None:
     """输出 JSON 数据."""
-    if pretty:
-        print(json.dumps(data, indent=2, ensure_ascii=False))
-    else:
-        print(json.dumps(data, ensure_ascii=False))
+    encoded = _JSONEncoder(indent=2, ensure_ascii=False).encode(data)
+    if isinstance(encoded, bytes):
+        encoded = encoded.decode("utf-8")
+    print(encoded)
 
 
 def _error_json(message: str, error_type: str = "DBCError") -> None:
@@ -192,10 +224,17 @@ def cmd_add(args: argparse.Namespace) -> int:
 
 def cmd_diff(args: argparse.Namespace) -> int:
     """diff 子命令."""
-    old = DBCFile(args.file1)
-    new = DBCFile(args.file2)
+    # 先加载 schema（如果指定）
+    schema = None
     if args.schema:
         SchemaRegistry.load_from_file(args.schema)
+        # 获取加载的 schema（第一个自定义定义）
+        custom_names = [name for name in SchemaRegistry.list_all() if name not in SchemaRegistry.list_builtins()]
+        if custom_names:
+            schema = SchemaRegistry.get(custom_names[0])
+
+    old = DBCFile(args.file1, schema=schema)
+    new = DBCFile(args.file2, schema=schema)
     old.load()
     new.load()
 

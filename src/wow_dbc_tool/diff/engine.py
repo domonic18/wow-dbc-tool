@@ -83,14 +83,20 @@ class DBCDiff:
         以 key_field 为键，建立 old 和 new 的索引，
         找出 added、removed、modified 和 unchanged 记录。
 
+        如果 key_field 不存在，自动回退到 compare_by_index。
+
         Returns:
             结构化差异报告
 
         Raises:
-            DBCDiffError: key_field 不存在
+            DBCDiffError: key_field 不存在且无法回退
         """
-        # 验证 key_field 存在
-        self._validate_key_field()
+        # 验证 key_field 存在，不存在则回退
+        try:
+            self._validate_key_field()
+        except DBCDiffError:
+            # 回退到按索引对比
+            return self.compare_by_index()
 
         # 建立索引
         old_index = self._build_index(self.old)
@@ -196,13 +202,13 @@ class DBCDiff:
 
         try:
             self.old.records[0].get(self.key_field)
-        except Exception as e:
-            raise DBCDiffError(f"旧文件中 key_field '{self.key_field}' 不存在: {e}")
+        except Exception:
+            raise DBCDiffError(f"旧文件中 key_field '{self.key_field}' 不存在")
 
         try:
             self.new.records[0].get(self.key_field)
-        except Exception as e:
-            raise DBCDiffError(f"新文件中 key_field '{self.key_field}' 不存在: {e}")
+        except Exception:
+            raise DBCDiffError(f"新文件中 key_field '{self.key_field}' 不存在")
 
     def _build_index(self, dbc: DBCFile) -> dict[Any, DBCRecord]:
         """以 key_field 为键建立记录索引.

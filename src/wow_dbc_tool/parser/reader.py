@@ -34,6 +34,9 @@ class DBCReader:
     def read(self) -> None:
         """解析整个 DBC 文件.
 
+        支持标准 WDBC 格式（field_count * 4 == record_size）
+        以及非标准格式（如 CharBaseInfo.dbc 等）。
+
         Raises:
             DBCFormatError: 文件格式错误
             FileNotFoundError: 文件不存在
@@ -47,15 +50,18 @@ class DBCReader:
             self.header = DBCHeader.from_bytes(header_data)
 
             # 2. 读取所有记录
-            records_data = f.read(self.header.data_size)
-            if len(records_data) < self.header.data_size:
+            # 注意：某些 DBC 文件的 record_size 不等于 field_count * 4
+            # 使用 header 声明的 record_size 和 record_count 计算数据区大小
+            data_size = self.header.record_count * self.header.record_size
+            records_data = f.read(data_size)
+            if len(records_data) < data_size:
                 raise DBCFormatError(
-                    f"记录区数据不足: 需要 {self.header.data_size}, " f"实际 {len(records_data)}"
+                    f"记录区数据不足: 需要 {data_size}, " f"实际 {len(records_data)}"
                 )
 
             self.records = [
                 records_data[i : i + self.header.record_size]
-                for i in range(0, self.header.data_size, self.header.record_size)
+                for i in range(0, data_size, self.header.record_size)
             ]
 
             # 3. 读取字符串块
