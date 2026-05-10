@@ -1,0 +1,14 @@
+{
+  "Achievement.dbc": "Achievement.md",
+  "Achievement_Category.dbc": "Achievement_Category.md",
+  "AreaTable.dbc": "AreaTable.md",
+  "CharTitles.dbc": "CharTitles.md",
+  "Faction.dbc": "Faction.md",
+  "Item.dbc": "Item.md",
+  "ItemDisplayInfo.dbc": "ItemDisplayInfo.md",
+  "Map.dbc": "Map.md",
+  "QuestInfo.dbc": "QuestInfo.md",
+  "SkillLine.dbc": "SkillLine.md",
+  "Spell.dbc": "Spell.md",
+  "SpellIcon.dbc": "SpellIcon.md"
+}
