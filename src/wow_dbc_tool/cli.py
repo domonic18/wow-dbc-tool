@@ -5,7 +5,7 @@ import contextlib
 import json
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.exceptions import DBCError
@@ -74,14 +74,15 @@ def _parse_filters(filter_args: list[str]) -> dict[str, Any]:
     for arg in filter_args:
         if "=" not in arg:
             raise ValueError(f"无效的 filter 格式: {arg}")
-        key, value = arg.split("=", 1)
+        key, raw_value = arg.split("=", 1)
+        value: int | float | str = raw_value
 
         # 尝试类型转换
         try:
-            value = int(value)
+            value = int(raw_value)
         except ValueError:
             with contextlib.suppress(ValueError):
-                value = float(value)
+                value = float(raw_value)
 
         filters[key] = value
     return filters
@@ -93,14 +94,15 @@ def _parse_fields(field_args: list[str]) -> dict[str, Any]:
     for arg in field_args:
         if "=" not in arg:
             raise ValueError(f"无效的 field 格式: {arg}")
-        key, value = arg.split("=", 1)
+        key, raw_value = arg.split("=", 1)
+        value: int | float | str = raw_value
 
         # 尝试类型转换
         try:
-            value = int(value)
+            value = int(raw_value)
         except ValueError:
             with contextlib.suppress(ValueError):
-                value = float(value)
+                value = float(raw_value)
 
         fields[key] = value
     return fields
@@ -112,6 +114,7 @@ def cmd_read(args: argparse.Namespace) -> int:
     if args.schema:
         SchemaRegistry.load_from_file(args.schema)
     dbc.load()
+    assert dbc.header is not None
 
     records = dbc.to_json()
     if args.limit:
@@ -250,6 +253,7 @@ def cmd_diff(args: argparse.Namespace) -> int:
 
 def cmd_schema(args: argparse.Namespace) -> int:
     """schema 子命令."""
+    data: dict[str, Any]
     if args.schema_command == "list":
         builtins = SchemaRegistry.list_builtins()
         custom = [name for name in SchemaRegistry.list_all() if name not in builtins]
@@ -292,8 +296,8 @@ def cmd_schema(args: argparse.Namespace) -> int:
         schema = dbc.schema
         header = dbc.header
 
-        errors = []
-        warnings = []
+        errors: list[str] = []
+        warnings: list[str] = []
 
         if header:
             expected_size = header.field_count * 4
@@ -319,6 +323,7 @@ def cmd_schema(args: argparse.Namespace) -> int:
 def cmd_help(args: argparse.Namespace) -> int:
     """help 子命令."""
     help_system = HelpSystem()
+    data: dict[str, Any] | None
 
     if args.full:
         data = help_system.get_full_help()
@@ -447,8 +452,8 @@ def _add_common_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser
 
 def main() -> int:
     """CLI 主入口."""
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
+    sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
+    sys.stderr.reconfigure(encoding="utf-8")  # type: ignore[union-attr]
 
     parser = argparse.ArgumentParser(
         prog="wow-dbc-tool",
@@ -548,7 +553,7 @@ def main() -> int:
         return 1
 
     try:
-        return args.func(args)
+        return cast(int, args.func(args))
     except DBCError as e:
         _error_json(str(e), type(e).__name__)
         return 1

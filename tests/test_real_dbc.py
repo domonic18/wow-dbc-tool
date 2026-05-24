@@ -33,6 +33,10 @@ REAL_DBC_DIR = Path("test_data/samples/original")
 DIY_DBC_DIR = Path("test_data/samples/diy")
 CUSTOM_SCHEMA_PATH = Path("test_data/schemas/custom_achievement_schema.json")
 
+# 无真实 DBC 数据时跳过整个模块
+if not REAL_DBC_DIR.exists() or not any(REAL_DBC_DIR.glob("*.dbc")):
+    pytest.skip("真实 DBC 测试数据不可用", allow_module_level=True)
+
 
 class TestRealDBCRead:
     """测试真实 DBC 文件读取."""
