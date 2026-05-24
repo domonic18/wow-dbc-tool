@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import struct
-from typing import Any
+from typing import Any, cast
 
 from wow_dbc_tool.core.exceptions import DBCSchemaError
 from wow_dbc_tool.schema.field_def import FieldDef
@@ -58,7 +58,7 @@ class DBCRecord:
         field = self._schema_by_name.get(field_name)
         if field is None:
             if default is not None:
-                return default
+                return cast(int | float | str | None, default)
             # 对于空字符串默认值，也返回 default
             raise DBCSchemaError(f"字段不存在: {field_name!r}")
 
@@ -70,11 +70,11 @@ class DBCRecord:
         raw = self._raw[offset : offset + 4]
 
         if field.type == "uint32":
-            return struct.unpack("<I", raw)[0]
+            return cast(int, struct.unpack("<I", raw)[0])
         elif field.type == "int32":
-            return struct.unpack("<i", raw)[0]
+            return cast(int, struct.unpack("<i", raw)[0])
         elif field.type == "float":
-            return struct.unpack("<f", raw)[0]
+            return cast(float, struct.unpack("<f", raw)[0])
         elif field.type == "string":
             string_offset = struct.unpack("<I", raw)[0]
             return self._get_string_at_offset(string_offset)

@@ -9,6 +9,8 @@ from pathlib import Path
 
 import pytest
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 
 class TestCLI:
     """测试 CLI 命令."""
@@ -24,7 +26,8 @@ class TestCLI:
             wow_dbc_tool,
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         # 无参数应该返回帮助信息
         assert result.returncode == 1 or "usage" in result.stdout.lower()
@@ -35,7 +38,8 @@ class TestCLI:
             wow_dbc_tool + ["read", str(minimal_dbc), "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -48,7 +52,8 @@ class TestCLI:
             wow_dbc_tool + ["read", str(minimal_dbc), "--limit", "1", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -60,7 +65,8 @@ class TestCLI:
             wow_dbc_tool + ["query", str(minimal_dbc), "--filter", "field_0=1", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -73,7 +79,8 @@ class TestCLI:
             wow_dbc_tool + ["query", str(minimal_dbc), "--filter", "ID=999", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -92,7 +99,8 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -116,7 +124,8 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -127,7 +136,8 @@ class TestCLI:
             wow_dbc_tool + ["read", str(output), "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         data2 = json.loads(result2.stdout)
         # 找到 field_0=1 的记录
@@ -152,7 +162,8 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -177,7 +188,8 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -195,7 +207,8 @@ class TestCLI:
             + ["diff", str(minimal_dbc), str(path2), "--key-field", "field_0", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -210,7 +223,8 @@ class TestCLI:
             wow_dbc_tool + ["schema", "list", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -223,7 +237,8 @@ class TestCLI:
             wow_dbc_tool + ["schema", "show", "Spell.dbc", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -236,7 +251,8 @@ class TestCLI:
             wow_dbc_tool + ["schema", "infer", str(minimal_dbc), "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -249,7 +265,8 @@ class TestCLI:
             wow_dbc_tool + ["read", "/nonexistent.dbc", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         # FileNotFoundError 被捕获并输出到 stderr 作为 JSON，但 returncode 可能为 0
         # 因为异常处理已捕获并格式化输出

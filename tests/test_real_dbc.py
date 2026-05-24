@@ -14,7 +14,6 @@
 from __future__ import annotations
 
 import json
-import os
 import struct
 import subprocess
 import sys
@@ -23,15 +22,20 @@ from pathlib import Path
 import pytest
 
 from wow_dbc_tool.core.dbc_file import DBCFile
-from wow_dbc_tool.core.dbc_record import DBCRecord
 from wow_dbc_tool.diff.engine import DBCDiff
 from wow_dbc_tool.schema.field_def import FieldDef
 from wow_dbc_tool.schema.registry import SchemaRegistry
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 # 真实 DBC 文件路径
-REAL_DBC_DIR = Path("test_data/wow_dbc_files/dbc-orignal")
-DIY_DBC_DIR = Path("test_data/wow_dbc_files/dbc-diy")
-CUSTOM_SCHEMA_PATH = Path("test_data/custom_achievement_schema.json")
+REAL_DBC_DIR = Path("test_data/samples/original")
+DIY_DBC_DIR = Path("test_data/samples/diy")
+CUSTOM_SCHEMA_PATH = Path("test_data/schemas/custom_achievement_schema.json")
+
+# 无真实 DBC 数据时跳过整个模块
+if not REAL_DBC_DIR.exists() or not any(REAL_DBC_DIR.glob("*.dbc")):
+    pytest.skip("真实 DBC 测试数据不可用", allow_module_level=True)
 
 
 class TestRealDBCRead:
@@ -301,7 +305,7 @@ class TestNaNHandling:
         # 找到包含 NaN 的记录并验证 to_dict
         for record in dbc.records:
             d = record.to_dict()
-            for k, v in d.items():
+            for _k, v in d.items():
                 if isinstance(v, float) and v != v:
                     # NaN 应该被保留在字典中
                     assert v != v  # 确认是 NaN
@@ -360,7 +364,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["read", str(REAL_DBC_DIR / "Spell.dbc"), "--limit", "3", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -375,7 +380,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["query", str(REAL_DBC_DIR / "Spell.dbc"), "--filter", "ID=4", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -385,14 +391,18 @@ class TestCLIWithRealDBC:
     def test_cli_query_real_spell_contains(self, wow_dbc_tool):
         """CLI query contains 操作符."""
         result = subprocess.run(
-            wow_dbc_tool + [
-                "query", str(REAL_DBC_DIR / "Spell.dbc"),
-                "--filter", "SpellName4__contains=Fire",
+            wow_dbc_tool
+            + [
+                "query",
+                str(REAL_DBC_DIR / "Spell.dbc"),
+                "--filter",
+                "SpellName4__contains=Fire",
                 "--json",
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -404,16 +414,19 @@ class TestCLIWithRealDBC:
     def test_cli_diff_real_files(self, wow_dbc_tool):
         """CLI diff 真实原始 vs DIY 文件."""
         result = subprocess.run(
-            wow_dbc_tool + [
+            wow_dbc_tool
+            + [
                 "diff",
                 str(REAL_DBC_DIR / "Spell.dbc"),
                 str(DIY_DBC_DIR / "Spell.dbc"),
-                "--key-field", "ID",
+                "--key-field",
+                "ID",
                 "--json",
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -427,7 +440,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["schema", "show", "Spell.dbc", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -441,7 +455,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["schema", "infer", str(REAL_DBC_DIR / "Achievement.dbc"), "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding="utf-8",
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -467,7 +482,9 @@ class TestFileHeaderValidation:
             file_size = path.stat().st_size
             with open(path, "rb") as f:
                 f.read(4)  # skip magic
-                record_count, field_count, record_size, string_block_size = struct.unpack("<4I", f.read(16))
+                record_count, field_count, record_size, string_block_size = struct.unpack(
+                    "<4I", f.read(16)
+                )
 
             expected_size = 20 + record_count * record_size + string_block_size
             assert file_size == expected_size, (
@@ -490,8 +507,13 @@ class TestFileHeaderValidation:
         assert len(mismatched) <= 5, f"不匹配文件过多: {mismatched}"
         # 记录已知不匹配文件
         known_mismatched = {
-            "CharBaseInfo.dbc", "CharStartOutfit.dbc", "PowerDisplay.dbc",
-            "SpellChainEffects.dbc", "SpellItemEnchantmentCondition.dbc"
+            "CharBaseInfo.dbc",
+            "CharStartOutfit.dbc",
+            "PowerDisplay.dbc",
+            "SpellChainEffects.dbc",
+            "SpellItemEnchantmentCondition.dbc",
         }
         for name, fc, rs in mismatched:
-            assert name in known_mismatched, f"未知不匹配文件: {name} (field_count={fc}, record_size={rs})"
+            assert (
+                name in known_mismatched
+            ), f"未知不匹配文件: {name} (field_count={fc}, record_size={rs})"
