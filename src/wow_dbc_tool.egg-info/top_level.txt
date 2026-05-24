@@ -1,2 +1,0 @@
-wow_dbc
-wow_dbc_tool

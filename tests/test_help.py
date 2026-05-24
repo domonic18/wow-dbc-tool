@@ -2,7 +2,7 @@
 
 import pytest
 
-from wow_dbc_tool.help_system import CommandHelp, HelpSystem
+from wow_dbc_tool.utils.help_system import CommandHelp, HelpSystem
 
 
 class TestCommandHelp:

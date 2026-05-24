@@ -29,9 +29,9 @@ from wow_dbc_tool.schema.field_def import FieldDef
 from wow_dbc_tool.schema.registry import SchemaRegistry
 
 # 真实 DBC 文件路径
-REAL_DBC_DIR = Path("test_data/wow_dbc_files/dbc-orignal")
-DIY_DBC_DIR = Path("test_data/wow_dbc_files/dbc-diy")
-CUSTOM_SCHEMA_PATH = Path("test_data/custom_achievement_schema.json")
+REAL_DBC_DIR = Path("test_data/samples/original")
+DIY_DBC_DIR = Path("test_data/samples/diy")
+CUSTOM_SCHEMA_PATH = Path("test_data/schemas/custom_achievement_schema.json")
 
 
 class TestRealDBCRead:

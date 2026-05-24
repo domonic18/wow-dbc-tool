@@ -7,8 +7,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from wow_dbc_tool.doc_store import DocEntry
-from wow_dbc_tool.wowdev_crawler import WowdevWikiCrawler
+from wow_dbc_tool.utils.doc_store import DocEntry
+from wow_dbc_tool.utils.wowdev_crawler import WowdevWikiCrawler
 
 
 class TestWowdevWikiCrawler:
