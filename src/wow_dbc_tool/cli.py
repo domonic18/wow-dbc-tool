@@ -10,8 +10,8 @@ from typing import Any
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.exceptions import DBCError
 from wow_dbc_tool.diff.engine import DBCDiff
-from wow_dbc_tool.doc_store import DocStore
-from wow_dbc_tool.help_system import HelpSystem
+from wow_dbc_tool.utils.doc_store import DocStore
+from wow_dbc_tool.utils.help_system import HelpSystem
 from wow_dbc_tool.schema.registry import SchemaRegistry
 
 
@@ -395,7 +395,7 @@ def cmd_explain(args: argparse.Namespace) -> int:
 def cmd_wiki_sync(args: argparse.Namespace) -> int:
     """wiki sync 子命令."""
     try:
-        from wow_dbc_tool.wowdev_crawler import WowdevWikiCrawler
+        from wow_dbc_tool.utils.wowdev_crawler import WowdevWikiCrawler
     except ImportError as e:
         _error_json(f"Wiki 同步需要 requests 和 beautifulsoup4: {e}", "ImportError")
         return 1

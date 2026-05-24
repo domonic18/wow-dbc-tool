@@ -90,7 +90,7 @@ class TestCmdExplain:
     def test_explain_file(self, capsys, tmp_path):
         """测试查询文件说明."""
         # 创建测试文档
-        from wow_dbc_tool.doc_store import DocEntry, DocStore
+        from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
         store = DocStore(tmp_path)
         entry = DocEntry(
             name="Test.dbc",
@@ -110,7 +110,7 @@ class TestCmdExplain:
             compact = True
 
         # 使用测试目录的 store
-        import wow_dbc_tool.doc_store
+        import wow_dbc_tool.utils.doc_store
         original_find = DocStore._find_default_docs_dir
         DocStore._find_default_docs_dir = lambda self: tmp_path
 
@@ -128,7 +128,7 @@ class TestCmdExplain:
 
     def test_explain_field(self, capsys, tmp_path):
         """测试查询特定字段."""
-        from wow_dbc_tool.doc_store import DocEntry, DocStore
+        from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
         store = DocStore(tmp_path)
         entry = DocEntry(
             name="Test.dbc",
@@ -145,7 +145,7 @@ class TestCmdExplain:
             field = ["ID", "Missing"]
             compact = True
 
-        import wow_dbc_tool.doc_store
+        import wow_dbc_tool.utils.doc_store
         original_find = DocStore._find_default_docs_dir
         DocStore._find_default_docs_dir = lambda self: tmp_path
 
@@ -166,7 +166,7 @@ class TestCmdWikiList:
 
     def test_wiki_list_empty(self, capsys, tmp_path):
         """测试空文档列表."""
-        from wow_dbc_tool.doc_store import DocStore
+        from wow_dbc_tool.utils.doc_store import DocStore
         original_find = DocStore._find_default_docs_dir
         DocStore._find_default_docs_dir = lambda self: tmp_path
 
@@ -186,7 +186,7 @@ class TestCmdWikiList:
 
     def test_wiki_list_with_docs(self, capsys, tmp_path):
         """测试有文档的列表."""
-        from wow_dbc_tool.doc_store import DocEntry, DocStore
+        from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
         store = DocStore(tmp_path)
         store.save(DocEntry(name="A.dbc", title="A"))
         store.save(DocEntry(name="B.dbc", title="B"))

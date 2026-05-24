@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from wow_dbc_tool.doc_store import DocEntry, DocStore
+from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
 
 
 class TestDocEntry:
