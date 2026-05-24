@@ -14,7 +14,13 @@
  */
 
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.11-slim'
+            // 如需将宿主机目录挂载到容器，可在此添加 args
+            // args '-v /host/path:/container/path'
+        }
+    }
 
     options {
         timestamps()
@@ -47,6 +53,10 @@ Branch:      ${env.BRANCH_NAME ?: 'N/A'}
 Build:       ${env.BUILD_NUMBER}
 Deploy Env:  ${env.DEPLOY_ENV}
 ========================================"""
+
+                // python:3.11-slim 不包含 git，需先安装
+                // python:3.11-slim does not include git, install it first
+                sh 'apt-get update -qq && apt-get install -y -qq git'
 
                 sh 'bash cicd/scripts/setup-python.sh'
 

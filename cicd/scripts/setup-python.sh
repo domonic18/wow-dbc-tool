@@ -9,12 +9,24 @@ PYPI_MIRROR="${PYPI_MIRROR:-https://mirrors.cloud.tencent.com/pypi/simple}"
 PYPI_HOST="${PYPI_HOST:-mirrors.cloud.tencent.com}"
 
 # ============================
-# 1. Python3
+# 1. Python3（Jenkins agent 通常已预装，此处做兜底安装）
 # ============================
 if ! command -v python3 >/dev/null 2>&1; then
-    echo ">>> 安装 Python3..."
-    apt-get update -qq
-    apt-get install -y -qq python3 python3-pip python3-venv
+    echo ">>> 未检测到 Python3，尝试安装..."
+
+    if [ "$(id -u)" -eq 0 ]; then
+        # root 用户直接安装
+        apt-get update -qq
+        apt-get install -y -qq python3 python3-pip python3-venv
+    elif command -v sudo >/dev/null 2>&1; then
+        # 非 root 但拥有 sudo
+        sudo apt-get update -qq
+        sudo apt-get install -y -qq python3 python3-pip python3-venv
+    else
+        echo "ERROR: 当前系统未安装 Python3，且无 root/sudo 权限进行安装。"
+        echo "       请在 Jenkins agent 镜像中预装 python3，或切换到 root 权限运行。"
+        exit 1
+    fi
 fi
 echo "Python3: $(python3 --version)"
 
