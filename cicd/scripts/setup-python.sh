@@ -31,14 +31,8 @@ fi
 echo "Python3: $(python3 --version)"
 
 # ============================
-# 2. pip（升级到最新版，使用镜像源）
-# ============================
-python3 -m pip install --upgrade pip \
-    -i "${PYPI_MIRROR}" --trusted-host "${PYPI_HOST}"
-echo "pip: $(python3 -m pip --version)"
-
-# ============================
-# 3. 创建 Jenkins 构建专用 venv
+# 2. 创建 Jenkins 构建专用 venv
+#    （跳过系统 pip 升级，避免 Debian PEP 668 限制）
 # ============================
 VENV_DIR="/tmp/jenkins-venv-wow-dbc-tool"
 
@@ -58,13 +52,13 @@ fi
 echo "venv pip: $(${VENV_DIR}/bin/pip --version)"
 
 # ============================
-# 4. 设置环境变量（供 Jenkinsfile 使用）
+# 3. 设置环境变量（供 Jenkinsfile 使用）
 # ============================
 echo "PYTHON=${VENV_DIR}/bin/python" >> .env.pipeline
 echo "PIP=${VENV_DIR}/bin/pip"       >> .env.pipeline
 
 # ============================
-# 5. 跨 shell 验证
+# 4. 跨 shell 验证
 # ============================
 echo "=== 跨 shell 验证 ==="
 /bin/sh -c "${VENV_DIR}/bin/python --version" \
