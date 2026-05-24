@@ -28,6 +28,8 @@ from wow_dbc_tool.diff.engine import DBCDiff
 from wow_dbc_tool.schema.field_def import FieldDef
 from wow_dbc_tool.schema.registry import SchemaRegistry
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 # 真实 DBC 文件路径
 REAL_DBC_DIR = Path("test_data/samples/original")
 DIY_DBC_DIR = Path("test_data/samples/diy")
@@ -360,7 +362,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["read", str(REAL_DBC_DIR / "Spell.dbc"), "--limit", "3", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -375,7 +378,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["query", str(REAL_DBC_DIR / "Spell.dbc"), "--filter", "ID=4", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -392,7 +396,8 @@ class TestCLIWithRealDBC:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -413,7 +418,8 @@ class TestCLIWithRealDBC:
             ],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -427,7 +433,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["schema", "show", "Spell.dbc", "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -441,7 +448,8 @@ class TestCLIWithRealDBC:
             wow_dbc_tool + ["schema", "infer", str(REAL_DBC_DIR / "Achievement.dbc"), "--json"],
             capture_output=True,
             text=True,
-            cwd="/Users/deadwalk/Code/wow-dbc-tool",
+            encoding='utf-8',
+            cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)

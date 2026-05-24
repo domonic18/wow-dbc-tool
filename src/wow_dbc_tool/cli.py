@@ -447,6 +447,9 @@ def _add_common_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser
 
 def main() -> int:
     """CLI 主入口."""
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
     parser = argparse.ArgumentParser(
         prog="wow-dbc-tool",
         description="魔兽世界 3.3.5 DBC 文件操作工具",
