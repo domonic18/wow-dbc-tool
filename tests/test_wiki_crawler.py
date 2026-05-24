@@ -45,9 +45,7 @@ class TestWowdevWikiCrawler:
 
             result = crawler.fetch_dbc_page("Spell.dbc")
             assert result == mock_html
-            mock_get.assert_called_once_with(
-                "https://wowdev.wiki/Spell.dbc", timeout=30
-            )
+            mock_get.assert_called_once_with("https://wowdev.wiki/Spell.dbc", timeout=30)
 
     def test_fetch_dbc_page_failure(self):
         """测试获取页面失败."""

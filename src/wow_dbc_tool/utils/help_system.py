@@ -84,7 +84,12 @@ class HelpSystem:
             description="根据过滤条件查询 DBC 记录。支持等值过滤和比较操作符。",
             args=[
                 {"name": "file", "type": "Path", "required": True, "help": "DBC 文件路径"},
-                {"name": "--filter", "type": "str", "required": False, "help": "过滤条件（如 ID=123 或 ID__gt=100）"},
+                {
+                    "name": "--filter",
+                    "type": "str",
+                    "required": False,
+                    "help": "过滤条件（如 ID=123 或 ID__gt=100）",
+                },
                 {"name": "--schema", "type": "Path", "required": False, "help": "字段定义文件"},
             ],
             examples=[
@@ -102,11 +107,21 @@ class HelpSystem:
             args=[
                 {"name": "file", "type": "Path", "required": True, "help": "DBC 文件路径"},
                 {"name": "--filter", "type": "str", "required": True, "help": "过滤条件"},
-                {"name": "--set", "type": "str", "required": True, "help": "要修改的字段（如 Name=NewName）"},
-                {"name": "--output, -o", "type": "Path", "required": False, "help": "输出到文件（默认覆盖原文件）"},
+                {
+                    "name": "--set",
+                    "type": "str",
+                    "required": True,
+                    "help": "要修改的字段（如 Name=NewName）",
+                },
+                {
+                    "name": "--output, -o",
+                    "type": "Path",
+                    "required": False,
+                    "help": "输出到文件（默认覆盖原文件）",
+                },
             ],
             examples=[
-                "wow-dbc-tool edit Spell.dbc --filter ID=133 --set Name=\"New Spell\"",
+                'wow-dbc-tool edit Spell.dbc --filter ID=133 --set Name="New Spell"',
             ],
             notes=["修改后会自动保存", "建议先备份原文件"],
         )
@@ -134,11 +149,16 @@ class HelpSystem:
             description="向 DBC 文件添加新记录。",
             args=[
                 {"name": "file", "type": "Path", "required": True, "help": "DBC 文件路径"},
-                {"name": "--field", "type": "str", "required": True, "help": "字段值（如 ID=999 Name=\"New\")"},
+                {
+                    "name": "--field",
+                    "type": "str",
+                    "required": True,
+                    "help": '字段值（如 ID=999 Name="New")',
+                },
                 {"name": "--output, -o", "type": "Path", "required": False, "help": "输出到文件"},
             ],
             examples=[
-                "wow-dbc-tool add Spell.dbc --field ID=999 --field Name=\"Custom Spell\"",
+                'wow-dbc-tool add Spell.dbc --field ID=999 --field Name="Custom Spell"',
             ],
             notes=["需要指定所有必填字段", "ID 不能与现有记录重复"],
         )
@@ -151,7 +171,12 @@ class HelpSystem:
             args=[
                 {"name": "file1", "type": "Path", "required": True, "help": "旧 DBC 文件"},
                 {"name": "file2", "type": "Path", "required": True, "help": "新 DBC 文件"},
-                {"name": "--key-field", "type": "str", "required": False, "help": "主键字段（默认 ID）"},
+                {
+                    "name": "--key-field",
+                    "type": "str",
+                    "required": False,
+                    "help": "主键字段（默认 ID）",
+                },
                 {"name": "--by-index", "type": "flag", "required": False, "help": "按索引对比"},
             ],
             examples=[
@@ -167,9 +192,19 @@ class HelpSystem:
             brief="字段定义管理",
             description="管理 DBC 字段定义：列出、查看、推断、验证。",
             args=[
-                {"name": "schema_command", "type": "str", "required": True, "help": "子命令: list, show, infer, validate"},
+                {
+                    "name": "schema_command",
+                    "type": "str",
+                    "required": True,
+                    "help": "子命令: list, show, infer, validate",
+                },
                 {"name": "file", "type": "Path", "required": False, "help": "DBC 文件路径"},
-                {"name": "--schema-file", "type": "Path", "required": False, "help": "字段定义文件"},
+                {
+                    "name": "--schema-file",
+                    "type": "Path",
+                    "required": False,
+                    "help": "字段定义文件",
+                },
                 {"name": "--output, -o", "type": "Path", "required": False, "help": "输出到文件"},
             ],
             examples=[
@@ -220,7 +255,12 @@ class HelpSystem:
             brief="Wiki 文档管理",
             description="管理 Wowdev Wiki 文档同步。",
             args=[
-                {"name": "wiki_command", "type": "str", "required": True, "help": "子命令: sync, list"},
+                {
+                    "name": "wiki_command",
+                    "type": "str",
+                    "required": True,
+                    "help": "子命令: sync, list",
+                },
                 {"name": "dbc_name", "type": "str", "required": False, "help": "DBC 文件名"},
                 {"name": "--all", "type": "flag", "required": False, "help": "同步所有已知 DBC"},
             ],
@@ -241,10 +281,7 @@ class HelpSystem:
         return {
             "tool": "wow-dbc-tool",
             "description": self._tool_description,
-            "commands": [
-                {"name": cmd.name, "brief": cmd.brief}
-                for cmd in self._commands.values()
-            ],
+            "commands": [{"name": cmd.name, "brief": cmd.brief} for cmd in self._commands.values()],
             "global_options": self._global_options,
         }
 

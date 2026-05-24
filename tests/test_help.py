@@ -1,7 +1,5 @@
 """测试帮助系统模块."""
 
-import pytest
-
 from wow_dbc_tool.utils.help_system import CommandHelp, HelpSystem
 
 

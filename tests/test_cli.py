@@ -26,7 +26,7 @@ class TestCLI:
             wow_dbc_tool,
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         # 无参数应该返回帮助信息
@@ -38,7 +38,7 @@ class TestCLI:
             wow_dbc_tool + ["read", str(minimal_dbc), "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -52,7 +52,7 @@ class TestCLI:
             wow_dbc_tool + ["read", str(minimal_dbc), "--limit", "1", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -65,7 +65,7 @@ class TestCLI:
             wow_dbc_tool + ["query", str(minimal_dbc), "--filter", "field_0=1", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -79,7 +79,7 @@ class TestCLI:
             wow_dbc_tool + ["query", str(minimal_dbc), "--filter", "ID=999", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -99,7 +99,7 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -124,7 +124,7 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -136,7 +136,7 @@ class TestCLI:
             wow_dbc_tool + ["read", str(output), "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         data2 = json.loads(result2.stdout)
@@ -162,7 +162,7 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -188,7 +188,7 @@ class TestCLI:
             ],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -207,7 +207,7 @@ class TestCLI:
             + ["diff", str(minimal_dbc), str(path2), "--key-field", "field_0", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -223,7 +223,7 @@ class TestCLI:
             wow_dbc_tool + ["schema", "list", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -237,7 +237,7 @@ class TestCLI:
             wow_dbc_tool + ["schema", "show", "Spell.dbc", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -251,7 +251,7 @@ class TestCLI:
             wow_dbc_tool + ["schema", "infer", str(minimal_dbc), "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         assert result.returncode == 0
@@ -265,7 +265,7 @@ class TestCLI:
             wow_dbc_tool + ["read", "/nonexistent.dbc", "--json"],
             capture_output=True,
             text=True,
-            encoding='utf-8',
+            encoding="utf-8",
             cwd=str(PROJECT_ROOT),
         )
         # FileNotFoundError 被捕获并输出到 stderr 作为 JSON，但 returncode 可能为 0

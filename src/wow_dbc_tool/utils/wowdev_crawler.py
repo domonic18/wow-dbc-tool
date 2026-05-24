@@ -52,6 +52,7 @@ class WowdevWikiCrawler:
         """获取默认输出目录."""
         try:
             import wow_dbc_tool
+
             pkg_dir = Path(wow_dbc_tool.__file__).parent
             project_root = pkg_dir.parent.parent
             return project_root / "docs" / "definitions"
@@ -75,6 +76,7 @@ class WowdevWikiCrawler:
         """
         try:
             import requests
+
             url = f"{self.BASE_URL}/{dbc_name}"
             response = requests.get(url, timeout=30)
             response.raise_for_status()
@@ -93,6 +95,7 @@ class WowdevWikiCrawler:
         """
         try:
             from bs4 import BeautifulSoup
+
             soup = BeautifulSoup(html, "html.parser")
 
             fields = []

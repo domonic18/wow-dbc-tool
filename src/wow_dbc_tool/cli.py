@@ -10,9 +10,9 @@ from typing import Any
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.exceptions import DBCError
 from wow_dbc_tool.diff.engine import DBCDiff
+from wow_dbc_tool.schema.registry import SchemaRegistry
 from wow_dbc_tool.utils.doc_store import DocStore
 from wow_dbc_tool.utils.help_system import HelpSystem
-from wow_dbc_tool.schema.registry import SchemaRegistry
 
 
 class _JSONEncoder(json.JSONEncoder):
@@ -80,10 +80,8 @@ def _parse_filters(filter_args: list[str]) -> dict[str, Any]:
         try:
             value = int(value)
         except ValueError:
-            try:
+            with contextlib.suppress(ValueError):
                 value = float(value)
-            except ValueError:
-                pass  # 保持字符串
 
         filters[key] = value
     return filters
@@ -231,7 +229,9 @@ def cmd_diff(args: argparse.Namespace) -> int:
     if args.schema:
         SchemaRegistry.load_from_file(args.schema)
         # 获取加载的 schema（第一个自定义定义）
-        custom_names = [name for name in SchemaRegistry.list_all() if name not in SchemaRegistry.list_builtins()]
+        custom_names = [
+            name for name in SchemaRegistry.list_all() if name not in SchemaRegistry.list_builtins()
+        ]
         if custom_names:
             schema = SchemaRegistry.get(custom_names[0])
 

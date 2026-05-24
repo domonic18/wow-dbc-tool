@@ -9,7 +9,6 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass, field
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -74,6 +73,7 @@ class DocStore:
         # 1. 尝试从包路径推导
         try:
             import wow_dbc_tool
+
             pkg_dir = Path(wow_dbc_tool.__file__).parent
             # 向上找到项目根目录
             project_root = pkg_dir.parent.parent  # src/wow_dbc_tool -> src -> project_root
@@ -359,12 +359,14 @@ class DocStore:
             if not entry:
                 continue
 
-            for field in entry.fields:
-                field_name = field.get("name", "")
+            for f in entry.fields:
+                field_name = f.get("name", "")
                 if query_lower in field_name.lower():
-                    results.append({
-                        "dbc_name": dbc_name,
-                        "field": field,
-                    })
+                    results.append(
+                        {
+                            "dbc_name": dbc_name,
+                            "field": field,
+                        }
+                    )
 
         return results
