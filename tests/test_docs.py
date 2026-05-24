@@ -1,9 +1,6 @@
 """测试文档存储模块."""
 
 import json
-from pathlib import Path
-
-import pytest
 
 from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
 
@@ -193,20 +190,24 @@ wow-dbc-tool query Spell.dbc --filter ID=133 --json
     def test_search_fields(self, tmp_path):
         """测试字段搜索."""
         store = DocStore(tmp_path)
-        store.save(DocEntry(
-            name="Spell.dbc",
-            fields=[
-                {"name": "ID", "type": "uint32"},
-                {"name": "Name", "type": "string"},
-            ],
-        ))
-        store.save(DocEntry(
-            name="Item.dbc",
-            fields=[
-                {"name": "ID", "type": "uint32"},
-                {"name": "DisplayName", "type": "string"},
-            ],
-        ))
+        store.save(
+            DocEntry(
+                name="Spell.dbc",
+                fields=[
+                    {"name": "ID", "type": "uint32"},
+                    {"name": "Name", "type": "string"},
+                ],
+            )
+        )
+        store.save(
+            DocEntry(
+                name="Item.dbc",
+                fields=[
+                    {"name": "ID", "type": "uint32"},
+                    {"name": "DisplayName", "type": "string"},
+                ],
+            )
+        )
 
         results = store.search_fields("Name")
         assert len(results) >= 1

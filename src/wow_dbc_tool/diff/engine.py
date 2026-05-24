@@ -202,13 +202,13 @@ class DBCDiff:
 
         try:
             self.old.records[0].get(self.key_field)
-        except Exception:
-            raise DBCDiffError(f"旧文件中 key_field '{self.key_field}' 不存在")
+        except Exception as err:
+            raise DBCDiffError(f"旧文件中 key_field '{self.key_field}' 不存在") from err
 
         try:
             self.new.records[0].get(self.key_field)
-        except Exception:
-            raise DBCDiffError(f"新文件中 key_field '{self.key_field}' 不存在")
+        except Exception as err:
+            raise DBCDiffError(f"新文件中 key_field '{self.key_field}' 不存在") from err
 
     def _build_index(self, dbc: DBCFile) -> dict[Any, DBCRecord]:
         """以 key_field 为键建立记录索引.

@@ -187,10 +187,11 @@ class DBCFile:
         self._ensure_loaded()
 
         # 创建空记录
-        record_size = self.header.record_size if self.header else len(self._schema) * 4
-        raw = bytearray(record_size)
+        record_size = self.header.record_size if self.header else len(self._schema or []) * 4
+        raw = bytes(record_size)
 
         # 创建记录对象
+        assert self._schema is not None
         record = DBCRecord(raw, self._schema, self._string_block)
 
         # 设置字段值
@@ -210,6 +211,7 @@ class DBCFile:
             path: 输出路径，None 使用原路径
         """
         self._ensure_loaded()
+        assert self.header is not None
 
         output_path = Path(path) if path else self.path
 
@@ -233,15 +235,15 @@ class DBCFile:
             # 处理 pending strings（由 set() 设置的字符串）
             pending = record.get_pending_strings()
 
-            for field in self._schema:
+            schema = self._schema or []
+            for field in schema:
                 if field.type == "string":
                     if field.name in pending:
                         s = pending[field.name]
                     else:
                         try:
-                            s = record.get(field.name)
-                            if s is None:
-                                s = ""
+                            raw_val = record.get(field.name)
+                            s = "" if raw_val is None else str(raw_val)
                         except (DBCSchemaError, struct.error):
                             s = ""
 
@@ -288,7 +290,7 @@ class DBCFile:
         Returns:
             字段定义列表
         """
-        return self._schema
+        return self._schema or []
 
     def _auto_load_schema(self) -> list[FieldDef]:
         """自动加载字段定义.

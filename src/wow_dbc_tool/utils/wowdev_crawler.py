@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
 
@@ -52,6 +52,7 @@ class WowdevWikiCrawler:
         """获取默认输出目录."""
         try:
             import wow_dbc_tool
+
             pkg_dir = Path(wow_dbc_tool.__file__).parent
             project_root = pkg_dir.parent.parent
             return project_root / "docs" / "definitions"
@@ -74,11 +75,12 @@ class WowdevWikiCrawler:
             HTML 内容，失败返回 None
         """
         try:
-            import requests
+            import requests  # type: ignore[import-untyped]
+
             url = f"{self.BASE_URL}/{dbc_name}"
             response = requests.get(url, timeout=30)
             response.raise_for_status()
-            return response.text
+            return cast(str, response.text)
         except Exception:
             return None
 
@@ -93,6 +95,7 @@ class WowdevWikiCrawler:
         """
         try:
             from bs4 import BeautifulSoup
+
             soup = BeautifulSoup(html, "html.parser")
 
             fields = []
