@@ -37,7 +37,7 @@
 ```bash
 git clone https://github.com/domonic18/wow-dbc-tool.git
 cd wow-dbc-tool
-pip install -e ".[dev]"
+uv pip install -e ".[dev]"
 ```
 
 ### 验证安装
@@ -210,22 +210,22 @@ wow-dbc-tool/
 
 ```bash
 # 安装开发依赖
-pip install -e ".[dev]"
+uv pip install -e ".[dev]"
 
 # 运行全部测试
-python -m pytest tests/ -v
+uv run pytest tests/ -v
 
 # 运行特定测试
-python -m pytest tests/test_real_dbc.py -v
+uv run pytest tests/test_real_dbc.py -v
 
 # 带覆盖率报告
-python -m pytest tests/ --cov=wow_dbc_tool --cov-report=term
+uv run pytest tests/ --cov=wow_dbc_tool --cov-report=term
 
 # 代码风格检查
-python -m ruff check src/wow_dbc_tool tests/
+uv run ruff check src/wow_dbc_tool tests/
 
 # 类型检查
-python -m mypy src/wow_dbc_tool
+uv run mypy src/wow_dbc_tool
 ```
 
 ---
@@ -260,9 +260,9 @@ python -m mypy src/wow_dbc_tool
 5. 创建 Pull Request
 
 **提交前请确保：**
-- `ruff check src/wow_dbc_tool tests/` 通过
-- `mypy src/wow_dbc_tool` 通过
-- `pytest tests/` 全部通过
+- `uv run ruff check src/wow_dbc_tool tests/` 通过
+- `uv run mypy src/wow_dbc_tool` 通过
+- `uv run pytest tests/` 全部通过
 
 ---
 
