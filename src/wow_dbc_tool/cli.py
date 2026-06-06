@@ -1,7 +1,10 @@
 """CLI 入口 - 命令行接口."""
 
+from __future__ import annotations
+
 import argparse
 import contextlib
+import csv
 import json
 import sys
 from pathlib import Path
@@ -10,9 +13,91 @@ from typing import Any, cast
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.exceptions import DBCError
 from wow_dbc_tool.diff.engine import DBCDiff
+from wow_dbc_tool.schema.field_def import FieldDef
 from wow_dbc_tool.schema.registry import SchemaRegistry
 from wow_dbc_tool.utils.doc_store import DocStore
 from wow_dbc_tool.utils.help_system import HelpSystem
+
+# 类型映射：将 generate-schemas.py 生成的类型转换为 wow-dbc-tool 支持的类型
+SCHEMA_TYPE_MAP = {
+    "int": "int32",
+    "uint": "uint32",
+    "float": "float",
+    "string": "string",
+    "locstring": "string",
+}
+
+
+def _load_json_schema(schema_path: Path) -> list[FieldDef]:
+    """从 generate-schemas.py 生成的 JSON schema 文件加载字段定义.
+
+    输入格式:
+    {
+        "field_order": ["ID", "Name", ...],
+        "properties": {
+            "ID": {"type": "int", ...},
+            "Name": {"type": "locstring", ...},
+            ...
+        }
+    }
+    """
+    with open(schema_path, encoding="utf-8") as f:
+        data = json.load(f)
+
+    field_order = data.get("field_order", [])
+    properties = data.get("properties", {})
+
+    fields: list[FieldDef] = []
+    for i, name in enumerate(field_order):
+        prop = properties.get(name, {})
+        raw_type = prop.get("type", "int32")
+        field_type = SCHEMA_TYPE_MAP.get(raw_type, raw_type)
+        # 如果映射后仍然不支持，回退为 int32
+        if field_type not in FieldDef.VALID_TYPES:
+            field_type = "int32"
+        fields.append(FieldDef(name, field_type, i * 4))
+
+    return fields
+
+
+def _auto_load_project_schema(dbc_path: Path) -> list[FieldDef] | None:
+    """自动查找并加载对应 schema.
+
+    查找路径（按优先级）:
+    1. 工具自身的 schemas/ 目录（tools/wow-dbc-tool/schemas/）
+    2. DBC 文件同级目录下的 .schema.json
+    3. 项目根目录下的 tools/wow-dbc-tool/schemas/{name}.schema.json
+    4. 兼容旧路径：src/schemas/{name}.schema.json
+    """
+    dbc_name = dbc_path.name
+    schema_name = dbc_name.replace(".dbc", ".schema.json")
+
+    # 1. 工具自身的 schemas/ 目录
+    # cli.py 位于 tools/wow-dbc-tool/src/wow_dbc_tool/cli.py
+    tool_schemas_dir = Path(__file__).parent.parent.parent / "schemas"
+
+    candidates = [
+        tool_schemas_dir / schema_name,
+        # 2. DBC 同级目录
+        dbc_path.parent / schema_name,
+    ]
+
+    # 3. 向上查找项目根目录下的 tools/wow-dbc-tool/schemas/
+    # 4. 兼容旧路径 src/schemas/
+    project_root = dbc_path.parent
+    for _ in range(6):
+        candidates.append(project_root / "tools" / "wow-dbc-tool" / "schemas" / schema_name)
+        candidates.append(project_root / "src" / "schemas" / schema_name)
+        project_root = project_root.parent
+        if len(str(project_root)) <= 3:
+            break
+
+    for candidate in candidates:
+        if candidate.exists():
+            print(f"  自动加载 schema: {candidate}")
+            return _load_json_schema(candidate)
+
+    return None
 
 
 class _JSONEncoder(json.JSONEncoder):
@@ -106,6 +191,113 @@ def _parse_fields(field_args: list[str]) -> dict[str, Any]:
 
         fields[key] = value
     return fields
+
+
+def _read_csv_header(csv_path: Path) -> list[str]:
+    """读取 CSV 文件的第一行（列名）."""
+    with open(csv_path, encoding="utf-8", newline="") as f:
+        reader = csv.reader(f)
+        return next(reader)
+
+
+def _format_value(value: Any) -> str:
+    """将字段值格式化为 CSV 字符串."""
+    if value is None:
+        return ""
+    if isinstance(value, float):
+        s = f"{value:.6f}"
+        s = s.rstrip("0").rstrip(".")
+        return s
+    return str(value)
+
+
+def cmd_export(args: argparse.Namespace) -> int:
+    """export 子命令 - 将 DBC 导出为 CSV."""
+    # 优先尝试自动加载项目中的 JSON schema
+    project_schema = None
+    if args.schema:
+        # 如果用户指定了 schema 文件
+        project_schema = _load_json_schema(args.schema)
+    else:
+        # 自动从项目 schemas 目录查找
+        project_schema = _auto_load_project_schema(args.file)
+
+    if project_schema:
+        dbc = DBCFile(args.file, schema=project_schema)
+    else:
+        dbc = DBCFile(args.file)
+        if args.schema:
+            SchemaRegistry.load_from_file(args.schema)
+    dbc.load()
+
+    if not dbc.records:
+        print(f"警告: {args.file} 中没有记录", file=sys.stderr)
+        return 0
+
+    # 获取 schema 字段定义列表（按 DBC 中物理顺序）
+    schema_fields = dbc.schema
+    if not schema_fields:
+        print("错误: 无法获取字段定义", file=sys.stderr)
+        return 1
+
+    # 确定导出的列名
+    if args.keep_header:
+        # 读取现有 CSV 的 header，保留其列名
+        csv_headers = _read_csv_header(args.keep_header)
+        print(f"保留 CSV 列名: {len(csv_headers)} 列")
+    else:
+        # 使用 DBC schema 中的字段名作为列名
+        csv_headers = [f.name for f in schema_fields]
+
+    # 确定实际导出的字段数（取 CSV列数 和 DBC字段数 的最小值）
+    dbc_field_count = len(schema_fields)
+    export_count = min(len(csv_headers), dbc_field_count)
+
+    if len(csv_headers) != dbc_field_count:
+        print(
+            f"注意: CSV列数({len(csv_headers)}) 与 DBC字段数({dbc_field_count}) 不一致，"
+            f"只导出前 {export_count} 列",
+            file=sys.stderr,
+        )
+
+    # 生成 CSV 行：按 schema 顺序获取字段值
+    # 第 i 个 schema 字段 -> CSV 第 i 列
+    csv_rows = []
+    for record in dbc.records:
+        row = []
+        for i in range(export_count):
+            field_name = schema_fields[i].name
+            try:
+                value = record.get(field_name)
+            except Exception:
+                value = ""
+            row.append(_format_value(value))
+        csv_rows.append(row)
+
+    # 输出
+    # 使用与原始 CSV 一致的格式：
+    # - 所有字段用双引号包裹 (QUOTE_ALL)
+    # - 使用 LF 换行符 (与 Git 中旧 CSV 一致)
+    # - 空字符串输出为 ""
+    csv_kwargs: dict[str, Any] = {
+        "quoting": csv.QUOTE_ALL,
+        "lineterminator": "\n",
+    }
+
+    output_path = args.output
+    if output_path:
+        with open(output_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f, **csv_kwargs)
+            writer.writerow(csv_headers[:export_count])
+            writer.writerows(csv_rows)
+        print(f"已导出 {len(csv_rows)} 条记录到: {output_path}")
+    else:
+        # 输出到 stdout
+        writer = csv.writer(sys.stdout, **csv_kwargs)
+        writer.writerow(csv_headers[:export_count])
+        writer.writerows(csv_rows)
+
+    return 0
 
 
 def cmd_read(args: argparse.Namespace) -> int:
@@ -317,6 +509,29 @@ def cmd_schema(args: argparse.Namespace) -> int:
         }
         _output_json(data, pretty=not args.compact)
 
+    elif args.schema_command == "generate":
+        from wow_dbc_tool.schema.generator import generate_schemas
+
+        csv_dir = args.csv_dir or Path("tables")
+        dbd_dir = args.dbd_dir or (
+            Path(__file__).parent.parent.parent / "third-party" / "WoWDBDefs" / "definitions"
+        )
+        output_dir = args.output or (Path(__file__).parent.parent.parent / "schemas")
+        tables = [args.table] if args.table else None
+
+        if not dbd_dir.exists():
+            _error_json(f"WoWDBDefs 未找到: {dbd_dir}", "FileNotFoundError")
+            return 1
+
+        result = generate_schemas(
+            csv_dir=csv_dir,
+            dbd_dir=dbd_dir,
+            output_dir=output_dir,
+            tables=tables,
+            target_version=args.target_version,
+        )
+        _output_json(result, pretty=not args.compact)
+
     return 0
 
 
@@ -346,7 +561,7 @@ def cmd_explain(args: argparse.Namespace) -> int:
 
     if entry is None:
         _error_json(
-            f"未找到 {args.dbc_name} 的说明文档。请运行 'wow-dbc-tool wiki sync {args.dbc_name}' 同步。",
+            f"未找到 {args.dbc_name} 的说明文档。",
             "DocError",
         )
         return 1
@@ -397,50 +612,6 @@ def cmd_explain(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_wiki_sync(args: argparse.Namespace) -> int:
-    """wiki sync 子命令."""
-    try:
-        from wow_dbc_tool.utils.wowdev_crawler import WowdevWikiCrawler
-    except ImportError as e:
-        _error_json(f"Wiki 同步需要 requests 和 beautifulsoup4: {e}", "ImportError")
-        return 1
-
-    crawler = WowdevWikiCrawler()
-
-    if args.all or args.dbc_name is None:
-        results = crawler.sync_and_save()
-    else:
-        result = crawler.sync_dbc(args.dbc_name)
-        results = {args.dbc_name: result is not None}
-        if result:
-            store = DocStore()
-            store.save(result)
-
-    _output_json(
-        {
-            "saved": [k for k, v in results.items() if v],
-            "failed": [k for k, v in results.items() if not v],
-            "total": len(results),
-        },
-        pretty=not args.compact,
-    )
-    return 0
-
-
-def cmd_wiki_list(args: argparse.Namespace) -> int:
-    """wiki list 子命令."""
-    store = DocStore()
-    docs = store.list_all()
-
-    data = {
-        "docs_dir": str(store.docs_dir),
-        "count": len(docs),
-        "docs": docs,
-    }
-    _output_json(data, pretty=not args.compact)
-    return 0
-
-
 def _add_common_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     """为子命令添加通用参数."""
     parser.add_argument("--json", action="store_true", help="JSON 输出（默认美化）")
@@ -461,6 +632,18 @@ def main() -> int:
     )
 
     subparsers = parser.add_subparsers(dest="command", help="子命令")
+
+    # export
+    export_parser = subparsers.add_parser("export", help="导出 DBC 为 CSV")
+    export_parser.add_argument("file", type=Path, help="DBC 文件路径")
+    export_parser.add_argument(
+        "--keep-header",
+        type=Path,
+        help="指定现有 CSV 文件，保留其列名（只导出 CSV 中已有的列）",
+    )
+    export_parser.add_argument("--output", "-o", type=Path, help="输出 CSV 文件路径")
+    export_parser.add_argument("--schema", type=Path, help="指定字段定义文件")
+    export_parser.set_defaults(func=cmd_export)
 
     # read
     read_parser = _add_common_args(subparsers.add_parser("read", help="读取 DBC 文件"))
@@ -511,11 +694,15 @@ def main() -> int:
     schema_parser = _add_common_args(subparsers.add_parser("schema", help="字段定义管理"))
     schema_parser.add_argument(
         "schema_command",
-        choices=["list", "show", "infer", "validate"],
+        choices=["list", "show", "infer", "validate", "generate"],
         help="schema 子命令",
     )
     schema_parser.add_argument("file", type=Path, nargs="?", help="DBC 文件路径")
     schema_parser.add_argument("--schema-file", type=Path, help="字段定义文件")
+    schema_parser.add_argument("--csv-dir", type=Path, help="CSV 输入目录（generate 用）")
+    schema_parser.add_argument("--dbd-dir", type=Path, help="WoWDBDefs 定义目录（generate 用）")
+    schema_parser.add_argument("--table", type=str, help="仅生成指定表（generate 用）")
+    schema_parser.add_argument("--target-version", type=str, default="3.3.5.12340", help="目标版本（generate 用，默认: 3.3.5.12340)")
     schema_parser.set_defaults(func=cmd_schema)
 
     # help
@@ -531,20 +718,6 @@ def main() -> int:
     explain_parser.add_argument("--field", action="append", default=[], help="查询特定字段")
     explain_parser.add_argument("--compact", action="store_true", help="紧凑 JSON")
     explain_parser.set_defaults(func=cmd_explain)
-
-    # wiki
-    wiki_parser = subparsers.add_parser("wiki", help="Wiki 文档管理")
-    wiki_subparsers = wiki_parser.add_subparsers(dest="wiki_command", help="wiki 子命令")
-
-    wiki_sync = wiki_subparsers.add_parser("sync", help="同步 Wiki 文档")
-    wiki_sync.add_argument("dbc_name", nargs="?", help="DBC 文件名，省略则同步所有")
-    wiki_sync.add_argument("--all", action="store_true", help="同步所有已知 DBC")
-    wiki_sync.add_argument("--compact", action="store_true", help="紧凑 JSON")
-    wiki_sync.set_defaults(func=cmd_wiki_sync)
-
-    wiki_list = wiki_subparsers.add_parser("list", help="列出本地文档")
-    wiki_list.add_argument("--compact", action="store_true", help="紧凑 JSON")
-    wiki_list.set_defaults(func=cmd_wiki_list)
 
     args = parser.parse_args()
 

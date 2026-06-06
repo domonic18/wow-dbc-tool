@@ -40,6 +40,9 @@ Homepage = "https://github.com/deadwalk/wow-dbc-tool"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]

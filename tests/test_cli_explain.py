@@ -2,7 +2,7 @@
 
 import json
 
-from wow_dbc_tool.cli import cmd_explain, cmd_help, cmd_wiki_list
+from wow_dbc_tool.cli import cmd_explain, cmd_help
 
 
 class TestCmdHelp:
@@ -55,7 +55,7 @@ class TestCmdHelp:
         captured = capsys.readouterr()
         data = json.loads(captured.out)
         assert "usage_tips" in data
-        assert len(data["commands"]) >= 10
+        assert len(data["commands"]) >= 9
 
     def test_help_unknown_command(self, capsys):
         """测试未知命令帮助."""
@@ -163,52 +163,3 @@ class TestCmdExplain:
             DocStore._find_default_docs_dir = original_find
 
 
-class TestCmdWikiList:
-    """测试 CLI wiki list 命令."""
-
-    def test_wiki_list_empty(self, capsys, tmp_path):
-        """测试空文档列表."""
-        from wow_dbc_tool.utils.doc_store import DocStore
-
-        original_find = DocStore._find_default_docs_dir
-        DocStore._find_default_docs_dir = lambda self: tmp_path
-
-        class Args:
-            compact = True
-
-        try:
-            result = cmd_wiki_list(Args())
-            assert result == 0
-
-            captured = capsys.readouterr()
-            data = json.loads(captured.out)
-            assert data["count"] == 0
-            assert data["docs"] == []
-        finally:
-            DocStore._find_default_docs_dir = original_find
-
-    def test_wiki_list_with_docs(self, capsys, tmp_path):
-        """测试有文档的列表."""
-        from wow_dbc_tool.utils.doc_store import DocEntry, DocStore
-
-        store = DocStore(tmp_path)
-        store.save(DocEntry(name="A.dbc", title="A"))
-        store.save(DocEntry(name="B.dbc", title="B"))
-
-        original_find = DocStore._find_default_docs_dir
-        DocStore._find_default_docs_dir = lambda self: tmp_path
-
-        class Args:
-            compact = True
-
-        try:
-            result = cmd_wiki_list(Args())
-            assert result == 0
-
-            captured = capsys.readouterr()
-            data = json.loads(captured.out)
-            assert data["count"] == 2
-            assert "A.dbc" in data["docs"]
-            assert "B.dbc" in data["docs"]
-        finally:
-            DocStore._find_default_docs_dir = original_find

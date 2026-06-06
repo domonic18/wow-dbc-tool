@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreatureModelData Physical Schema",
+  "description": "CreatureModelData.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "table_name": "CreatureModelData",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 28,
+  "field_order": [
+    "ID",
+    "Flags",
+    "ModelName",
+    "SizeClass",
+    "ModelScale",
+    "BloodID",
+    "FootprintTextureID",
+    "FootprintTextureLength",
+    "FootprintTextureWidth",
+    "FootprintParticleScale",
+    "FoleyMaterialID",
+    "FootstepShakeSize",
+    "DeathThudShakeSize",
+    "SoundID",
+    "CollisionWidth",
+    "CollisionHeight",
+    "MountHeight",
+    "GeoBoxMinX",
+    "GeoBoxMinY",
+    "GeoBoxMinZ",
+    "GeoBoxMaxX",
+    "GeoBoxMaxY",
+    "GeoBoxMaxZ",
+    "WorldEffectScale",
+    "AttachedEffectScale",
+    "MissileCollisionRadius",
+    "MissileCollisionPush",
+    "MissileCollisionRaise"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ModelName": {
+      "type": "int32",
+      "offset": 8
+    },
+    "SizeClass": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ModelScale": {
+      "type": "float",
+      "offset": 16
+    },
+    "BloodID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "FootprintTextureID": {
+      "type": "int32",
+      "offset": 24
+    },
+    "FootprintTextureLength": {
+      "type": "float",
+      "offset": 28
+    },
+    "FootprintTextureWidth": {
+      "type": "float",
+      "offset": 32
+    },
+    "FootprintParticleScale": {
+      "type": "float",
+      "offset": 36
+    },
+    "FoleyMaterialID": {
+      "type": "int32",
+      "offset": 40
+    },
+    "FootstepShakeSize": {
+      "type": "int32",
+      "offset": 44
+    },
+    "DeathThudShakeSize": {
+      "type": "int32",
+      "offset": 48
+    },
+    "SoundID": {
+      "type": "int32",
+      "offset": 52
+    },
+    "CollisionWidth": {
+      "type": "float",
+      "offset": 56
+    },
+    "CollisionHeight": {
+      "type": "float",
+      "offset": 60
+    },
+    "MountHeight": {
+      "type": "float",
+      "offset": 64
+    },
+    "GeoBoxMinX": {
+      "type": "float",
+      "offset": 68
+    },
+    "GeoBoxMinY": {
+      "type": "float",
+      "offset": 72
+    },
+    "GeoBoxMinZ": {
+      "type": "float",
+      "offset": 76
+    },
+    "GeoBoxMaxX": {
+      "type": "float",
+      "offset": 80
+    },
+    "GeoBoxMaxY": {
+      "type": "float",
+      "offset": 84
+    },
+    "GeoBoxMaxZ": {
+      "type": "float",
+      "offset": 88
+    },
+    "WorldEffectScale": {
+      "type": "float",
+      "offset": 92
+    },
+    "AttachedEffectScale": {
+      "type": "float",
+      "offset": 96
+    },
+    "MissileCollisionRadius": {
+      "type": "float",
+      "offset": 100
+    },
+    "MissileCollisionPush": {
+      "type": "float",
+      "offset": 104
+    },
+    "MissileCollisionRaise": {
+      "type": "float",
+      "offset": 108
+    }
+  }
+}
