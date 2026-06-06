@@ -1,5 +1,7 @@
 """CLI 入口 - 命令行接口."""
 
+from __future__ import annotations
+
 import argparse
 import contextlib
 import csv
@@ -277,7 +279,7 @@ def cmd_export(args: argparse.Namespace) -> int:
     # - 所有字段用双引号包裹 (QUOTE_ALL)
     # - 使用 LF 换行符 (与 Git 中旧 CSV 一致)
     # - 空字符串输出为 ""
-    csv_kwargs = {
+    csv_kwargs: dict[str, Any] = {
         "quoting": csv.QUOTE_ALL,
         "lineterminator": "\n",
     }
