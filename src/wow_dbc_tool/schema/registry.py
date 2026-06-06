@@ -340,7 +340,7 @@ class SchemaRegistry:
         """根据 field_count 和 record_size 推断字段布局.
 
         当没有 Schema 定义时，提供基础推断：
-        - 如果 record_size == field_count * 4：所有字段为 uint32
+        - 如果 record_size == field_count * 4：所有字段为 int32（DBC 中常用 -1 表示无效值）
         - 否则：按 4 字节均分，标记为 "unknown"
 
         Args:
@@ -351,8 +351,8 @@ class SchemaRegistry:
             推断的字段定义列表
         """
         if record_size == field_count * 4:
-            return [FieldDef(f"field_{i}", "uint32", i * 4) for i in range(field_count)]
+            return [FieldDef(f"field_{i}", "int32", i * 4) for i in range(field_count)]
         else:
             # 非标准情况，按 4 字节分段
             num_fields = record_size // 4
-            return [FieldDef(f"field_{i}", "uint32", i * 4) for i in range(num_fields)]
+            return [FieldDef(f"field_{i}", "int32", i * 4) for i in range(num_fields)]

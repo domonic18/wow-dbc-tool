@@ -2,6 +2,7 @@
 
 import argparse
 import contextlib
+import csv
 import json
 import sys
 from pathlib import Path
@@ -106,6 +107,92 @@ def _parse_fields(field_args: list[str]) -> dict[str, Any]:
 
         fields[key] = value
     return fields
+
+
+def _read_csv_header(csv_path: Path) -> list[str]:
+    """读取 CSV 文件的第一行（列名）."""
+    with open(csv_path, "r", encoding="utf-8", newline="") as f:
+        reader = csv.reader(f)
+        return next(reader)
+
+
+def _format_value(value: Any) -> str:
+    """将字段值格式化为 CSV 字符串."""
+    if value is None:
+        return ""
+    if isinstance(value, float):
+        s = f"{value:.6f}"
+        s = s.rstrip("0").rstrip(".")
+        return s
+    return str(value)
+
+
+def cmd_export(args: argparse.Namespace) -> int:
+    """export 子命令 - 将 DBC 导出为 CSV."""
+    dbc = DBCFile(args.file)
+    if args.schema:
+        SchemaRegistry.load_from_file(args.schema)
+    dbc.load()
+
+    if not dbc.records:
+        print(f"警告: {args.file} 中没有记录", file=sys.stderr)
+        return 0
+
+    # 获取 schema 字段定义列表（按 DBC 中物理顺序）
+    schema_fields = dbc.schema
+    if not schema_fields:
+        print(f"错误: 无法获取字段定义", file=sys.stderr)
+        return 1
+
+    # 确定导出的列名
+    if args.keep_header:
+        # 读取现有 CSV 的 header，保留其列名
+        csv_headers = _read_csv_header(args.keep_header)
+        print(f"保留 CSV 列名: {len(csv_headers)} 列")
+    else:
+        # 使用 DBC schema 中的字段名作为列名
+        csv_headers = [f.name for f in schema_fields]
+
+    # 确定实际导出的字段数（取 CSV列数 和 DBC字段数 的最小值）
+    dbc_field_count = len(schema_fields)
+    export_count = min(len(csv_headers), dbc_field_count)
+
+    if len(csv_headers) != dbc_field_count:
+        print(
+            f"注意: CSV列数({len(csv_headers)}) 与 DBC字段数({dbc_field_count}) 不一致，"
+            f"只导出前 {export_count} 列",
+            file=sys.stderr,
+        )
+
+    # 生成 CSV 行：按 schema 顺序获取字段值
+    # 第 i 个 schema 字段 -> CSV 第 i 列
+    csv_rows = []
+    for record in dbc.records:
+        row = []
+        for i in range(export_count):
+            field_name = schema_fields[i].name
+            try:
+                value = record.get(field_name)
+            except Exception:
+                value = ""
+            row.append(_format_value(value))
+        csv_rows.append(row)
+
+    # 输出
+    output_path = args.output
+    if output_path:
+        with open(output_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(csv_headers[:export_count])
+            writer.writerows(csv_rows)
+        print(f"已导出 {len(csv_rows)} 条记录到: {output_path}")
+    else:
+        # 输出到 stdout
+        writer = csv.writer(sys.stdout)
+        writer.writerow(csv_headers[:export_count])
+        writer.writerows(csv_rows)
+
+    return 0
 
 
 def cmd_read(args: argparse.Namespace) -> int:
@@ -461,6 +548,18 @@ def main() -> int:
     )
 
     subparsers = parser.add_subparsers(dest="command", help="子命令")
+
+    # export
+    export_parser = subparsers.add_parser("export", help="导出 DBC 为 CSV")
+    export_parser.add_argument("file", type=Path, help="DBC 文件路径")
+    export_parser.add_argument(
+        "--keep-header",
+        type=Path,
+        help="指定现有 CSV 文件，保留其列名（只导出 CSV 中已有的列）",
+    )
+    export_parser.add_argument("--output", "-o", type=Path, help="输出 CSV 文件路径")
+    export_parser.add_argument("--schema", type=Path, help="指定字段定义文件")
+    export_parser.set_defaults(func=cmd_export)
 
     # read
     read_parser = _add_common_args(subparsers.add_parser("read", help="读取 DBC 文件"))
