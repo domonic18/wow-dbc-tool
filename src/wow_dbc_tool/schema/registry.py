@@ -7,7 +7,6 @@ from pathlib import Path
 
 from wow_dbc_tool.schema.field_def import FieldDef
 
-
 # generate-schemas.py 生成的类型映射到 FieldDef 支持类型
 _TYPE_MAP = {
     "int": "int32",

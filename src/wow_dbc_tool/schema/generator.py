@@ -11,7 +11,6 @@ import re
 from pathlib import Path
 from typing import Any
 
-
 # 字符串类型字段名模式（用于从 CSV header 推断字段类型）
 STRING_FIELD_PATTERNS = [
     r"_Lang_",
@@ -25,10 +24,7 @@ DEFAULT_TARGET_VERSION = "3.3.5.12340"
 
 
 def _is_string_field(field_name: str) -> bool:
-    for pattern in STRING_FIELD_PATTERNS:
-        if re.search(pattern, field_name, re.IGNORECASE):
-            return True
-    return False
+    return any(re.search(pattern, field_name, re.IGNORECASE) for pattern in STRING_FIELD_PATTERNS)
 
 
 def _parse_build_version(version_str: str) -> tuple[int, ...]:
@@ -88,7 +84,7 @@ def _parse_dbd_columns(content: str) -> dict[str, dict[str, str]]:
 def _get_dbd_columns_for_version(dbd_path: Path, target_version: str) -> dict[str, dict[str, str]]:
     if not dbd_path.exists():
         return {}
-    with open(dbd_path, "r", encoding="utf-8") as f:
+    with open(dbd_path, encoding="utf-8") as f:
         content = f.read()
     return _parse_dbd_columns(content)
 
@@ -100,12 +96,7 @@ def _expand_locstring_field(field_name: str, csv_headers: list[str], start_idx: 
 
     for i in range(start_idx, len(csv_headers)):
         header = csv_headers[i]
-        if header.startswith(field_name) or header.startswith(field_name.replace("_lang", "_Lang")):
-            if "_Mask" in header:
-                result.append((header, "int32"))
-            else:
-                result.append((header, "string"))
-        elif header.startswith(base_name) and "_Lang_" in header:
+        if header.startswith(field_name) or header.startswith(field_name.replace("_lang", "_Lang")) or header.startswith(base_name) and "_Lang_" in header:
             if "_Mask" in header:
                 result.append((header, "int32"))
             else:
@@ -139,7 +130,7 @@ def generate_physical_schema(
     if not csv_path.exists():
         return None
 
-    with open(csv_path, "r", encoding="utf-8", newline="") as f:
+    with open(csv_path, encoding="utf-8", newline="") as f:
         reader = csv.reader(f)
         csv_headers = next(reader)
 

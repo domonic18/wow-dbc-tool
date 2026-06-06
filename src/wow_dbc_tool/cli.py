@@ -16,7 +16,6 @@ from wow_dbc_tool.schema.registry import SchemaRegistry
 from wow_dbc_tool.utils.doc_store import DocStore
 from wow_dbc_tool.utils.help_system import HelpSystem
 
-
 # 类型映射：将 generate-schemas.py 生成的类型转换为 wow-dbc-tool 支持的类型
 SCHEMA_TYPE_MAP = {
     "int": "int32",
@@ -194,7 +193,7 @@ def _parse_fields(field_args: list[str]) -> dict[str, Any]:
 
 def _read_csv_header(csv_path: Path) -> list[str]:
     """读取 CSV 文件的第一行（列名）."""
-    with open(csv_path, "r", encoding="utf-8", newline="") as f:
+    with open(csv_path, encoding="utf-8", newline="") as f:
         reader = csv.reader(f)
         return next(reader)
 
@@ -236,7 +235,7 @@ def cmd_export(args: argparse.Namespace) -> int:
     # 获取 schema 字段定义列表（按 DBC 中物理顺序）
     schema_fields = dbc.schema
     if not schema_fields:
-        print(f"错误: 无法获取字段定义", file=sys.stderr)
+        print("错误: 无法获取字段定义", file=sys.stderr)
         return 1
 
     # 确定导出的列名
