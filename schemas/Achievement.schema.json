@@ -1,0 +1,324 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Achievement Physical Schema",
+  "description": "Achievement.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "table_name": "Achievement",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 62,
+  "field_order": [
+    "ID",
+    "Faction",
+    "Instance_Id",
+    "Supercedes",
+    "Title_Lang_enUS",
+    "Title_Lang_enGB",
+    "Title_Lang_koKR",
+    "Title_Lang_frFR",
+    "Title_Lang_deDE",
+    "Title_Lang_enCN",
+    "Title_Lang_zhCN",
+    "Title_Lang_enTW",
+    "Title_Lang_zhTW",
+    "Title_Lang_esES",
+    "Title_Lang_esMX",
+    "Title_Lang_ruRU",
+    "Title_Lang_ptPT",
+    "Title_Lang_ptBR",
+    "Title_Lang_itIT",
+    "Title_Lang_Unk",
+    "Title_Lang_Mask",
+    "Description_Lang_enUS",
+    "Description_Lang_enGB",
+    "Description_Lang_koKR",
+    "Description_Lang_frFR",
+    "Description_Lang_deDE",
+    "Description_Lang_enCN",
+    "Description_Lang_zhCN",
+    "Description_Lang_enTW",
+    "Description_Lang_zhTW",
+    "Description_Lang_esES",
+    "Description_Lang_esMX",
+    "Description_Lang_ruRU",
+    "Description_Lang_ptPT",
+    "Description_Lang_ptBR",
+    "Description_Lang_itIT",
+    "Description_Lang_Unk",
+    "Description_Lang_Mask",
+    "Category",
+    "Points",
+    "Ui_Order",
+    "Flags",
+    "IconID",
+    "Reward_Lang_enUS",
+    "Reward_Lang_enGB",
+    "Reward_Lang_koKR",
+    "Reward_Lang_frFR",
+    "Reward_Lang_deDE",
+    "Reward_Lang_enCN",
+    "Reward_Lang_zhCN",
+    "Reward_Lang_enTW",
+    "Reward_Lang_zhTW",
+    "Reward_Lang_esES",
+    "Reward_Lang_esMX",
+    "Reward_Lang_ruRU",
+    "Reward_Lang_ptPT",
+    "Reward_Lang_ptBR",
+    "Reward_Lang_itIT",
+    "Reward_Lang_Unk",
+    "Reward_Lang_Mask",
+    "Minimum_Criteria",
+    "Shares_Criteria"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Faction": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Instance_Id": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Supercedes": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Title_Lang_enUS": {
+      "type": "string",
+      "offset": 16
+    },
+    "Title_Lang_enGB": {
+      "type": "string",
+      "offset": 20
+    },
+    "Title_Lang_koKR": {
+      "type": "string",
+      "offset": 24
+    },
+    "Title_Lang_frFR": {
+      "type": "string",
+      "offset": 28
+    },
+    "Title_Lang_deDE": {
+      "type": "string",
+      "offset": 32
+    },
+    "Title_Lang_enCN": {
+      "type": "string",
+      "offset": 36
+    },
+    "Title_Lang_zhCN": {
+      "type": "string",
+      "offset": 40
+    },
+    "Title_Lang_enTW": {
+      "type": "string",
+      "offset": 44
+    },
+    "Title_Lang_zhTW": {
+      "type": "string",
+      "offset": 48
+    },
+    "Title_Lang_esES": {
+      "type": "string",
+      "offset": 52
+    },
+    "Title_Lang_esMX": {
+      "type": "string",
+      "offset": 56
+    },
+    "Title_Lang_ruRU": {
+      "type": "string",
+      "offset": 60
+    },
+    "Title_Lang_ptPT": {
+      "type": "string",
+      "offset": 64
+    },
+    "Title_Lang_ptBR": {
+      "type": "string",
+      "offset": 68
+    },
+    "Title_Lang_itIT": {
+      "type": "string",
+      "offset": 72
+    },
+    "Title_Lang_Unk": {
+      "type": "string",
+      "offset": 76
+    },
+    "Title_Lang_Mask": {
+      "type": "int32",
+      "offset": 80
+    },
+    "Description_Lang_enUS": {
+      "type": "string",
+      "offset": 84
+    },
+    "Description_Lang_enGB": {
+      "type": "string",
+      "offset": 88
+    },
+    "Description_Lang_koKR": {
+      "type": "string",
+      "offset": 92
+    },
+    "Description_Lang_frFR": {
+      "type": "string",
+      "offset": 96
+    },
+    "Description_Lang_deDE": {
+      "type": "string",
+      "offset": 100
+    },
+    "Description_Lang_enCN": {
+      "type": "string",
+      "offset": 104
+    },
+    "Description_Lang_zhCN": {
+      "type": "string",
+      "offset": 108
+    },
+    "Description_Lang_enTW": {
+      "type": "string",
+      "offset": 112
+    },
+    "Description_Lang_zhTW": {
+      "type": "string",
+      "offset": 116
+    },
+    "Description_Lang_esES": {
+      "type": "string",
+      "offset": 120
+    },
+    "Description_Lang_esMX": {
+      "type": "string",
+      "offset": 124
+    },
+    "Description_Lang_ruRU": {
+      "type": "string",
+      "offset": 128
+    },
+    "Description_Lang_ptPT": {
+      "type": "string",
+      "offset": 132
+    },
+    "Description_Lang_ptBR": {
+      "type": "string",
+      "offset": 136
+    },
+    "Description_Lang_itIT": {
+      "type": "string",
+      "offset": 140
+    },
+    "Description_Lang_Unk": {
+      "type": "string",
+      "offset": 144
+    },
+    "Description_Lang_Mask": {
+      "type": "int32",
+      "offset": 148
+    },
+    "Category": {
+      "type": "int32",
+      "offset": 152
+    },
+    "Points": {
+      "type": "int32",
+      "offset": 156
+    },
+    "Ui_Order": {
+      "type": "int32",
+      "offset": 160
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 164
+    },
+    "IconID": {
+      "type": "int32",
+      "offset": 168
+    },
+    "Reward_Lang_enUS": {
+      "type": "string",
+      "offset": 172
+    },
+    "Reward_Lang_enGB": {
+      "type": "string",
+      "offset": 176
+    },
+    "Reward_Lang_koKR": {
+      "type": "string",
+      "offset": 180
+    },
+    "Reward_Lang_frFR": {
+      "type": "string",
+      "offset": 184
+    },
+    "Reward_Lang_deDE": {
+      "type": "string",
+      "offset": 188
+    },
+    "Reward_Lang_enCN": {
+      "type": "string",
+      "offset": 192
+    },
+    "Reward_Lang_zhCN": {
+      "type": "string",
+      "offset": 196
+    },
+    "Reward_Lang_enTW": {
+      "type": "string",
+      "offset": 200
+    },
+    "Reward_Lang_zhTW": {
+      "type": "string",
+      "offset": 204
+    },
+    "Reward_Lang_esES": {
+      "type": "string",
+      "offset": 208
+    },
+    "Reward_Lang_esMX": {
+      "type": "string",
+      "offset": 212
+    },
+    "Reward_Lang_ruRU": {
+      "type": "string",
+      "offset": 216
+    },
+    "Reward_Lang_ptPT": {
+      "type": "string",
+      "offset": 220
+    },
+    "Reward_Lang_ptBR": {
+      "type": "string",
+      "offset": 224
+    },
+    "Reward_Lang_itIT": {
+      "type": "string",
+      "offset": 228
+    },
+    "Reward_Lang_Unk": {
+      "type": "string",
+      "offset": 232
+    },
+    "Reward_Lang_Mask": {
+      "type": "int32",
+      "offset": 236
+    },
+    "Minimum_Criteria": {
+      "type": "int32",
+      "offset": 240
+    },
+    "Shares_Criteria": {
+      "type": "int32",
+      "offset": 244
+    }
+  }
+}

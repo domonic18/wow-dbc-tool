@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ItemDisplayInfo Physical Schema",
+  "description": "ItemDisplayInfo.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "table_name": "ItemDisplayInfo",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 25,
+  "field_order": [
+    "ID",
+    "ModelName_1",
+    "ModelName_2",
+    "ModelTexture_1",
+    "ModelTexture_2",
+    "InventoryIcon_1",
+    "InventoryIcon_2",
+    "GeosetGroup_1",
+    "GeosetGroup_2",
+    "GeosetGroup_3",
+    "Flags",
+    "SpellVisualID",
+    "GroupSoundIndex",
+    "HelmetGeosetVis_1",
+    "HelmetGeosetVis_2",
+    "Texture_1",
+    "Texture_2",
+    "Texture_3",
+    "Texture_4",
+    "Texture_5",
+    "Texture_6",
+    "Texture_7",
+    "Texture_8",
+    "ItemVisual",
+    "ParticleColorID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ModelName_1": {
+      "type": "string",
+      "offset": 4
+    },
+    "ModelName_2": {
+      "type": "string",
+      "offset": 8
+    },
+    "ModelTexture_1": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ModelTexture_2": {
+      "type": "int32",
+      "offset": 16
+    },
+    "InventoryIcon_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "InventoryIcon_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "GeosetGroup_1": {
+      "type": "string",
+      "offset": 28
+    },
+    "GeosetGroup_2": {
+      "type": "int32",
+      "offset": 32
+    },
+    "GeosetGroup_3": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 40
+    },
+    "SpellVisualID": {
+      "type": "int32",
+      "offset": 44
+    },
+    "GroupSoundIndex": {
+      "type": "int32",
+      "offset": 48
+    },
+    "HelmetGeosetVis_1": {
+      "type": "int32",
+      "offset": 52
+    },
+    "HelmetGeosetVis_2": {
+      "type": "int32",
+      "offset": 56
+    },
+    "Texture_1": {
+      "type": "int32",
+      "offset": 60
+    },
+    "Texture_2": {
+      "type": "int32",
+      "offset": 64
+    },
+    "Texture_3": {
+      "type": "int32",
+      "offset": 68
+    },
+    "Texture_4": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Texture_5": {
+      "type": "int32",
+      "offset": 76
+    },
+    "Texture_6": {
+      "type": "string",
+      "offset": 80
+    },
+    "Texture_7": {
+      "type": "int32",
+      "offset": 84
+    },
+    "Texture_8": {
+      "type": "string",
+      "offset": 88
+    },
+    "ItemVisual": {
+      "type": "int32",
+      "offset": 92
+    },
+    "ParticleColorID": {
+      "type": "int32",
+      "offset": 96
+    }
+  }
+}

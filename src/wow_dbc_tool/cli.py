@@ -11,9 +11,92 @@ from typing import Any, cast
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.exceptions import DBCError
 from wow_dbc_tool.diff.engine import DBCDiff
+from wow_dbc_tool.schema.field_def import FieldDef
 from wow_dbc_tool.schema.registry import SchemaRegistry
 from wow_dbc_tool.utils.doc_store import DocStore
 from wow_dbc_tool.utils.help_system import HelpSystem
+
+
+# 类型映射：将 generate-schemas.py 生成的类型转换为 wow-dbc-tool 支持的类型
+SCHEMA_TYPE_MAP = {
+    "int": "int32",
+    "uint": "uint32",
+    "float": "float",
+    "string": "string",
+    "locstring": "string",
+}
+
+
+def _load_json_schema(schema_path: Path) -> list[FieldDef]:
+    """从 generate-schemas.py 生成的 JSON schema 文件加载字段定义.
+
+    输入格式:
+    {
+        "field_order": ["ID", "Name", ...],
+        "properties": {
+            "ID": {"type": "int", ...},
+            "Name": {"type": "locstring", ...},
+            ...
+        }
+    }
+    """
+    with open(schema_path, encoding="utf-8") as f:
+        data = json.load(f)
+
+    field_order = data.get("field_order", [])
+    properties = data.get("properties", {})
+
+    fields: list[FieldDef] = []
+    for i, name in enumerate(field_order):
+        prop = properties.get(name, {})
+        raw_type = prop.get("type", "int32")
+        field_type = SCHEMA_TYPE_MAP.get(raw_type, raw_type)
+        # 如果映射后仍然不支持，回退为 int32
+        if field_type not in FieldDef.VALID_TYPES:
+            field_type = "int32"
+        fields.append(FieldDef(name, field_type, i * 4))
+
+    return fields
+
+
+def _auto_load_project_schema(dbc_path: Path) -> list[FieldDef] | None:
+    """自动查找并加载对应 schema.
+
+    查找路径（按优先级）:
+    1. 工具自身的 schemas/ 目录（tools/wow-dbc-tool/schemas/）
+    2. DBC 文件同级目录下的 .schema.json
+    3. 项目根目录下的 tools/wow-dbc-tool/schemas/{name}.schema.json
+    4. 兼容旧路径：src/schemas/{name}.schema.json
+    """
+    dbc_name = dbc_path.name
+    schema_name = dbc_name.replace(".dbc", ".schema.json")
+
+    # 1. 工具自身的 schemas/ 目录
+    # cli.py 位于 tools/wow-dbc-tool/src/wow_dbc_tool/cli.py
+    tool_schemas_dir = Path(__file__).parent.parent.parent / "schemas"
+
+    candidates = [
+        tool_schemas_dir / schema_name,
+        # 2. DBC 同级目录
+        dbc_path.parent / schema_name,
+    ]
+
+    # 3. 向上查找项目根目录下的 tools/wow-dbc-tool/schemas/
+    # 4. 兼容旧路径 src/schemas/
+    project_root = dbc_path.parent
+    for _ in range(6):
+        candidates.append(project_root / "tools" / "wow-dbc-tool" / "schemas" / schema_name)
+        candidates.append(project_root / "src" / "schemas" / schema_name)
+        project_root = project_root.parent
+        if len(str(project_root)) <= 3:
+            break
+
+    for candidate in candidates:
+        if candidate.exists():
+            print(f"  自动加载 schema: {candidate}")
+            return _load_json_schema(candidate)
+
+    return None
 
 
 class _JSONEncoder(json.JSONEncoder):
@@ -129,9 +212,21 @@ def _format_value(value: Any) -> str:
 
 def cmd_export(args: argparse.Namespace) -> int:
     """export 子命令 - 将 DBC 导出为 CSV."""
-    dbc = DBCFile(args.file)
+    # 优先尝试自动加载项目中的 JSON schema
+    project_schema = None
     if args.schema:
-        SchemaRegistry.load_from_file(args.schema)
+        # 如果用户指定了 schema 文件
+        project_schema = _load_json_schema(args.schema)
+    else:
+        # 自动从项目 schemas 目录查找
+        project_schema = _auto_load_project_schema(args.file)
+
+    if project_schema:
+        dbc = DBCFile(args.file, schema=project_schema)
+    else:
+        dbc = DBCFile(args.file)
+        if args.schema:
+            SchemaRegistry.load_from_file(args.schema)
     dbc.load()
 
     if not dbc.records:
@@ -179,16 +274,25 @@ def cmd_export(args: argparse.Namespace) -> int:
         csv_rows.append(row)
 
     # 输出
+    # 使用与原始 CSV 一致的格式：
+    # - 所有字段用双引号包裹 (QUOTE_ALL)
+    # - 使用 LF 换行符 (与 Git 中旧 CSV 一致)
+    # - 空字符串输出为 ""
+    csv_kwargs = {
+        "quoting": csv.QUOTE_ALL,
+        "lineterminator": "\n",
+    }
+
     output_path = args.output
     if output_path:
         with open(output_path, "w", encoding="utf-8", newline="") as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, **csv_kwargs)
             writer.writerow(csv_headers[:export_count])
             writer.writerows(csv_rows)
         print(f"已导出 {len(csv_rows)} 条记录到: {output_path}")
     else:
         # 输出到 stdout
-        writer = csv.writer(sys.stdout)
+        writer = csv.writer(sys.stdout, **csv_kwargs)
         writer.writerow(csv_headers[:export_count])
         writer.writerows(csv_rows)
 

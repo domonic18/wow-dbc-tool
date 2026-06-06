@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreatureDisplayInfo Physical Schema",
+  "description": "CreatureDisplayInfo.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "table_name": "CreatureDisplayInfo",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 16,
+  "field_order": [
+    "ID",
+    "ModelID",
+    "SoundID",
+    "ExtendedDisplayInfoID",
+    "CreatureModelScale",
+    "CreatureModelAlpha",
+    "TextureVariation_1",
+    "TextureVariation_2",
+    "TextureVariation_3",
+    "PortraitTextureName",
+    "BloodLevel",
+    "BloodID",
+    "NPCSoundID",
+    "ParticleColorID",
+    "CreatureGeosetData",
+    "ObjectEffectPackageID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ModelID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "SoundID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "ExtendedDisplayInfoID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "CreatureModelScale": {
+      "type": "float",
+      "offset": 16
+    },
+    "CreatureModelAlpha": {
+      "type": "int32",
+      "offset": 20
+    },
+    "TextureVariation_1": {
+      "type": "string",
+      "offset": 24
+    },
+    "TextureVariation_2": {
+      "type": "string",
+      "offset": 28
+    },
+    "TextureVariation_3": {
+      "type": "int32",
+      "offset": 32
+    },
+    "PortraitTextureName": {
+      "type": "int32",
+      "offset": 36
+    },
+    "BloodLevel": {
+      "type": "int32",
+      "offset": 40
+    },
+    "BloodID": {
+      "type": "int32",
+      "offset": 44
+    },
+    "NPCSoundID": {
+      "type": "int32",
+      "offset": 48
+    },
+    "ParticleColorID": {
+      "type": "int32",
+      "offset": 52
+    },
+    "CreatureGeosetData": {
+      "type": "int32",
+      "offset": 56
+    },
+    "ObjectEffectPackageID": {
+      "type": "int32",
+      "offset": 60
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Item Physical Schema",
+  "description": "Item.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "table_name": "Item",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "ClassID",
+    "SubclassID",
+    "Sound_Override_Subclassid",
+    "Material",
+    "DisplayInfoID",
+    "InventoryType",
+    "SheatheType"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ClassID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "SubclassID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Sound_Override_Subclassid": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Material": {
+      "type": "int32",
+      "offset": 16
+    },
+    "DisplayInfoID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "InventoryType": {
+      "type": "int32",
+      "offset": 24
+    },
+    "SheatheType": {
+      "type": "int32",
+      "offset": 28
+    }
+  }
+}
