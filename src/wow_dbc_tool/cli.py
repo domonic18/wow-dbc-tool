@@ -508,6 +508,29 @@ def cmd_schema(args: argparse.Namespace) -> int:
         }
         _output_json(data, pretty=not args.compact)
 
+    elif args.schema_command == "generate":
+        from wow_dbc_tool.schema.generator import generate_schemas
+
+        csv_dir = args.csv_dir or Path("tables")
+        dbd_dir = args.dbd_dir or (
+            Path(__file__).parent.parent.parent / "third-party" / "WoWDBDefs" / "definitions"
+        )
+        output_dir = args.output or (Path(__file__).parent.parent.parent / "schemas")
+        tables = [args.table] if args.table else None
+
+        if not dbd_dir.exists():
+            _error_json(f"WoWDBDefs 未找到: {dbd_dir}", "FileNotFoundError")
+            return 1
+
+        result = generate_schemas(
+            csv_dir=csv_dir,
+            dbd_dir=dbd_dir,
+            output_dir=output_dir,
+            tables=tables,
+            target_version=args.target_version,
+        )
+        _output_json(result, pretty=not args.compact)
+
     return 0
 
 
@@ -537,7 +560,7 @@ def cmd_explain(args: argparse.Namespace) -> int:
 
     if entry is None:
         _error_json(
-            f"未找到 {args.dbc_name} 的说明文档。请运行 'wow-dbc-tool wiki sync {args.dbc_name}' 同步。",
+            f"未找到 {args.dbc_name} 的说明文档。",
             "DocError",
         )
         return 1
@@ -584,50 +607,6 @@ def cmd_explain(args: argparse.Namespace) -> int:
             "examples": entry.examples,
         }
 
-    _output_json(data, pretty=not args.compact)
-    return 0
-
-
-def cmd_wiki_sync(args: argparse.Namespace) -> int:
-    """wiki sync 子命令."""
-    try:
-        from wow_dbc_tool.utils.wowdev_crawler import WowdevWikiCrawler
-    except ImportError as e:
-        _error_json(f"Wiki 同步需要 requests 和 beautifulsoup4: {e}", "ImportError")
-        return 1
-
-    crawler = WowdevWikiCrawler()
-
-    if args.all or args.dbc_name is None:
-        results = crawler.sync_and_save()
-    else:
-        result = crawler.sync_dbc(args.dbc_name)
-        results = {args.dbc_name: result is not None}
-        if result:
-            store = DocStore()
-            store.save(result)
-
-    _output_json(
-        {
-            "saved": [k for k, v in results.items() if v],
-            "failed": [k for k, v in results.items() if not v],
-            "total": len(results),
-        },
-        pretty=not args.compact,
-    )
-    return 0
-
-
-def cmd_wiki_list(args: argparse.Namespace) -> int:
-    """wiki list 子命令."""
-    store = DocStore()
-    docs = store.list_all()
-
-    data = {
-        "docs_dir": str(store.docs_dir),
-        "count": len(docs),
-        "docs": docs,
-    }
     _output_json(data, pretty=not args.compact)
     return 0
 
@@ -714,11 +693,15 @@ def main() -> int:
     schema_parser = _add_common_args(subparsers.add_parser("schema", help="字段定义管理"))
     schema_parser.add_argument(
         "schema_command",
-        choices=["list", "show", "infer", "validate"],
+        choices=["list", "show", "infer", "validate", "generate"],
         help="schema 子命令",
     )
     schema_parser.add_argument("file", type=Path, nargs="?", help="DBC 文件路径")
     schema_parser.add_argument("--schema-file", type=Path, help="字段定义文件")
+    schema_parser.add_argument("--csv-dir", type=Path, help="CSV 输入目录（generate 用）")
+    schema_parser.add_argument("--dbd-dir", type=Path, help="WoWDBDefs 定义目录（generate 用）")
+    schema_parser.add_argument("--table", type=str, help="仅生成指定表（generate 用）")
+    schema_parser.add_argument("--target-version", type=str, default="3.3.5.12340", help="目标版本（generate 用，默认: 3.3.5.12340)")
     schema_parser.set_defaults(func=cmd_schema)
 
     # help
@@ -734,20 +717,6 @@ def main() -> int:
     explain_parser.add_argument("--field", action="append", default=[], help="查询特定字段")
     explain_parser.add_argument("--compact", action="store_true", help="紧凑 JSON")
     explain_parser.set_defaults(func=cmd_explain)
-
-    # wiki
-    wiki_parser = subparsers.add_parser("wiki", help="Wiki 文档管理")
-    wiki_subparsers = wiki_parser.add_subparsers(dest="wiki_command", help="wiki 子命令")
-
-    wiki_sync = wiki_subparsers.add_parser("sync", help="同步 Wiki 文档")
-    wiki_sync.add_argument("dbc_name", nargs="?", help="DBC 文件名，省略则同步所有")
-    wiki_sync.add_argument("--all", action="store_true", help="同步所有已知 DBC")
-    wiki_sync.add_argument("--compact", action="store_true", help="紧凑 JSON")
-    wiki_sync.set_defaults(func=cmd_wiki_sync)
-
-    wiki_list = wiki_subparsers.add_parser("list", help="列出本地文档")
-    wiki_list.add_argument("--compact", action="store_true", help="紧凑 JSON")
-    wiki_list.set_defaults(func=cmd_wiki_list)
 
     args = parser.parse_args()
 

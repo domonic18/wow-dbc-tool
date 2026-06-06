@@ -8,254 +8,137 @@ from pathlib import Path
 from wow_dbc_tool.schema.field_def import FieldDef
 
 
+# generate-schemas.py 生成的类型映射到 FieldDef 支持类型
+_TYPE_MAP = {
+    "int": "int32",
+    "uint": "uint32",
+    "float": "float",
+    "string": "string",
+    "locstring": "string",
+}
+
+
+def _find_schemas_dir() -> Path | None:
+    """查找 schemas 目录.
+
+    尝试以下路径（按优先级）:
+    1. 项目根目录下的 schemas/（开发模式）
+    2. 包内嵌的 schemas/（pip 安装模式）
+
+    Returns:
+        schemas 目录路径，未找到返回 None
+    """
+    # 1. 从代码位置推导项目根目录
+    try:
+        code_dir = Path(__file__).resolve().parent  # src/wow_dbc_tool/schema/
+        project_root = code_dir.parent.parent.parent  # wow-dbc-tool 根目录
+        schemas_dir = project_root / "schemas"
+        if schemas_dir.exists():
+            return schemas_dir
+    except (OSError, NameError):
+        pass
+
+    # 2. 尝试包内嵌路径（安装模式，通过 package_data 包含）
+    try:
+        code_dir = Path(__file__).resolve().parent
+        embedded = code_dir / "schemas"
+        if embedded.exists():
+            return embedded
+    except (OSError, NameError):
+        pass
+
+    return None
+
+
+def _parse_project_schema(data: dict) -> list[FieldDef]:
+    """解析 generate-schemas.py 生成的 schema JSON.
+
+    输入格式:
+    {
+        "field_order": ["ID", "Name", ...],
+        "properties": {
+            "ID": {"type": "int32", "offset": 0},
+            ...
+        }
+    }
+
+    Args:
+        data: JSON schema 数据
+
+    Returns:
+        FieldDef 列表
+    """
+    field_order = data.get("field_order", [])
+    properties = data.get("properties", {})
+
+    fields: list[FieldDef] = []
+    for i, name in enumerate(field_order):
+        prop = properties.get(name, {})
+        raw_type = prop.get("type", "int32")
+        field_type = _TYPE_MAP.get(raw_type, raw_type)
+        # 如果映射后仍然不支持，回退为 int32
+        if field_type not in FieldDef.VALID_TYPES:
+            field_type = "int32"
+        fields.append(FieldDef(name, field_type, i * 4))
+
+    return fields
+
+
+def _load_schemas_from_dir(schemas_dir: Path) -> dict[str, list[FieldDef]]:
+    """从目录加载所有 schema 文件.
+
+    Args:
+        schemas_dir: schemas 目录路径
+
+    Returns:
+        {dbc_name: [FieldDef, ...]}
+    """
+    builtins: dict[str, list[FieldDef]] = {}
+    if not schemas_dir.exists():
+        return builtins
+
+    for schema_path in schemas_dir.glob("*.schema.json"):
+        try:
+            with open(schema_path, encoding="utf-8") as f:
+                data = json.load(f)
+
+            table_name = data.get("table_name", schema_path.stem.replace(".schema", ""))
+            dbc_name = f"{table_name}.dbc"
+            fields = _parse_project_schema(data)
+
+            if fields:
+                builtins[dbc_name] = fields
+        except (json.JSONDecodeError, OSError):
+            continue
+
+    return builtins
+
+
 class SchemaRegistry:
     """管理所有 DBC 文件的字段定义.
 
-    内置常见 DBC 定义，支持自定义注册和从文件加载。
+    内置定义从 schemas/*.schema.json 自动加载，支持自定义注册和从文件加载。
 
     Attributes:
-        _builtins: 内置字段定义字典
+        _builtins: 内置字段定义字典（从 JSON schema 加载）
         _custom: 用户注册的自定义定义
     """
 
-    # 内置常见 DBC 定义
-    _builtins: dict[str, list[FieldDef]] = {
-        # Spell.dbc - 基础法术定义（示例）
-        "Spell.dbc": [
-            FieldDef("ID", "uint32", 0),
-            FieldDef("Category", "uint32", 4),
-            FieldDef("Dispel", "uint32", 8),
-            FieldDef("Mechanic", "uint32", 12),
-            FieldDef("Attributes", "uint32", 16),
-            FieldDef("AttributesEx", "uint32", 20),
-            FieldDef("AttributesEx2", "uint32", 24),
-            FieldDef("AttributesEx3", "uint32", 28),
-            FieldDef("AttributesEx4", "uint32", 32),
-            FieldDef("AttributesEx5", "uint32", 36),
-            FieldDef("AttributesEx6", "uint32", 40),
-            FieldDef("AttributesEx7", "uint32", 44),
-            FieldDef("Stances", "uint32", 48),
-            FieldDef("StancesNot", "uint32", 52),
-            FieldDef("Targets", "uint32", 56),
-            FieldDef("TargetCreatureType", "uint32", 60),
-            FieldDef("RequiresSpellFocus", "uint32", 64),
-            FieldDef("FacingCasterFlags", "uint32", 68),
-            FieldDef("CasterAuraState", "uint32", 72),
-            FieldDef("TargetAuraState", "uint32", 76),
-            FieldDef("CasterAuraStateNot", "uint32", 80),
-            FieldDef("TargetAuraStateNot", "uint32", 84),
-            FieldDef("CasterAuraSpell", "uint32", 88),
-            FieldDef("TargetAuraSpell", "uint32", 92),
-            FieldDef("ExcludeCasterAuraSpell", "uint32", 96),
-            FieldDef("ExcludeTargetAuraSpell", "uint32", 100),
-            FieldDef("CastingTimeIndex", "uint32", 104),
-            FieldDef("RecoveryTime", "uint32", 108),
-            FieldDef("CategoryRecoveryTime", "uint32", 112),
-            FieldDef("InterruptFlags", "uint32", 116),
-            FieldDef("AuraInterruptFlags", "uint32", 120),
-            FieldDef("ChannelInterruptFlags", "uint32", 124),
-            FieldDef("ProcFlags", "uint32", 128),
-            FieldDef("ProcChance", "uint32", 132),
-            FieldDef("ProcCharges", "uint32", 136),
-            FieldDef("MaxLevel", "uint32", 140),
-            FieldDef("BaseLevel", "uint32", 144),
-            FieldDef("SpellLevel", "uint32", 148),
-            FieldDef("DurationIndex", "uint32", 152),
-            FieldDef("PowerType", "uint32", 156),
-            FieldDef("ManaCost", "uint32", 160),
-            FieldDef("ManaCostPerlevel", "uint32", 164),
-            FieldDef("ManaPerSecond", "uint32", 168),
-            FieldDef("ManaPerSecondPerLevel", "uint32", 172),
-            FieldDef("RangeIndex", "uint32", 176),
-            FieldDef("Speed", "float", 180),
-            FieldDef("ModalNextSpell", "uint32", 184),
-            FieldDef("StackAmount", "uint32", 188),
-            FieldDef("Totem1", "uint32", 192),
-            FieldDef("Totem2", "uint32", 196),
-            FieldDef("Reagent1", "uint32", 200),
-            FieldDef("Reagent2", "uint32", 204),
-            FieldDef("Reagent3", "uint32", 208),
-            FieldDef("Reagent4", "uint32", 212),
-            FieldDef("Reagent5", "uint32", 216),
-            FieldDef("Reagent6", "uint32", 220),
-            FieldDef("Reagent7", "uint32", 224),
-            FieldDef("Reagent8", "uint32", 228),
-            FieldDef("ReagentCount1", "uint32", 232),
-            FieldDef("ReagentCount2", "uint32", 236),
-            FieldDef("ReagentCount3", "uint32", 240),
-            FieldDef("ReagentCount4", "uint32", 244),
-            FieldDef("ReagentCount5", "uint32", 248),
-            FieldDef("ReagentCount6", "uint32", 252),
-            FieldDef("ReagentCount7", "uint32", 256),
-            FieldDef("ReagentCount8", "uint32", 260),
-            FieldDef("EquippedItemClass", "uint32", 264),
-            FieldDef("EquippedItemSubClassMask", "uint32", 268),
-            FieldDef("EquippedItemInventoryTypeMask", "uint32", 272),
-            FieldDef("Effect1", "uint32", 276),
-            FieldDef("Effect2", "uint32", 280),
-            FieldDef("Effect3", "uint32", 284),
-            FieldDef("EffectDieSides1", "uint32", 288),
-            FieldDef("EffectDieSides2", "uint32", 292),
-            FieldDef("EffectDieSides3", "uint32", 296),
-            FieldDef("EffectBaseDice1", "uint32", 300),
-            FieldDef("EffectBaseDice2", "uint32", 304),
-            FieldDef("EffectBaseDice3", "uint32", 308),
-            FieldDef("EffectRealPointsPerLevel1", "float", 312),
-            FieldDef("EffectRealPointsPerLevel2", "float", 316),
-            FieldDef("EffectRealPointsPerLevel3", "float", 320),
-            FieldDef("EffectBasePoints1", "uint32", 324),
-            FieldDef("EffectBasePoints2", "uint32", 328),
-            FieldDef("EffectBasePoints3", "uint32", 332),
-            FieldDef("EffectMechanic1", "uint32", 336),
-            FieldDef("EffectMechanic2", "uint32", 340),
-            FieldDef("EffectMechanic3", "uint32", 344),
-            FieldDef("EffectImplicitTargetA1", "uint32", 348),
-            FieldDef("EffectImplicitTargetA2", "uint32", 352),
-            FieldDef("EffectImplicitTargetA3", "uint32", 356),
-            FieldDef("EffectImplicitTargetB1", "uint32", 360),
-            FieldDef("EffectImplicitTargetB2", "uint32", 364),
-            FieldDef("EffectImplicitTargetB3", "uint32", 368),
-            FieldDef("EffectRadiusIndex1", "uint32", 372),
-            FieldDef("EffectRadiusIndex2", "uint32", 376),
-            FieldDef("EffectRadiusIndex3", "uint32", 380),
-            FieldDef("EffectApplyAuraName1", "uint32", 384),
-            FieldDef("EffectApplyAuraName2", "uint32", 388),
-            FieldDef("EffectApplyAuraName3", "uint32", 392),
-            FieldDef("EffectAmplitude1", "uint32", 396),
-            FieldDef("EffectAmplitude2", "uint32", 400),
-            FieldDef("EffectAmplitude3", "uint32", 404),
-            FieldDef("EffectValueMultiplier1", "float", 408),
-            FieldDef("EffectValueMultiplier2", "float", 412),
-            FieldDef("EffectValueMultiplier3", "float", 416),
-            FieldDef("EffectChainTarget1", "uint32", 420),
-            FieldDef("EffectChainTarget2", "uint32", 424),
-            FieldDef("EffectChainTarget3", "uint32", 428),
-            FieldDef("EffectItemType1", "uint32", 432),
-            FieldDef("EffectItemType2", "uint32", 436),
-            FieldDef("EffectItemType3", "uint32", 440),
-            FieldDef("EffectMiscValue1", "uint32", 444),
-            FieldDef("EffectMiscValue2", "uint32", 448),
-            FieldDef("EffectMiscValue3", "uint32", 452),
-            FieldDef("EffectMiscValueB1", "uint32", 456),
-            FieldDef("EffectMiscValueB2", "uint32", 460),
-            FieldDef("EffectMiscValueB3", "uint32", 464),
-            FieldDef("EffectTriggerSpell1", "uint32", 468),
-            FieldDef("EffectTriggerSpell2", "uint32", 472),
-            FieldDef("EffectTriggerSpell3", "uint32", 476),
-            FieldDef("EffectPointsPerComboPoint1", "float", 480),
-            FieldDef("EffectPointsPerComboPoint2", "float", 484),
-            FieldDef("EffectPointsPerComboPoint3", "float", 488),
-            FieldDef("EffectSpellClassMaskA1", "uint32", 492),
-            FieldDef("EffectSpellClassMaskA2", "uint32", 496),
-            FieldDef("EffectSpellClassMaskA3", "uint32", 500),
-            FieldDef("EffectSpellClassMaskB1", "uint32", 504),
-            FieldDef("EffectSpellClassMaskB2", "uint32", 508),
-            FieldDef("EffectSpellClassMaskB3", "uint32", 512),
-            FieldDef("EffectSpellClassMaskC1", "uint32", 516),
-            FieldDef("EffectSpellClassMaskC2", "uint32", 520),
-            FieldDef("EffectSpellClassMaskC3", "uint32", 524),
-            FieldDef("SpellVisual1", "uint32", 528),
-            FieldDef("SpellVisual2", "uint32", 532),
-            FieldDef("SpellIconID", "uint32", 536),
-            FieldDef("ActiveIconID", "uint32", 540),
-            FieldDef("SpellPriority", "uint32", 544),
-            FieldDef("SpellName", "string", 548),
-            FieldDef("SpellName2", "string", 552),
-            FieldDef("SpellName3", "string", 556),
-            FieldDef("SpellName4", "string", 560),
-            FieldDef("SpellName5", "string", 564),
-            FieldDef("SpellName6", "string", 568),
-            FieldDef("SpellName7", "string", 572),
-            FieldDef("SpellName8", "string", 576),
-            FieldDef("SpellName9", "string", 580),
-            FieldDef("SpellName10", "string", 584),
-            FieldDef("SpellName11", "string", 588),
-            FieldDef("SpellName12", "string", 592),
-            FieldDef("SpellName13", "string", 596),
-            FieldDef("SpellName14", "string", 600),
-            FieldDef("SpellName15", "string", 604),
-            FieldDef("SpellName16", "string", 608),
-            FieldDef("Rank", "string", 612),
-            FieldDef("Rank2", "string", 616),
-            FieldDef("Rank3", "string", 620),
-            FieldDef("Rank4", "string", 624),
-            FieldDef("Rank5", "string", 628),
-            FieldDef("Rank6", "string", 632),
-            FieldDef("Rank7", "string", 636),
-            FieldDef("Rank8", "string", 640),
-            FieldDef("Rank9", "string", 644),
-            FieldDef("Rank10", "string", 648),
-            FieldDef("Rank11", "string", 652),
-            FieldDef("Rank12", "string", 656),
-            FieldDef("Rank13", "string", 660),
-            FieldDef("Rank14", "string", 664),
-            FieldDef("Rank15", "string", 668),
-            FieldDef("Rank16", "string", 672),
-            FieldDef("Description", "string", 676),
-            FieldDef("Description2", "string", 680),
-            FieldDef("Description3", "string", 684),
-            FieldDef("Description4", "string", 688),
-            FieldDef("Description5", "string", 692),
-            FieldDef("Description6", "string", 696),
-            FieldDef("Description7", "string", 700),
-            FieldDef("Description8", "string", 704),
-            FieldDef("Description9", "string", 708),
-            FieldDef("Description10", "string", 712),
-            FieldDef("Description11", "string", 716),
-            FieldDef("Description12", "string", 720),
-            FieldDef("Description13", "string", 724),
-            FieldDef("Description14", "string", 728),
-            FieldDef("Description15", "string", 732),
-            FieldDef("Description16", "string", 736),
-            FieldDef("ToolTip", "string", 740),
-            FieldDef("ToolTip2", "string", 744),
-            FieldDef("ToolTip3", "string", 748),
-            FieldDef("ToolTip4", "string", 752),
-            FieldDef("ToolTip5", "string", 756),
-            FieldDef("ToolTip6", "string", 760),
-            FieldDef("ToolTip7", "string", 764),
-            FieldDef("ToolTip8", "string", 768),
-            FieldDef("ToolTip9", "string", 772),
-            FieldDef("ToolTip10", "string", 776),
-            FieldDef("ToolTip11", "string", 780),
-            FieldDef("ToolTip12", "string", 784),
-            FieldDef("ToolTip13", "string", 788),
-            FieldDef("ToolTip14", "string", 792),
-            FieldDef("ToolTip15", "string", 796),
-            FieldDef("ToolTip16", "string", 800),
-            FieldDef("ManaCostPercentage", "uint32", 804),
-            FieldDef("StartRecoveryCategory", "uint32", 808),
-            FieldDef("StartRecoveryTime", "uint32", 812),
-            FieldDef("MaxTargetLevel", "uint32", 816),
-            FieldDef("SpellFamilyName", "uint32", 820),
-            FieldDef("SpellFamilyFlags", "uint32", 824),
-            FieldDef("SpellFamilyFlags2", "uint32", 828),
-            FieldDef("MaxAffectedTargets", "uint32", 832),
-            FieldDef("DmgClass", "uint32", 836),
-            FieldDef("PreventionType", "uint32", 840),
-            FieldDef("StanceBarOrder", "uint32", 844),
-            FieldDef("DmgMultiplier1", "float", 848),
-            FieldDef("DmgMultiplier2", "float", 852),
-            FieldDef("DmgMultiplier3", "float", 856),
-            FieldDef("MinFactionId", "uint32", 860),
-            FieldDef("MinReputation", "uint32", 864),
-            FieldDef("RequiredAuraVision", "uint32", 868),
-            FieldDef("TotemCategory1", "uint32", 872),
-            FieldDef("TotemCategory2", "uint32", 876),
-            FieldDef("AreaGroupId", "uint32", 880),
-            FieldDef("SchoolMask", "uint32", 884),
-            FieldDef("RuneCostID", "uint32", 888),
-            FieldDef("SpellMissileID", "uint32", 892),
-            FieldDef("PowerDisplayId", "uint32", 896),
-            FieldDef("EffectBonusMultiplier1", "float", 900),
-            FieldDef("EffectBonusMultiplier2", "float", 904),
-            FieldDef("EffectBonusMultiplier3", "float", 908),
-            FieldDef("SpellDescriptionVariableID", "uint32", 912),
-            FieldDef("SpellDifficultyId", "uint32", 916),
-        ],
-    }
-
+    _builtins: dict[str, list[FieldDef]] = {}
     _custom: dict[str, list[FieldDef]] = {}
+    _loaded: bool = False
+
+    @classmethod
+    def _ensure_loaded(cls) -> None:
+        """确保内置 schema 已加载（延迟加载）."""
+        if cls._loaded:
+            return
+
+        schemas_dir = _find_schemas_dir()
+        if schemas_dir:
+            cls._builtins = _load_schemas_from_dir(schemas_dir)
+
+        cls._loaded = True
 
     @classmethod
     def get(cls, dbc_name: str) -> list[FieldDef] | None:
@@ -269,6 +152,7 @@ class SchemaRegistry:
         Returns:
             字段定义列表，未找到返回 None
         """
+        cls._ensure_loaded()
         if dbc_name in cls._custom:
             return cls._custom[dbc_name]
         return cls._builtins.get(dbc_name)
@@ -287,15 +171,9 @@ class SchemaRegistry:
     def load_from_file(cls, path: str | Path) -> None:
         """从 JSON 文件加载字段定义.
 
-        JSON 格式:
-        {
-            "Spell.dbc": {
-                "fields": [
-                    {"name": "ID", "type": "uint32", "offset": 0},
-                    ...
-                ]
-            }
-        }
+        支持两种格式:
+        1. Registry 格式: {"Spell.dbc": {"fields": [...]}}
+        2. Project schema 格式: {"field_order": [...], "properties": {...}}
 
         Args:
             path: JSON 文件路径
@@ -308,9 +186,17 @@ class SchemaRegistry:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
 
-        for dbc_name, schema_data in data.items():
-            fields = [FieldDef.from_dict(fd) for fd in schema_data.get("fields", [])]
+        # 自动检测格式
+        if "field_order" in data and "properties" in data:
+            # Project schema 格式
+            fields = _parse_project_schema(data)
+            dbc_name = path.name.replace(".schema.json", ".dbc")
             cls.register(dbc_name, fields)
+        else:
+            # Registry 格式
+            for dbc_name, schema_data in data.items():
+                fields = [FieldDef.from_dict(fd) for fd in schema_data.get("fields", [])]
+                cls.register(dbc_name, fields)
 
     @classmethod
     def list_builtins(cls) -> list[str]:
@@ -319,6 +205,7 @@ class SchemaRegistry:
         Returns:
             DBC 文件名列表
         """
+        cls._ensure_loaded()
         return list(cls._builtins.keys())
 
     @classmethod
@@ -328,6 +215,7 @@ class SchemaRegistry:
         Returns:
             DBC 文件名列表
         """
+        cls._ensure_loaded()
         return list(set(cls._builtins.keys()) | set(cls._custom.keys()))
 
     @classmethod
@@ -340,8 +228,8 @@ class SchemaRegistry:
         """根据 field_count 和 record_size 推断字段布局.
 
         当没有 Schema 定义时，提供基础推断：
-        - 如果 record_size == field_count * 4：所有字段为 int32（DBC 中常用 -1 表示无效值）
-        - 否则：按 4 字节均分，标记为 "unknown"
+        - 如果 record_size == field_count * 4：所有字段为 int32
+        - 否则：按 4 字节均分
 
         Args:
             field_count: 字段数量

@@ -190,13 +190,13 @@ class HelpSystem:
         self._commands["schema"] = CommandHelp(
             name="schema",
             brief="字段定义管理",
-            description="管理 DBC 字段定义：列出、查看、推断、验证。",
+            description="管理 DBC 字段定义：列出、查看、推断、验证、生成。",
             args=[
                 {
                     "name": "schema_command",
                     "type": "str",
                     "required": True,
-                    "help": "子命令: list, show, infer, validate",
+                    "help": "子命令: list, show, infer, validate, generate",
                 },
                 {"name": "file", "type": "Path", "required": False, "help": "DBC 文件路径"},
                 {
@@ -212,8 +212,10 @@ class HelpSystem:
                 "wow-dbc-tool schema show Spell.dbc",
                 "wow-dbc-tool schema infer Spell.dbc",
                 "wow-dbc-tool schema validate Spell.dbc",
+                "wow-dbc-tool schema generate",
+                "wow-dbc-tool schema generate --table Spell",
             ],
-            notes=["list 不需要 file 参数", "infer 从文件结构推断字段定义"],
+            notes=["list 不需要 file 参数", "infer 从文件结构推断字段定义", "generate 从 CSV + WoWDBDefs 生成 schema"],
         )
 
         # help 命令
@@ -246,30 +248,7 @@ class HelpSystem:
                 "wow-dbc-tool explain Spell.dbc",
                 "wow-dbc-tool explain Spell.dbc --field Name",
             ],
-            notes=["需要本地有文档定义", "使用 wiki sync 同步文档"],
-        )
-
-        # wiki 命令
-        self._commands["wiki"] = CommandHelp(
-            name="wiki",
-            brief="Wiki 文档管理",
-            description="管理 Wowdev Wiki 文档同步。",
-            args=[
-                {
-                    "name": "wiki_command",
-                    "type": "str",
-                    "required": True,
-                    "help": "子命令: sync, list",
-                },
-                {"name": "dbc_name", "type": "str", "required": False, "help": "DBC 文件名"},
-                {"name": "--all", "type": "flag", "required": False, "help": "同步所有已知 DBC"},
-            ],
-            examples=[
-                "wow-dbc-tool wiki sync Spell.dbc",
-                "wow-dbc-tool wiki sync --all",
-                "wow-dbc-tool wiki list",
-            ],
-            notes=["sync 需要 requests 和 beautifulsoup4", "数据保存到 docs/definitions/"],
+            notes=["需要本地有文档定义"],
         )
 
     def get_brief_help(self) -> dict[str, Any]:

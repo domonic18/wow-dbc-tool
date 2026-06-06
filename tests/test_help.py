@@ -46,7 +46,6 @@ class TestHelpSystem:
         assert "schema" in commands
         assert "help" in commands
         assert "explain" in commands
-        assert "wiki" in commands
 
     def test_get_brief_help_structure(self):
         """测试简洁帮助结构."""
@@ -66,7 +65,6 @@ class TestHelpSystem:
         command_names = [c["name"] for c in brief["commands"]]
         assert "read" in command_names
         assert "explain" in command_names
-        assert "wiki" in command_names
 
     def test_get_command_help_valid(self):
         """测试获取有效命令帮助."""
@@ -114,7 +112,7 @@ class TestHelpSystem:
         hs = HelpSystem()
         commands = hs.list_commands()
         assert isinstance(commands, list)
-        assert len(commands) >= 10
+        assert len(commands) >= 9
 
     def test_all_commands_have_brief(self):
         """测试所有命令都有简介."""
@@ -144,9 +142,3 @@ class TestHelpSystem:
         assert help_data is not None
         assert "说明" in help_data["description"]
 
-    def test_wiki_command_help(self):
-        """测试 wiki 命令帮助."""
-        hs = HelpSystem()
-        help_data = hs.get_command_help("wiki")
-        assert help_data is not None
-        assert "Wiki" in help_data["description"]

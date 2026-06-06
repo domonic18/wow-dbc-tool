@@ -1,0 +1,2 @@
+include schemas/*.schema.json
+recursive-include docs/definitions *.md *.json

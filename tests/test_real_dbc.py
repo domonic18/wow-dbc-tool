@@ -29,9 +29,9 @@ from wow_dbc_tool.schema.registry import SchemaRegistry
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # 真实 DBC 文件路径
-REAL_DBC_DIR = Path("test_data/samples/original")
-DIY_DBC_DIR = Path("test_data/samples/diy")
-CUSTOM_SCHEMA_PATH = Path("test_data/schemas/custom_achievement_schema.json")
+REAL_DBC_DIR = Path("tests/data/samples/original")
+DIY_DBC_DIR = Path("tests/data/samples/diy")
+CUSTOM_SCHEMA_PATH = Path("tests/data/schemas/custom_achievement_schema.json")
 
 # 无真实 DBC 数据时跳过整个模块
 if not REAL_DBC_DIR.exists() or not any(REAL_DBC_DIR.glob("*.dbc")):
