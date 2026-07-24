@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DestructibleModelData Physical Schema",
+  "description": "DestructibleModelData.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "DestructibleModelData",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 19,
+  "field_order": [
+    "ID",
+    "State0ImpactEffectDoodadSet",
+    "State0AmbientDoodadSet",
+    "State1WMO",
+    "State1DestructionDoodadSet",
+    "State1ImpactEffectDoodadSet",
+    "State1AmbientDoodadSet",
+    "State2WMO",
+    "State2DestructionDoodadSet",
+    "State2ImpactEffectDoodadSet",
+    "State2AmbientDoodadSet",
+    "State3WMO",
+    "State3InitDoodadSet",
+    "State3AmbientDoodadSet",
+    "EjectDirection",
+    "RepairGroundFx",
+    "DoNotHighlight",
+    "HealEffect",
+    "HealEffectSpeed"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "State0ImpactEffectDoodadSet": {
+      "type": "int32",
+      "offset": 4
+    },
+    "State0AmbientDoodadSet": {
+      "type": "int32",
+      "offset": 8
+    },
+    "State1WMO": {
+      "type": "int32",
+      "offset": 12
+    },
+    "State1DestructionDoodadSet": {
+      "type": "int32",
+      "offset": 16
+    },
+    "State1ImpactEffectDoodadSet": {
+      "type": "int32",
+      "offset": 20
+    },
+    "State1AmbientDoodadSet": {
+      "type": "int32",
+      "offset": 24
+    },
+    "State2WMO": {
+      "type": "int32",
+      "offset": 28
+    },
+    "State2DestructionDoodadSet": {
+      "type": "int32",
+      "offset": 32
+    },
+    "State2ImpactEffectDoodadSet": {
+      "type": "int32",
+      "offset": 36
+    },
+    "State2AmbientDoodadSet": {
+      "type": "int32",
+      "offset": 40
+    },
+    "State3WMO": {
+      "type": "int32",
+      "offset": 44
+    },
+    "State3InitDoodadSet": {
+      "type": "int32",
+      "offset": 48
+    },
+    "State3AmbientDoodadSet": {
+      "type": "int32",
+      "offset": 52
+    },
+    "EjectDirection": {
+      "type": "int32",
+      "offset": 56
+    },
+    "RepairGroundFx": {
+      "type": "int32",
+      "offset": 60
+    },
+    "DoNotHighlight": {
+      "type": "int32",
+      "offset": 64
+    },
+    "HealEffect": {
+      "type": "int32",
+      "offset": 68
+    },
+    "HealEffectSpeed": {
+      "type": "int32",
+      "offset": 72
+    }
+  }
+}

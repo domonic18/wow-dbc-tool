@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "gtBarberShopCostBase Physical Schema",
+  "description": "gtBarberShopCostBase.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "gtBarberShopCostBase",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 1,
+  "field_order": [
+    "Data"
+  ],
+  "properties": {
+    "Data": {
+      "type": "float",
+      "offset": 0
+    }
+  }
+}

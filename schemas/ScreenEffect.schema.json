@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ScreenEffect Physical Schema",
+  "description": "ScreenEffect.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ScreenEffect",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 10,
+  "field_order": [
+    "ID",
+    "Name",
+    "Effect",
+    "Param_1",
+    "Param_2",
+    "Param_3",
+    "Param_4",
+    "LightParamsID",
+    "SoundAmbienceID",
+    "ZoneMusicID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name": {
+      "type": "string",
+      "offset": 4
+    },
+    "Effect": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Param_1": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Param_2": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Param_3": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Param_4": {
+      "type": "int32",
+      "offset": 24
+    },
+    "LightParamsID": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SoundAmbienceID": {
+      "type": "int32",
+      "offset": 32
+    },
+    "ZoneMusicID": {
+      "type": "int32",
+      "offset": 36
+    }
+  }
+}

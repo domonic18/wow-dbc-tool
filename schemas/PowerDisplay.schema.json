@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PowerDisplay Physical Schema",
+  "description": "PowerDisplay.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "PowerDisplay",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 6,
+  "field_order": [
+    "ID",
+    "ActualType",
+    "GlobalStringBaseTag",
+    "Red",
+    "Green",
+    "Blue"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ActualType": {
+      "type": "int32",
+      "offset": 4
+    },
+    "GlobalStringBaseTag": {
+      "type": "string",
+      "offset": 8
+    },
+    "Red": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Green": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Blue": {
+      "type": "int32",
+      "offset": 20
+    }
+  }
+}

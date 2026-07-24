@@ -1,0 +1,289 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Holidays Physical Schema",
+  "description": "Holidays.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Holidays",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 55,
+  "field_order": [
+    "ID",
+    "Duration_1",
+    "Duration_2",
+    "Duration_3",
+    "Duration_4",
+    "Duration_5",
+    "Duration_6",
+    "Duration_7",
+    "Duration_8",
+    "Duration_9",
+    "Duration_10",
+    "Date_1",
+    "Date_2",
+    "Date_3",
+    "Date_4",
+    "Date_5",
+    "Date_6",
+    "Date_7",
+    "Date_8",
+    "Date_9",
+    "Date_10",
+    "Date_11",
+    "Date_12",
+    "Date_13",
+    "Date_14",
+    "Date_15",
+    "Date_16",
+    "Date_17",
+    "Date_18",
+    "Date_19",
+    "Date_20",
+    "Date_21",
+    "Date_22",
+    "Date_23",
+    "Date_24",
+    "Date_25",
+    "Date_26",
+    "Region",
+    "Looping",
+    "CalendarFlags_1",
+    "CalendarFlags_2",
+    "CalendarFlags_3",
+    "CalendarFlags_4",
+    "CalendarFlags_5",
+    "CalendarFlags_6",
+    "CalendarFlags_7",
+    "CalendarFlags_8",
+    "CalendarFlags_9",
+    "CalendarFlags_10",
+    "HolidayNameID",
+    "HolidayDescriptionID",
+    "TextureFileName",
+    "Priority",
+    "CalendarFilterType",
+    "Flags"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Duration_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Duration_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Duration_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Duration_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Duration_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Duration_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Duration_7": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Duration_8": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Duration_9": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Duration_10": {
+      "type": "int32",
+      "offset": 40
+    },
+    "Date_1": {
+      "type": "int32",
+      "offset": 44
+    },
+    "Date_2": {
+      "type": "int32",
+      "offset": 48
+    },
+    "Date_3": {
+      "type": "int32",
+      "offset": 52
+    },
+    "Date_4": {
+      "type": "int32",
+      "offset": 56
+    },
+    "Date_5": {
+      "type": "int32",
+      "offset": 60
+    },
+    "Date_6": {
+      "type": "int32",
+      "offset": 64
+    },
+    "Date_7": {
+      "type": "int32",
+      "offset": 68
+    },
+    "Date_8": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Date_9": {
+      "type": "int32",
+      "offset": 76
+    },
+    "Date_10": {
+      "type": "int32",
+      "offset": 80
+    },
+    "Date_11": {
+      "type": "int32",
+      "offset": 84
+    },
+    "Date_12": {
+      "type": "int32",
+      "offset": 88
+    },
+    "Date_13": {
+      "type": "int32",
+      "offset": 92
+    },
+    "Date_14": {
+      "type": "int32",
+      "offset": 96
+    },
+    "Date_15": {
+      "type": "int32",
+      "offset": 100
+    },
+    "Date_16": {
+      "type": "int32",
+      "offset": 104
+    },
+    "Date_17": {
+      "type": "int32",
+      "offset": 108
+    },
+    "Date_18": {
+      "type": "int32",
+      "offset": 112
+    },
+    "Date_19": {
+      "type": "int32",
+      "offset": 116
+    },
+    "Date_20": {
+      "type": "int32",
+      "offset": 120
+    },
+    "Date_21": {
+      "type": "int32",
+      "offset": 124
+    },
+    "Date_22": {
+      "type": "int32",
+      "offset": 128
+    },
+    "Date_23": {
+      "type": "int32",
+      "offset": 132
+    },
+    "Date_24": {
+      "type": "int32",
+      "offset": 136
+    },
+    "Date_25": {
+      "type": "int32",
+      "offset": 140
+    },
+    "Date_26": {
+      "type": "int32",
+      "offset": 144
+    },
+    "Region": {
+      "type": "int32",
+      "offset": 148
+    },
+    "Looping": {
+      "type": "int32",
+      "offset": 152
+    },
+    "CalendarFlags_1": {
+      "type": "int32",
+      "offset": 156
+    },
+    "CalendarFlags_2": {
+      "type": "int32",
+      "offset": 160
+    },
+    "CalendarFlags_3": {
+      "type": "int32",
+      "offset": 164
+    },
+    "CalendarFlags_4": {
+      "type": "int32",
+      "offset": 168
+    },
+    "CalendarFlags_5": {
+      "type": "int32",
+      "offset": 172
+    },
+    "CalendarFlags_6": {
+      "type": "int32",
+      "offset": 176
+    },
+    "CalendarFlags_7": {
+      "type": "int32",
+      "offset": 180
+    },
+    "CalendarFlags_8": {
+      "type": "int32",
+      "offset": 184
+    },
+    "CalendarFlags_9": {
+      "type": "int32",
+      "offset": 188
+    },
+    "CalendarFlags_10": {
+      "type": "int32",
+      "offset": 192
+    },
+    "HolidayNameID": {
+      "type": "int32",
+      "offset": 196
+    },
+    "HolidayDescriptionID": {
+      "type": "int32",
+      "offset": 200
+    },
+    "TextureFileName": {
+      "type": "string",
+      "offset": 204
+    },
+    "Priority": {
+      "type": "int32",
+      "offset": 208
+    },
+    "CalendarFilterType": {
+      "type": "int32",
+      "offset": 212
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 216
+    }
+  }
+}

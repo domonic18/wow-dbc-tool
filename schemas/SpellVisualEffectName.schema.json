@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellVisualEffectName Physical Schema",
+  "description": "SpellVisualEffectName.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellVisualEffectName",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 7,
+  "field_order": [
+    "ID",
+    "Name",
+    "FileName",
+    "AreaEffectSize",
+    "Scale",
+    "MinAllowedScale",
+    "MaxAllowedScale"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name": {
+      "type": "string",
+      "offset": 4
+    },
+    "FileName": {
+      "type": "string",
+      "offset": 8
+    },
+    "AreaEffectSize": {
+      "type": "float",
+      "offset": 12
+    },
+    "Scale": {
+      "type": "float",
+      "offset": 16
+    },
+    "MinAllowedScale": {
+      "type": "float",
+      "offset": 20
+    },
+    "MaxAllowedScale": {
+      "type": "float",
+      "offset": 24
+    }
+  }
+}

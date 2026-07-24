@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Talent Physical Schema",
+  "description": "Talent.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Talent",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 23,
+  "field_order": [
+    "ID",
+    "TabID",
+    "TierID",
+    "ColumnIndex",
+    "SpellRank_1",
+    "SpellRank_2",
+    "SpellRank_3",
+    "SpellRank_4",
+    "SpellRank_5",
+    "SpellRank_6",
+    "SpellRank_7",
+    "SpellRank_8",
+    "SpellRank_9",
+    "PrereqTalent_1",
+    "PrereqTalent_2",
+    "PrereqTalent_3",
+    "PrereqRank_1",
+    "PrereqRank_2",
+    "PrereqRank_3",
+    "Flags",
+    "RequiredSpellID",
+    "CategoryMask_1",
+    "CategoryMask_2"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "TabID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "TierID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "ColumnIndex": {
+      "type": "int32",
+      "offset": 12
+    },
+    "SpellRank_1": {
+      "type": "int32",
+      "offset": 16
+    },
+    "SpellRank_2": {
+      "type": "int32",
+      "offset": 20
+    },
+    "SpellRank_3": {
+      "type": "int32",
+      "offset": 24
+    },
+    "SpellRank_4": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SpellRank_5": {
+      "type": "int32",
+      "offset": 32
+    },
+    "SpellRank_6": {
+      "type": "int32",
+      "offset": 36
+    },
+    "SpellRank_7": {
+      "type": "int32",
+      "offset": 40
+    },
+    "SpellRank_8": {
+      "type": "int32",
+      "offset": 44
+    },
+    "SpellRank_9": {
+      "type": "int32",
+      "offset": 48
+    },
+    "PrereqTalent_1": {
+      "type": "int32",
+      "offset": 52
+    },
+    "PrereqTalent_2": {
+      "type": "int32",
+      "offset": 56
+    },
+    "PrereqTalent_3": {
+      "type": "int32",
+      "offset": 60
+    },
+    "PrereqRank_1": {
+      "type": "int32",
+      "offset": 64
+    },
+    "PrereqRank_2": {
+      "type": "int32",
+      "offset": 68
+    },
+    "PrereqRank_3": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 76
+    },
+    "RequiredSpellID": {
+      "type": "int32",
+      "offset": 80
+    },
+    "CategoryMask_1": {
+      "type": "int32",
+      "offset": 84
+    },
+    "CategoryMask_2": {
+      "type": "int32",
+      "offset": 88
+    }
+  }
+}

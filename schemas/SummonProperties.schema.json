@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SummonProperties Physical Schema",
+  "description": "SummonProperties.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SummonProperties",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 6,
+  "field_order": [
+    "ID",
+    "Control",
+    "Faction",
+    "Title",
+    "Slot",
+    "Flags"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Control": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Faction": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Title": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Slot": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 20
+    }
+  }
+}

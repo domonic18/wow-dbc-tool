@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AreaTable Physical Schema",
+  "description": "AreaTable.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "AreaTable",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 36,
+  "field_order": [
+    "ID",
+    "ContinentID",
+    "ParentAreaID",
+    "AreaBit",
+    "Flags",
+    "SoundProviderPref",
+    "SoundProviderPrefUnderwater",
+    "AmbienceID",
+    "ZoneMusic",
+    "IntroSound",
+    "ExplorationLevel",
+    "AreaName_Lang_enUS",
+    "AreaName_Lang_enGB",
+    "AreaName_Lang_koKR",
+    "AreaName_Lang_frFR",
+    "AreaName_Lang_deDE",
+    "AreaName_Lang_enCN",
+    "AreaName_Lang_zhCN",
+    "AreaName_Lang_enTW",
+    "AreaName_Lang_zhTW",
+    "AreaName_Lang_esES",
+    "AreaName_Lang_esMX",
+    "AreaName_Lang_ruRU",
+    "AreaName_Lang_ptPT",
+    "AreaName_Lang_ptBR",
+    "AreaName_Lang_itIT",
+    "AreaName_Lang_Unk",
+    "AreaName_Lang_Mask",
+    "FactionGroupMask",
+    "LiquidTypeID_1",
+    "LiquidTypeID_2",
+    "LiquidTypeID_3",
+    "LiquidTypeID_4",
+    "MinElevation",
+    "Ambient_multiplier",
+    "LightID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ContinentID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ParentAreaID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "AreaBit": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 16
+    },
+    "SoundProviderPref": {
+      "type": "int32",
+      "offset": 20
+    },
+    "SoundProviderPrefUnderwater": {
+      "type": "int32",
+      "offset": 24
+    },
+    "AmbienceID": {
+      "type": "int32",
+      "offset": 28
+    },
+    "ZoneMusic": {
+      "type": "int32",
+      "offset": 32
+    },
+    "IntroSound": {
+      "type": "int32",
+      "offset": 36
+    },
+    "ExplorationLevel": {
+      "type": "int32",
+      "offset": 40
+    },
+    "AreaName_Lang_enUS": {
+      "type": "string",
+      "offset": 44
+    },
+    "AreaName_Lang_enGB": {
+      "type": "string",
+      "offset": 48
+    },
+    "AreaName_Lang_koKR": {
+      "type": "string",
+      "offset": 52
+    },
+    "AreaName_Lang_frFR": {
+      "type": "string",
+      "offset": 56
+    },
+    "AreaName_Lang_deDE": {
+      "type": "string",
+      "offset": 60
+    },
+    "AreaName_Lang_enCN": {
+      "type": "string",
+      "offset": 64
+    },
+    "AreaName_Lang_zhCN": {
+      "type": "string",
+      "offset": 68
+    },
+    "AreaName_Lang_enTW": {
+      "type": "string",
+      "offset": 72
+    },
+    "AreaName_Lang_zhTW": {
+      "type": "string",
+      "offset": 76
+    },
+    "AreaName_Lang_esES": {
+      "type": "string",
+      "offset": 80
+    },
+    "AreaName_Lang_esMX": {
+      "type": "string",
+      "offset": 84
+    },
+    "AreaName_Lang_ruRU": {
+      "type": "string",
+      "offset": 88
+    },
+    "AreaName_Lang_ptPT": {
+      "type": "string",
+      "offset": 92
+    },
+    "AreaName_Lang_ptBR": {
+      "type": "string",
+      "offset": 96
+    },
+    "AreaName_Lang_itIT": {
+      "type": "string",
+      "offset": 100
+    },
+    "AreaName_Lang_Unk": {
+      "type": "string",
+      "offset": 104
+    },
+    "AreaName_Lang_Mask": {
+      "type": "uint32",
+      "offset": 108
+    },
+    "FactionGroupMask": {
+      "type": "int32",
+      "offset": 112
+    },
+    "LiquidTypeID_1": {
+      "type": "int32",
+      "offset": 116
+    },
+    "LiquidTypeID_2": {
+      "type": "int32",
+      "offset": 120
+    },
+    "LiquidTypeID_3": {
+      "type": "int32",
+      "offset": 124
+    },
+    "LiquidTypeID_4": {
+      "type": "int32",
+      "offset": 128
+    },
+    "MinElevation": {
+      "type": "float",
+      "offset": 132
+    },
+    "Ambient_multiplier": {
+      "type": "float",
+      "offset": 136
+    },
+    "LightID": {
+      "type": "int32",
+      "offset": 140
+    }
+  }
+}

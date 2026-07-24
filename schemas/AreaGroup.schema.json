@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AreaGroup Physical Schema",
+  "description": "AreaGroup.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "AreaGroup",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "AreaID_1",
+    "AreaID_2",
+    "AreaID_3",
+    "AreaID_4",
+    "AreaID_5",
+    "AreaID_6",
+    "NextAreaID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "AreaID_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "AreaID_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "AreaID_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "AreaID_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "AreaID_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "AreaID_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "NextAreaID": {
+      "type": "int32",
+      "offset": 28
+    }
+  }
+}

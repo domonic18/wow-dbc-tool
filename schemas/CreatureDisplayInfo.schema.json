@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "CreatureDisplayInfo Physical Schema",
   "description": "CreatureDisplayInfo.dbc 物理字段定义 (版本 3.3.5.12340)",
-  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "source": "https://github.com/wowdev/WoWDBDefs",
   "table_name": "CreatureDisplayInfo",
   "version": "3.3.5.12340",
   "type": "object",
@@ -18,7 +18,7 @@
     "TextureVariation_2",
     "TextureVariation_3",
     "PortraitTextureName",
-    "BloodLevel",
+    "SizeClass",
     "BloodID",
     "NPCSoundID",
     "ParticleColorID",
@@ -59,14 +59,14 @@
       "offset": 28
     },
     "TextureVariation_3": {
-      "type": "int32",
+      "type": "string",
       "offset": 32
     },
     "PortraitTextureName": {
-      "type": "int32",
+      "type": "string",
       "offset": 36
     },
-    "BloodLevel": {
+    "SizeClass": {
       "type": "int32",
       "offset": 40
     },

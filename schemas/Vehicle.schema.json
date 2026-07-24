@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vehicle Physical Schema",
+  "description": "Vehicle.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Vehicle",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 40,
+  "field_order": [
+    "ID",
+    "Flags",
+    "TurnSpeed",
+    "PitchSpeed",
+    "PitchMin",
+    "PitchMax",
+    "SeatID_1",
+    "SeatID_2",
+    "SeatID_3",
+    "SeatID_4",
+    "SeatID_5",
+    "SeatID_6",
+    "SeatID_7",
+    "SeatID_8",
+    "MouseLookOffsetPitch",
+    "CameraFadeDistScalarMin",
+    "CameraFadeDistScalarMax",
+    "CameraPitchOffset",
+    "FacingLimitRight",
+    "FacingLimitLeft",
+    "MsslTrgtTurnLingering",
+    "MsslTrgtPitchLingering",
+    "MsslTrgtMouseLingering",
+    "MsslTrgtEndOpacity",
+    "MsslTrgtArcSpeed",
+    "MsslTrgtArcRepeat",
+    "MsslTrgtArcWidth",
+    "MsslTrgtImpactRadius_1",
+    "MsslTrgtImpactRadius_2",
+    "MsslTrgtArcTexture",
+    "MsslTrgtImpactTexture",
+    "MsslTrgtImpactModel_1",
+    "MsslTrgtImpactModel_2",
+    "CameraYawOffset",
+    "UiLocomotionType",
+    "MsslTrgtImpactTexRadius",
+    "VehicleUIIndicatorID",
+    "PowerDisplayID_1",
+    "PowerDisplayID_2",
+    "PowerDisplayID_3"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 4
+    },
+    "TurnSpeed": {
+      "type": "float",
+      "offset": 8
+    },
+    "PitchSpeed": {
+      "type": "float",
+      "offset": 12
+    },
+    "PitchMin": {
+      "type": "float",
+      "offset": 16
+    },
+    "PitchMax": {
+      "type": "float",
+      "offset": 20
+    },
+    "SeatID_1": {
+      "type": "int32",
+      "offset": 24
+    },
+    "SeatID_2": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SeatID_3": {
+      "type": "int32",
+      "offset": 32
+    },
+    "SeatID_4": {
+      "type": "int32",
+      "offset": 36
+    },
+    "SeatID_5": {
+      "type": "int32",
+      "offset": 40
+    },
+    "SeatID_6": {
+      "type": "int32",
+      "offset": 44
+    },
+    "SeatID_7": {
+      "type": "int32",
+      "offset": 48
+    },
+    "SeatID_8": {
+      "type": "int32",
+      "offset": 52
+    },
+    "MouseLookOffsetPitch": {
+      "type": "float",
+      "offset": 56
+    },
+    "CameraFadeDistScalarMin": {
+      "type": "float",
+      "offset": 60
+    },
+    "CameraFadeDistScalarMax": {
+      "type": "float",
+      "offset": 64
+    },
+    "CameraPitchOffset": {
+      "type": "float",
+      "offset": 68
+    },
+    "FacingLimitRight": {
+      "type": "float",
+      "offset": 72
+    },
+    "FacingLimitLeft": {
+      "type": "float",
+      "offset": 76
+    },
+    "MsslTrgtTurnLingering": {
+      "type": "float",
+      "offset": 80
+    },
+    "MsslTrgtPitchLingering": {
+      "type": "float",
+      "offset": 84
+    },
+    "MsslTrgtMouseLingering": {
+      "type": "float",
+      "offset": 88
+    },
+    "MsslTrgtEndOpacity": {
+      "type": "float",
+      "offset": 92
+    },
+    "MsslTrgtArcSpeed": {
+      "type": "float",
+      "offset": 96
+    },
+    "MsslTrgtArcRepeat": {
+      "type": "float",
+      "offset": 100
+    },
+    "MsslTrgtArcWidth": {
+      "type": "float",
+      "offset": 104
+    },
+    "MsslTrgtImpactRadius_1": {
+      "type": "float",
+      "offset": 108
+    },
+    "MsslTrgtImpactRadius_2": {
+      "type": "float",
+      "offset": 112
+    },
+    "MsslTrgtArcTexture": {
+      "type": "string",
+      "offset": 116
+    },
+    "MsslTrgtImpactTexture": {
+      "type": "string",
+      "offset": 120
+    },
+    "MsslTrgtImpactModel_1": {
+      "type": "string",
+      "offset": 124
+    },
+    "MsslTrgtImpactModel_2": {
+      "type": "string",
+      "offset": 128
+    },
+    "CameraYawOffset": {
+      "type": "float",
+      "offset": 132
+    },
+    "UiLocomotionType": {
+      "type": "int32",
+      "offset": 136
+    },
+    "MsslTrgtImpactTexRadius": {
+      "type": "float",
+      "offset": 140
+    },
+    "VehicleUIIndicatorID": {
+      "type": "int32",
+      "offset": 144
+    },
+    "PowerDisplayID_1": {
+      "type": "int32",
+      "offset": 148
+    },
+    "PowerDisplayID_2": {
+      "type": "int32",
+      "offset": 152
+    },
+    "PowerDisplayID_3": {
+      "type": "int32",
+      "offset": 156
+    }
+  }
+}

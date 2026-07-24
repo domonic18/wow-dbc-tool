@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SoundEmitters Physical Schema",
+  "description": "SoundEmitters.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SoundEmitters",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 10,
+  "field_order": [
+    "ID",
+    "Position_1",
+    "Position_2",
+    "Position_3",
+    "Direction_1",
+    "Direction_2",
+    "Direction_3",
+    "SoundEntryAdvancedID",
+    "MapID",
+    "Name"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Position_1": {
+      "type": "float",
+      "offset": 4
+    },
+    "Position_2": {
+      "type": "float",
+      "offset": 8
+    },
+    "Position_3": {
+      "type": "float",
+      "offset": 12
+    },
+    "Direction_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "Direction_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "Direction_3": {
+      "type": "float",
+      "offset": 24
+    },
+    "SoundEntryAdvancedID": {
+      "type": "int32",
+      "offset": 28
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Name": {
+      "type": "string",
+      "offset": 36
+    }
+  }
+}

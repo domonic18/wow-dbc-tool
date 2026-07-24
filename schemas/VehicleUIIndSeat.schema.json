@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VehicleUIIndSeat Physical Schema",
+  "description": "VehicleUIIndSeat.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "VehicleUIIndSeat",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 5,
+  "field_order": [
+    "ID",
+    "VehicleUIIndicatorID",
+    "VirtualSeatIndex",
+    "XPos",
+    "YPos"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "VehicleUIIndicatorID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "VirtualSeatIndex": {
+      "type": "int32",
+      "offset": 8
+    },
+    "XPos": {
+      "type": "float",
+      "offset": 12
+    },
+    "YPos": {
+      "type": "float",
+      "offset": 16
+    }
+  }
+}

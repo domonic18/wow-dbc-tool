@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BarberShopStyle Physical Schema",
+  "description": "BarberShopStyle.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "BarberShopStyle",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 40,
+  "field_order": [
+    "ID",
+    "Type",
+    "DisplayName_Lang_enUS",
+    "DisplayName_Lang_enGB",
+    "DisplayName_Lang_koKR",
+    "DisplayName_Lang_frFR",
+    "DisplayName_Lang_deDE",
+    "DisplayName_Lang_enCN",
+    "DisplayName_Lang_zhCN",
+    "DisplayName_Lang_enTW",
+    "DisplayName_Lang_zhTW",
+    "DisplayName_Lang_esES",
+    "DisplayName_Lang_esMX",
+    "DisplayName_Lang_ruRU",
+    "DisplayName_Lang_ptPT",
+    "DisplayName_Lang_ptBR",
+    "DisplayName_Lang_itIT",
+    "DisplayName_Lang_Unk",
+    "DisplayName_Lang_Mask",
+    "Description_Lang_enUS",
+    "Description_Lang_enGB",
+    "Description_Lang_koKR",
+    "Description_Lang_frFR",
+    "Description_Lang_deDE",
+    "Description_Lang_enCN",
+    "Description_Lang_zhCN",
+    "Description_Lang_enTW",
+    "Description_Lang_zhTW",
+    "Description_Lang_esES",
+    "Description_Lang_esMX",
+    "Description_Lang_ruRU",
+    "Description_Lang_ptPT",
+    "Description_Lang_ptBR",
+    "Description_Lang_itIT",
+    "Description_Lang_Unk",
+    "Description_Lang_Mask",
+    "Cost_Modifier",
+    "Race",
+    "Sex",
+    "Data"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Type": {
+      "type": "int32",
+      "offset": 4
+    },
+    "DisplayName_Lang_enUS": {
+      "type": "string",
+      "offset": 8
+    },
+    "DisplayName_Lang_enGB": {
+      "type": "string",
+      "offset": 12
+    },
+    "DisplayName_Lang_koKR": {
+      "type": "string",
+      "offset": 16
+    },
+    "DisplayName_Lang_frFR": {
+      "type": "string",
+      "offset": 20
+    },
+    "DisplayName_Lang_deDE": {
+      "type": "string",
+      "offset": 24
+    },
+    "DisplayName_Lang_enCN": {
+      "type": "string",
+      "offset": 28
+    },
+    "DisplayName_Lang_zhCN": {
+      "type": "string",
+      "offset": 32
+    },
+    "DisplayName_Lang_enTW": {
+      "type": "string",
+      "offset": 36
+    },
+    "DisplayName_Lang_zhTW": {
+      "type": "string",
+      "offset": 40
+    },
+    "DisplayName_Lang_esES": {
+      "type": "string",
+      "offset": 44
+    },
+    "DisplayName_Lang_esMX": {
+      "type": "string",
+      "offset": 48
+    },
+    "DisplayName_Lang_ruRU": {
+      "type": "string",
+      "offset": 52
+    },
+    "DisplayName_Lang_ptPT": {
+      "type": "string",
+      "offset": 56
+    },
+    "DisplayName_Lang_ptBR": {
+      "type": "string",
+      "offset": 60
+    },
+    "DisplayName_Lang_itIT": {
+      "type": "string",
+      "offset": 64
+    },
+    "DisplayName_Lang_Unk": {
+      "type": "string",
+      "offset": 68
+    },
+    "DisplayName_Lang_Mask": {
+      "type": "uint32",
+      "offset": 72
+    },
+    "Description_Lang_enUS": {
+      "type": "string",
+      "offset": 76
+    },
+    "Description_Lang_enGB": {
+      "type": "string",
+      "offset": 80
+    },
+    "Description_Lang_koKR": {
+      "type": "string",
+      "offset": 84
+    },
+    "Description_Lang_frFR": {
+      "type": "string",
+      "offset": 88
+    },
+    "Description_Lang_deDE": {
+      "type": "string",
+      "offset": 92
+    },
+    "Description_Lang_enCN": {
+      "type": "string",
+      "offset": 96
+    },
+    "Description_Lang_zhCN": {
+      "type": "string",
+      "offset": 100
+    },
+    "Description_Lang_enTW": {
+      "type": "string",
+      "offset": 104
+    },
+    "Description_Lang_zhTW": {
+      "type": "string",
+      "offset": 108
+    },
+    "Description_Lang_esES": {
+      "type": "string",
+      "offset": 112
+    },
+    "Description_Lang_esMX": {
+      "type": "string",
+      "offset": 116
+    },
+    "Description_Lang_ruRU": {
+      "type": "string",
+      "offset": 120
+    },
+    "Description_Lang_ptPT": {
+      "type": "string",
+      "offset": 124
+    },
+    "Description_Lang_ptBR": {
+      "type": "string",
+      "offset": 128
+    },
+    "Description_Lang_itIT": {
+      "type": "string",
+      "offset": 132
+    },
+    "Description_Lang_Unk": {
+      "type": "string",
+      "offset": 136
+    },
+    "Description_Lang_Mask": {
+      "type": "uint32",
+      "offset": 140
+    },
+    "Cost_Modifier": {
+      "type": "float",
+      "offset": 144
+    },
+    "Race": {
+      "type": "int32",
+      "offset": 148
+    },
+    "Sex": {
+      "type": "int32",
+      "offset": 152
+    },
+    "Data": {
+      "type": "int32",
+      "offset": 156
+    }
+  }
+}

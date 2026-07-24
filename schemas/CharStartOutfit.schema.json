@@ -1,0 +1,399 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CharStartOutfit Physical Schema",
+  "description": "CharStartOutfit.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CharStartOutfit",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 77,
+  "field_order": [
+    "ID",
+    "RaceID",
+    "ClassID",
+    "SexID",
+    "OutfitID",
+    "ItemID_1",
+    "ItemID_2",
+    "ItemID_3",
+    "ItemID_4",
+    "ItemID_5",
+    "ItemID_6",
+    "ItemID_7",
+    "ItemID_8",
+    "ItemID_9",
+    "ItemID_10",
+    "ItemID_11",
+    "ItemID_12",
+    "ItemID_13",
+    "ItemID_14",
+    "ItemID_15",
+    "ItemID_16",
+    "ItemID_17",
+    "ItemID_18",
+    "ItemID_19",
+    "ItemID_20",
+    "ItemID_21",
+    "ItemID_22",
+    "ItemID_23",
+    "ItemID_24",
+    "DisplayItemID_1",
+    "DisplayItemID_2",
+    "DisplayItemID_3",
+    "DisplayItemID_4",
+    "DisplayItemID_5",
+    "DisplayItemID_6",
+    "DisplayItemID_7",
+    "DisplayItemID_8",
+    "DisplayItemID_9",
+    "DisplayItemID_10",
+    "DisplayItemID_11",
+    "DisplayItemID_12",
+    "DisplayItemID_13",
+    "DisplayItemID_14",
+    "DisplayItemID_15",
+    "DisplayItemID_16",
+    "DisplayItemID_17",
+    "DisplayItemID_18",
+    "DisplayItemID_19",
+    "DisplayItemID_20",
+    "DisplayItemID_21",
+    "DisplayItemID_22",
+    "DisplayItemID_23",
+    "DisplayItemID_24",
+    "InventoryType_1",
+    "InventoryType_2",
+    "InventoryType_3",
+    "InventoryType_4",
+    "InventoryType_5",
+    "InventoryType_6",
+    "InventoryType_7",
+    "InventoryType_8",
+    "InventoryType_9",
+    "InventoryType_10",
+    "InventoryType_11",
+    "InventoryType_12",
+    "InventoryType_13",
+    "InventoryType_14",
+    "InventoryType_15",
+    "InventoryType_16",
+    "InventoryType_17",
+    "InventoryType_18",
+    "InventoryType_19",
+    "InventoryType_20",
+    "InventoryType_21",
+    "InventoryType_22",
+    "InventoryType_23",
+    "InventoryType_24"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "RaceID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ClassID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "SexID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "OutfitID": {
+      "type": "int32",
+      "offset": 16
+    },
+    "ItemID_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ItemID_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "ItemID_3": {
+      "type": "int32",
+      "offset": 28
+    },
+    "ItemID_4": {
+      "type": "int32",
+      "offset": 32
+    },
+    "ItemID_5": {
+      "type": "int32",
+      "offset": 36
+    },
+    "ItemID_6": {
+      "type": "int32",
+      "offset": 40
+    },
+    "ItemID_7": {
+      "type": "int32",
+      "offset": 44
+    },
+    "ItemID_8": {
+      "type": "int32",
+      "offset": 48
+    },
+    "ItemID_9": {
+      "type": "int32",
+      "offset": 52
+    },
+    "ItemID_10": {
+      "type": "int32",
+      "offset": 56
+    },
+    "ItemID_11": {
+      "type": "int32",
+      "offset": 60
+    },
+    "ItemID_12": {
+      "type": "int32",
+      "offset": 64
+    },
+    "ItemID_13": {
+      "type": "int32",
+      "offset": 68
+    },
+    "ItemID_14": {
+      "type": "int32",
+      "offset": 72
+    },
+    "ItemID_15": {
+      "type": "int32",
+      "offset": 76
+    },
+    "ItemID_16": {
+      "type": "int32",
+      "offset": 80
+    },
+    "ItemID_17": {
+      "type": "int32",
+      "offset": 84
+    },
+    "ItemID_18": {
+      "type": "int32",
+      "offset": 88
+    },
+    "ItemID_19": {
+      "type": "int32",
+      "offset": 92
+    },
+    "ItemID_20": {
+      "type": "int32",
+      "offset": 96
+    },
+    "ItemID_21": {
+      "type": "int32",
+      "offset": 100
+    },
+    "ItemID_22": {
+      "type": "int32",
+      "offset": 104
+    },
+    "ItemID_23": {
+      "type": "int32",
+      "offset": 108
+    },
+    "ItemID_24": {
+      "type": "int32",
+      "offset": 112
+    },
+    "DisplayItemID_1": {
+      "type": "int32",
+      "offset": 116
+    },
+    "DisplayItemID_2": {
+      "type": "int32",
+      "offset": 120
+    },
+    "DisplayItemID_3": {
+      "type": "int32",
+      "offset": 124
+    },
+    "DisplayItemID_4": {
+      "type": "int32",
+      "offset": 128
+    },
+    "DisplayItemID_5": {
+      "type": "int32",
+      "offset": 132
+    },
+    "DisplayItemID_6": {
+      "type": "int32",
+      "offset": 136
+    },
+    "DisplayItemID_7": {
+      "type": "int32",
+      "offset": 140
+    },
+    "DisplayItemID_8": {
+      "type": "int32",
+      "offset": 144
+    },
+    "DisplayItemID_9": {
+      "type": "int32",
+      "offset": 148
+    },
+    "DisplayItemID_10": {
+      "type": "int32",
+      "offset": 152
+    },
+    "DisplayItemID_11": {
+      "type": "int32",
+      "offset": 156
+    },
+    "DisplayItemID_12": {
+      "type": "int32",
+      "offset": 160
+    },
+    "DisplayItemID_13": {
+      "type": "int32",
+      "offset": 164
+    },
+    "DisplayItemID_14": {
+      "type": "int32",
+      "offset": 168
+    },
+    "DisplayItemID_15": {
+      "type": "int32",
+      "offset": 172
+    },
+    "DisplayItemID_16": {
+      "type": "int32",
+      "offset": 176
+    },
+    "DisplayItemID_17": {
+      "type": "int32",
+      "offset": 180
+    },
+    "DisplayItemID_18": {
+      "type": "int32",
+      "offset": 184
+    },
+    "DisplayItemID_19": {
+      "type": "int32",
+      "offset": 188
+    },
+    "DisplayItemID_20": {
+      "type": "int32",
+      "offset": 192
+    },
+    "DisplayItemID_21": {
+      "type": "int32",
+      "offset": 196
+    },
+    "DisplayItemID_22": {
+      "type": "int32",
+      "offset": 200
+    },
+    "DisplayItemID_23": {
+      "type": "int32",
+      "offset": 204
+    },
+    "DisplayItemID_24": {
+      "type": "int32",
+      "offset": 208
+    },
+    "InventoryType_1": {
+      "type": "int32",
+      "offset": 212
+    },
+    "InventoryType_2": {
+      "type": "int32",
+      "offset": 216
+    },
+    "InventoryType_3": {
+      "type": "int32",
+      "offset": 220
+    },
+    "InventoryType_4": {
+      "type": "int32",
+      "offset": 224
+    },
+    "InventoryType_5": {
+      "type": "int32",
+      "offset": 228
+    },
+    "InventoryType_6": {
+      "type": "int32",
+      "offset": 232
+    },
+    "InventoryType_7": {
+      "type": "int32",
+      "offset": 236
+    },
+    "InventoryType_8": {
+      "type": "int32",
+      "offset": 240
+    },
+    "InventoryType_9": {
+      "type": "int32",
+      "offset": 244
+    },
+    "InventoryType_10": {
+      "type": "int32",
+      "offset": 248
+    },
+    "InventoryType_11": {
+      "type": "int32",
+      "offset": 252
+    },
+    "InventoryType_12": {
+      "type": "int32",
+      "offset": 256
+    },
+    "InventoryType_13": {
+      "type": "int32",
+      "offset": 260
+    },
+    "InventoryType_14": {
+      "type": "int32",
+      "offset": 264
+    },
+    "InventoryType_15": {
+      "type": "int32",
+      "offset": 268
+    },
+    "InventoryType_16": {
+      "type": "int32",
+      "offset": 272
+    },
+    "InventoryType_17": {
+      "type": "int32",
+      "offset": 276
+    },
+    "InventoryType_18": {
+      "type": "int32",
+      "offset": 280
+    },
+    "InventoryType_19": {
+      "type": "int32",
+      "offset": 284
+    },
+    "InventoryType_20": {
+      "type": "int32",
+      "offset": 288
+    },
+    "InventoryType_21": {
+      "type": "int32",
+      "offset": 292
+    },
+    "InventoryType_22": {
+      "type": "int32",
+      "offset": 296
+    },
+    "InventoryType_23": {
+      "type": "int32",
+      "offset": 300
+    },
+    "InventoryType_24": {
+      "type": "int32",
+      "offset": 304
+    }
+  }
+}

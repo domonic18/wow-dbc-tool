@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldMapTransforms Physical Schema",
+  "description": "WorldMapTransforms.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "WorldMapTransforms",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 10,
+  "field_order": [
+    "ID",
+    "MapID",
+    "RegionMin_1",
+    "RegionMin_2",
+    "RegionMax_1",
+    "RegionMax_2",
+    "NewMapID",
+    "RegionOffset_1",
+    "RegionOffset_2",
+    "NewDungeonMapID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "RegionMin_1": {
+      "type": "float",
+      "offset": 8
+    },
+    "RegionMin_2": {
+      "type": "float",
+      "offset": 12
+    },
+    "RegionMax_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "RegionMax_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "NewMapID": {
+      "type": "int32",
+      "offset": 24
+    },
+    "RegionOffset_1": {
+      "type": "float",
+      "offset": 28
+    },
+    "RegionOffset_2": {
+      "type": "float",
+      "offset": 32
+    },
+    "NewDungeonMapID": {
+      "type": "int32",
+      "offset": 36
+    }
+  }
+}

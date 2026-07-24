@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ItemPurchaseGroup Physical Schema",
+  "description": "ItemPurchaseGroup.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ItemPurchaseGroup",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 26,
+  "field_order": [
+    "ID",
+    "ItemID_1",
+    "ItemID_2",
+    "ItemID_3",
+    "ItemID_4",
+    "ItemID_5",
+    "ItemID_6",
+    "ItemID_7",
+    "ItemID_8",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ItemID_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ItemID_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "ItemID_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ItemID_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "ItemID_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ItemID_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "ItemID_7": {
+      "type": "int32",
+      "offset": 28
+    },
+    "ItemID_8": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 36
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 40
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 44
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 48
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 52
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 68
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 72
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 76
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 80
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 84
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 88
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 92
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 96
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 100
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellDifficulty Physical Schema",
+  "description": "SpellDifficulty.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellDifficulty",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 5,
+  "field_order": [
+    "ID",
+    "DifficultySpellID_1",
+    "DifficultySpellID_2",
+    "DifficultySpellID_3",
+    "DifficultySpellID_4"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "DifficultySpellID_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "DifficultySpellID_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "DifficultySpellID_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "DifficultySpellID_4": {
+      "type": "int32",
+      "offset": 16
+    }
+  }
+}

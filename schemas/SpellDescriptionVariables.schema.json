@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellDescriptionVariables Physical Schema",
+  "description": "SpellDescriptionVariables.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellDescriptionVariables",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 2,
+  "field_order": [
+    "ID",
+    "Variables"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Variables": {
+      "type": "string",
+      "offset": 4
+    }
+  }
+}

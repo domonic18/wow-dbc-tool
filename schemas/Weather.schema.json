@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weather Physical Schema",
+  "description": "Weather.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Weather",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "AmbienceID",
+    "EffectType",
+    "TransitionSkyBox",
+    "EffectColor_1",
+    "EffectColor_2",
+    "EffectColor_3",
+    "EffectTexture"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "AmbienceID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "EffectType": {
+      "type": "int32",
+      "offset": 8
+    },
+    "TransitionSkyBox": {
+      "type": "float",
+      "offset": 12
+    },
+    "EffectColor_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "EffectColor_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "EffectColor_3": {
+      "type": "float",
+      "offset": 24
+    },
+    "EffectTexture": {
+      "type": "string",
+      "offset": 28
+    }
+  }
+}

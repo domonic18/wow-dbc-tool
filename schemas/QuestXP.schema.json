@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QuestXP Physical Schema",
+  "description": "QuestXP.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "QuestXP",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 11,
+  "field_order": [
+    "ID",
+    "Difficulty_1",
+    "Difficulty_2",
+    "Difficulty_3",
+    "Difficulty_4",
+    "Difficulty_5",
+    "Difficulty_6",
+    "Difficulty_7",
+    "Difficulty_8",
+    "Difficulty_9",
+    "Difficulty_10"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Difficulty_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Difficulty_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Difficulty_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Difficulty_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Difficulty_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Difficulty_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Difficulty_7": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Difficulty_8": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Difficulty_9": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Difficulty_10": {
+      "type": "int32",
+      "offset": 40
+    }
+  }
+}

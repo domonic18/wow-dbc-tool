@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SoundEntries Physical Schema",
+  "description": "SoundEntries.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SoundEntries",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 30,
+  "field_order": [
+    "ID",
+    "SoundType",
+    "Name",
+    "File_1",
+    "File_2",
+    "File_3",
+    "File_4",
+    "File_5",
+    "File_6",
+    "File_7",
+    "File_8",
+    "File_9",
+    "File_10",
+    "Freq_1",
+    "Freq_2",
+    "Freq_3",
+    "Freq_4",
+    "Freq_5",
+    "Freq_6",
+    "Freq_7",
+    "Freq_8",
+    "Freq_9",
+    "Freq_10",
+    "DirectoryBase",
+    "VolumeFloat",
+    "Flags",
+    "MinDistance",
+    "DistanceCutoff",
+    "EAXDef",
+    "SoundEntriesAdvancedID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SoundType": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Name": {
+      "type": "string",
+      "offset": 8
+    },
+    "File_1": {
+      "type": "string",
+      "offset": 12
+    },
+    "File_2": {
+      "type": "string",
+      "offset": 16
+    },
+    "File_3": {
+      "type": "string",
+      "offset": 20
+    },
+    "File_4": {
+      "type": "string",
+      "offset": 24
+    },
+    "File_5": {
+      "type": "string",
+      "offset": 28
+    },
+    "File_6": {
+      "type": "string",
+      "offset": 32
+    },
+    "File_7": {
+      "type": "string",
+      "offset": 36
+    },
+    "File_8": {
+      "type": "string",
+      "offset": 40
+    },
+    "File_9": {
+      "type": "string",
+      "offset": 44
+    },
+    "File_10": {
+      "type": "string",
+      "offset": 48
+    },
+    "Freq_1": {
+      "type": "int32",
+      "offset": 52
+    },
+    "Freq_2": {
+      "type": "int32",
+      "offset": 56
+    },
+    "Freq_3": {
+      "type": "int32",
+      "offset": 60
+    },
+    "Freq_4": {
+      "type": "int32",
+      "offset": 64
+    },
+    "Freq_5": {
+      "type": "int32",
+      "offset": 68
+    },
+    "Freq_6": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Freq_7": {
+      "type": "int32",
+      "offset": 76
+    },
+    "Freq_8": {
+      "type": "int32",
+      "offset": 80
+    },
+    "Freq_9": {
+      "type": "int32",
+      "offset": 84
+    },
+    "Freq_10": {
+      "type": "int32",
+      "offset": 88
+    },
+    "DirectoryBase": {
+      "type": "string",
+      "offset": 92
+    },
+    "VolumeFloat": {
+      "type": "float",
+      "offset": 96
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 100
+    },
+    "MinDistance": {
+      "type": "float",
+      "offset": 104
+    },
+    "DistanceCutoff": {
+      "type": "float",
+      "offset": 108
+    },
+    "EAXDef": {
+      "type": "int32",
+      "offset": 112
+    },
+    "SoundEntriesAdvancedID": {
+      "type": "int32",
+      "offset": 116
+    }
+  }
+}

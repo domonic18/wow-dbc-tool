@@ -1,0 +1,359 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChrRaces Physical Schema",
+  "description": "ChrRaces.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ChrRaces",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 69,
+  "field_order": [
+    "ID",
+    "Flags",
+    "FactionID",
+    "ExplorationSoundID",
+    "MaleDisplayID",
+    "FemaleDisplayID",
+    "ClientPrefix",
+    "BaseLanguage",
+    "CreatureType",
+    "ResSicknessSpellID",
+    "SplashSoundID",
+    "ClientFileString",
+    "CinematicSequenceID",
+    "Alliance",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask",
+    "Name_female_Lang_enUS",
+    "Name_female_Lang_enGB",
+    "Name_female_Lang_koKR",
+    "Name_female_Lang_frFR",
+    "Name_female_Lang_deDE",
+    "Name_female_Lang_enCN",
+    "Name_female_Lang_zhCN",
+    "Name_female_Lang_enTW",
+    "Name_female_Lang_zhTW",
+    "Name_female_Lang_esES",
+    "Name_female_Lang_esMX",
+    "Name_female_Lang_ruRU",
+    "Name_female_Lang_ptPT",
+    "Name_female_Lang_ptBR",
+    "Name_female_Lang_itIT",
+    "Name_female_Lang_Unk",
+    "Name_female_Lang_Mask",
+    "Name_male_Lang_enUS",
+    "Name_male_Lang_enGB",
+    "Name_male_Lang_koKR",
+    "Name_male_Lang_frFR",
+    "Name_male_Lang_deDE",
+    "Name_male_Lang_enCN",
+    "Name_male_Lang_zhCN",
+    "Name_male_Lang_enTW",
+    "Name_male_Lang_zhTW",
+    "Name_male_Lang_esES",
+    "Name_male_Lang_esMX",
+    "Name_male_Lang_ruRU",
+    "Name_male_Lang_ptPT",
+    "Name_male_Lang_ptBR",
+    "Name_male_Lang_itIT",
+    "Name_male_Lang_Unk",
+    "Name_male_Lang_Mask",
+    "FacialHairCustomization_1",
+    "FacialHairCustomization_2",
+    "HairCustomization",
+    "Required_expansion"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 4
+    },
+    "FactionID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "ExplorationSoundID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "MaleDisplayID": {
+      "type": "int32",
+      "offset": 16
+    },
+    "FemaleDisplayID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ClientPrefix": {
+      "type": "string",
+      "offset": 24
+    },
+    "BaseLanguage": {
+      "type": "int32",
+      "offset": 28
+    },
+    "CreatureType": {
+      "type": "int32",
+      "offset": 32
+    },
+    "ResSicknessSpellID": {
+      "type": "int32",
+      "offset": 36
+    },
+    "SplashSoundID": {
+      "type": "int32",
+      "offset": 40
+    },
+    "ClientFileString": {
+      "type": "string",
+      "offset": 44
+    },
+    "CinematicSequenceID": {
+      "type": "int32",
+      "offset": 48
+    },
+    "Alliance": {
+      "type": "int32",
+      "offset": 52
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 68
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 72
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 76
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 80
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 84
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 88
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 92
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 96
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 100
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 104
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 108
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 112
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 116
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 120
+    },
+    "Name_female_Lang_enUS": {
+      "type": "string",
+      "offset": 124
+    },
+    "Name_female_Lang_enGB": {
+      "type": "string",
+      "offset": 128
+    },
+    "Name_female_Lang_koKR": {
+      "type": "string",
+      "offset": 132
+    },
+    "Name_female_Lang_frFR": {
+      "type": "string",
+      "offset": 136
+    },
+    "Name_female_Lang_deDE": {
+      "type": "string",
+      "offset": 140
+    },
+    "Name_female_Lang_enCN": {
+      "type": "string",
+      "offset": 144
+    },
+    "Name_female_Lang_zhCN": {
+      "type": "string",
+      "offset": 148
+    },
+    "Name_female_Lang_enTW": {
+      "type": "string",
+      "offset": 152
+    },
+    "Name_female_Lang_zhTW": {
+      "type": "string",
+      "offset": 156
+    },
+    "Name_female_Lang_esES": {
+      "type": "string",
+      "offset": 160
+    },
+    "Name_female_Lang_esMX": {
+      "type": "string",
+      "offset": 164
+    },
+    "Name_female_Lang_ruRU": {
+      "type": "string",
+      "offset": 168
+    },
+    "Name_female_Lang_ptPT": {
+      "type": "string",
+      "offset": 172
+    },
+    "Name_female_Lang_ptBR": {
+      "type": "string",
+      "offset": 176
+    },
+    "Name_female_Lang_itIT": {
+      "type": "string",
+      "offset": 180
+    },
+    "Name_female_Lang_Unk": {
+      "type": "string",
+      "offset": 184
+    },
+    "Name_female_Lang_Mask": {
+      "type": "uint32",
+      "offset": 188
+    },
+    "Name_male_Lang_enUS": {
+      "type": "string",
+      "offset": 192
+    },
+    "Name_male_Lang_enGB": {
+      "type": "string",
+      "offset": 196
+    },
+    "Name_male_Lang_koKR": {
+      "type": "string",
+      "offset": 200
+    },
+    "Name_male_Lang_frFR": {
+      "type": "string",
+      "offset": 204
+    },
+    "Name_male_Lang_deDE": {
+      "type": "string",
+      "offset": 208
+    },
+    "Name_male_Lang_enCN": {
+      "type": "string",
+      "offset": 212
+    },
+    "Name_male_Lang_zhCN": {
+      "type": "string",
+      "offset": 216
+    },
+    "Name_male_Lang_enTW": {
+      "type": "string",
+      "offset": 220
+    },
+    "Name_male_Lang_zhTW": {
+      "type": "string",
+      "offset": 224
+    },
+    "Name_male_Lang_esES": {
+      "type": "string",
+      "offset": 228
+    },
+    "Name_male_Lang_esMX": {
+      "type": "string",
+      "offset": 232
+    },
+    "Name_male_Lang_ruRU": {
+      "type": "string",
+      "offset": 236
+    },
+    "Name_male_Lang_ptPT": {
+      "type": "string",
+      "offset": 240
+    },
+    "Name_male_Lang_ptBR": {
+      "type": "string",
+      "offset": 244
+    },
+    "Name_male_Lang_itIT": {
+      "type": "string",
+      "offset": 248
+    },
+    "Name_male_Lang_Unk": {
+      "type": "string",
+      "offset": 252
+    },
+    "Name_male_Lang_Mask": {
+      "type": "uint32",
+      "offset": 256
+    },
+    "FacialHairCustomization_1": {
+      "type": "string",
+      "offset": 260
+    },
+    "FacialHairCustomization_2": {
+      "type": "string",
+      "offset": 264
+    },
+    "HairCustomization": {
+      "type": "string",
+      "offset": 268
+    },
+    "Required_expansion": {
+      "type": "int32",
+      "offset": 272
+    }
+  }
+}

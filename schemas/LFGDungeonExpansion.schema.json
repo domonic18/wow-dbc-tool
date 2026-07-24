@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LFGDungeonExpansion Physical Schema",
+  "description": "LFGDungeonExpansion.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "LFGDungeonExpansion",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "Lfg_ID",
+    "Expansion_level",
+    "Random_ID",
+    "Hard_level_min",
+    "Hard_level_max",
+    "Target_level_min",
+    "Target_level_max"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Lfg_ID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Expansion_level": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Random_ID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Hard_level_min": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Hard_level_max": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Target_level_min": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Target_level_max": {
+      "type": "int32",
+      "offset": 28
+    }
+  }
+}

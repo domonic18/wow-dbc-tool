@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "CreatureModelData Physical Schema",
   "description": "CreatureModelData.dbc 物理字段定义 (版本 3.3.5.12340)",
-  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "source": "https://github.com/wowdev/WoWDBDefs",
   "table_name": "CreatureModelData",
   "version": "3.3.5.12340",
   "type": "object",
@@ -47,7 +47,7 @@
       "offset": 4
     },
     "ModelName": {
-      "type": "int32",
+      "type": "string",
       "offset": 8
     },
     "SizeClass": {

@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellItemEnchantment Physical Schema",
+  "description": "SpellItemEnchantment.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellItemEnchantment",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 38,
+  "field_order": [
+    "ID",
+    "Charges",
+    "Effect_1",
+    "Effect_2",
+    "Effect_3",
+    "EffectPointsMin_1",
+    "EffectPointsMin_2",
+    "EffectPointsMin_3",
+    "EffectPointsMax_1",
+    "EffectPointsMax_2",
+    "EffectPointsMax_3",
+    "EffectArg_1",
+    "EffectArg_2",
+    "EffectArg_3",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask",
+    "ItemVisual",
+    "Flags",
+    "Src_itemID",
+    "Condition_ID",
+    "RequiredSkillID",
+    "RequiredSkillRank",
+    "MinLevel"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Charges": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Effect_1": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Effect_2": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Effect_3": {
+      "type": "int32",
+      "offset": 16
+    },
+    "EffectPointsMin_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "EffectPointsMin_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "EffectPointsMin_3": {
+      "type": "int32",
+      "offset": 28
+    },
+    "EffectPointsMax_1": {
+      "type": "int32",
+      "offset": 32
+    },
+    "EffectPointsMax_2": {
+      "type": "int32",
+      "offset": 36
+    },
+    "EffectPointsMax_3": {
+      "type": "int32",
+      "offset": 40
+    },
+    "EffectArg_1": {
+      "type": "int32",
+      "offset": 44
+    },
+    "EffectArg_2": {
+      "type": "int32",
+      "offset": 48
+    },
+    "EffectArg_3": {
+      "type": "int32",
+      "offset": 52
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 68
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 72
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 76
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 80
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 84
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 88
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 92
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 96
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 100
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 104
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 108
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 112
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 116
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 120
+    },
+    "ItemVisual": {
+      "type": "int32",
+      "offset": 124
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 128
+    },
+    "Src_itemID": {
+      "type": "int32",
+      "offset": 132
+    },
+    "Condition_ID": {
+      "type": "int32",
+      "offset": 136
+    },
+    "RequiredSkillID": {
+      "type": "int32",
+      "offset": 140
+    },
+    "RequiredSkillRank": {
+      "type": "int32",
+      "offset": 144
+    },
+    "MinLevel": {
+      "type": "int32",
+      "offset": 148
+    }
+  }
+}

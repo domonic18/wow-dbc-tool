@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Achievement_Criteria Physical Schema",
+  "description": "Achievement_Criteria.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Achievement_Criteria",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 31,
+  "field_order": [
+    "ID",
+    "Achievement_ID",
+    "Type",
+    "Asset_ID",
+    "Quantity",
+    "Start_event",
+    "Start_asset",
+    "Fail_event",
+    "Fail_asset",
+    "Description_Lang_enUS",
+    "Description_Lang_enGB",
+    "Description_Lang_koKR",
+    "Description_Lang_frFR",
+    "Description_Lang_deDE",
+    "Description_Lang_enCN",
+    "Description_Lang_zhCN",
+    "Description_Lang_enTW",
+    "Description_Lang_zhTW",
+    "Description_Lang_esES",
+    "Description_Lang_esMX",
+    "Description_Lang_ruRU",
+    "Description_Lang_ptPT",
+    "Description_Lang_ptBR",
+    "Description_Lang_itIT",
+    "Description_Lang_Unk",
+    "Description_Lang_Mask",
+    "Flags",
+    "Timer_start_event",
+    "Timer_asset_ID",
+    "Timer_time",
+    "Ui_order"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Achievement_ID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Type": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Asset_ID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Quantity": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Start_event": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Start_asset": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Fail_event": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Fail_asset": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Description_Lang_enUS": {
+      "type": "string",
+      "offset": 36
+    },
+    "Description_Lang_enGB": {
+      "type": "string",
+      "offset": 40
+    },
+    "Description_Lang_koKR": {
+      "type": "string",
+      "offset": 44
+    },
+    "Description_Lang_frFR": {
+      "type": "string",
+      "offset": 48
+    },
+    "Description_Lang_deDE": {
+      "type": "string",
+      "offset": 52
+    },
+    "Description_Lang_enCN": {
+      "type": "string",
+      "offset": 56
+    },
+    "Description_Lang_zhCN": {
+      "type": "string",
+      "offset": 60
+    },
+    "Description_Lang_enTW": {
+      "type": "string",
+      "offset": 64
+    },
+    "Description_Lang_zhTW": {
+      "type": "string",
+      "offset": 68
+    },
+    "Description_Lang_esES": {
+      "type": "string",
+      "offset": 72
+    },
+    "Description_Lang_esMX": {
+      "type": "string",
+      "offset": 76
+    },
+    "Description_Lang_ruRU": {
+      "type": "string",
+      "offset": 80
+    },
+    "Description_Lang_ptPT": {
+      "type": "string",
+      "offset": 84
+    },
+    "Description_Lang_ptBR": {
+      "type": "string",
+      "offset": 88
+    },
+    "Description_Lang_itIT": {
+      "type": "string",
+      "offset": 92
+    },
+    "Description_Lang_Unk": {
+      "type": "string",
+      "offset": 96
+    },
+    "Description_Lang_Mask": {
+      "type": "uint32",
+      "offset": 100
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 104
+    },
+    "Timer_start_event": {
+      "type": "int32",
+      "offset": 108
+    },
+    "Timer_asset_ID": {
+      "type": "int32",
+      "offset": 112
+    },
+    "Timer_time": {
+      "type": "int32",
+      "offset": 116
+    },
+    "Ui_order": {
+      "type": "int32",
+      "offset": 120
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreatureSoundData Physical Schema",
+  "description": "CreatureSoundData.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CreatureSoundData",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 38,
+  "field_order": [
+    "ID",
+    "SoundExertionID",
+    "SoundExertionCriticalID",
+    "SoundInjuryID",
+    "SoundInjuryCriticalID",
+    "SoundInjuryCrushingBlowID",
+    "SoundDeathID",
+    "SoundStunID",
+    "SoundStandID",
+    "SoundFootstepID",
+    "SoundAggroID",
+    "SoundWingFlapID",
+    "SoundWingGlideID",
+    "SoundAlertID",
+    "SoundFidget_1",
+    "SoundFidget_2",
+    "SoundFidget_3",
+    "SoundFidget_4",
+    "SoundFidget_5",
+    "CustomAttack_1",
+    "CustomAttack_2",
+    "CustomAttack_3",
+    "CustomAttack_4",
+    "NPCSoundID",
+    "LoopSoundID",
+    "CreatureImpactType",
+    "SoundJumpStartID",
+    "SoundJumpEndID",
+    "SoundPetAttackID",
+    "SoundPetOrderID",
+    "SoundPetDismissID",
+    "FidgetDelaySecondsMin",
+    "FidgetDelaySecondsMax",
+    "BirthSoundID",
+    "SpellCastDirectedSoundID",
+    "SubmergeSoundID",
+    "SubmergedSoundID",
+    "CreatureSoundDataIDPet"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SoundExertionID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "SoundExertionCriticalID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "SoundInjuryID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "SoundInjuryCriticalID": {
+      "type": "int32",
+      "offset": 16
+    },
+    "SoundInjuryCrushingBlowID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "SoundDeathID": {
+      "type": "int32",
+      "offset": 24
+    },
+    "SoundStunID": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SoundStandID": {
+      "type": "int32",
+      "offset": 32
+    },
+    "SoundFootstepID": {
+      "type": "int32",
+      "offset": 36
+    },
+    "SoundAggroID": {
+      "type": "int32",
+      "offset": 40
+    },
+    "SoundWingFlapID": {
+      "type": "int32",
+      "offset": 44
+    },
+    "SoundWingGlideID": {
+      "type": "int32",
+      "offset": 48
+    },
+    "SoundAlertID": {
+      "type": "int32",
+      "offset": 52
+    },
+    "SoundFidget_1": {
+      "type": "int32",
+      "offset": 56
+    },
+    "SoundFidget_2": {
+      "type": "int32",
+      "offset": 60
+    },
+    "SoundFidget_3": {
+      "type": "int32",
+      "offset": 64
+    },
+    "SoundFidget_4": {
+      "type": "int32",
+      "offset": 68
+    },
+    "SoundFidget_5": {
+      "type": "int32",
+      "offset": 72
+    },
+    "CustomAttack_1": {
+      "type": "int32",
+      "offset": 76
+    },
+    "CustomAttack_2": {
+      "type": "int32",
+      "offset": 80
+    },
+    "CustomAttack_3": {
+      "type": "int32",
+      "offset": 84
+    },
+    "CustomAttack_4": {
+      "type": "int32",
+      "offset": 88
+    },
+    "NPCSoundID": {
+      "type": "int32",
+      "offset": 92
+    },
+    "LoopSoundID": {
+      "type": "int32",
+      "offset": 96
+    },
+    "CreatureImpactType": {
+      "type": "int32",
+      "offset": 100
+    },
+    "SoundJumpStartID": {
+      "type": "int32",
+      "offset": 104
+    },
+    "SoundJumpEndID": {
+      "type": "int32",
+      "offset": 108
+    },
+    "SoundPetAttackID": {
+      "type": "int32",
+      "offset": 112
+    },
+    "SoundPetOrderID": {
+      "type": "int32",
+      "offset": 116
+    },
+    "SoundPetDismissID": {
+      "type": "int32",
+      "offset": 120
+    },
+    "FidgetDelaySecondsMin": {
+      "type": "float",
+      "offset": 124
+    },
+    "FidgetDelaySecondsMax": {
+      "type": "float",
+      "offset": 128
+    },
+    "BirthSoundID": {
+      "type": "int32",
+      "offset": 132
+    },
+    "SpellCastDirectedSoundID": {
+      "type": "int32",
+      "offset": 136
+    },
+    "SubmergeSoundID": {
+      "type": "int32",
+      "offset": 140
+    },
+    "SubmergedSoundID": {
+      "type": "int32",
+      "offset": 144
+    },
+    "CreatureSoundDataIDPet": {
+      "type": "int32",
+      "offset": 148
+    }
+  }
+}

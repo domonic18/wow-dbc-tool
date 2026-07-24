@@ -1,0 +1,304 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VehicleSeat Physical Schema",
+  "description": "VehicleSeat.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "VehicleSeat",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 58,
+  "field_order": [
+    "ID",
+    "Field_3_3_5_12213_001",
+    "AttachmentID",
+    "AttachmentOffset_1",
+    "AttachmentOffset_2",
+    "AttachmentOffset_3",
+    "Field_3_3_5_12213_004",
+    "EnterSpeed",
+    "EnterGravity",
+    "EnterMinDuration",
+    "EnterMaxDuration",
+    "EnterMinArcHeight",
+    "EnterMaxArcHeight",
+    "EnterAnimStart",
+    "EnterAnimLoop",
+    "RideAnimStart",
+    "RideAnimLoop",
+    "RideUpperAnimStart",
+    "RideUpperAnimLoop",
+    "Field_3_3_5_12213_017",
+    "ExitSpeed",
+    "ExitGravity",
+    "ExitMinDuration",
+    "ExitMaxDuration",
+    "ExitMinArcHeight",
+    "ExitMaxArcHeight",
+    "ExitAnimStart",
+    "ExitAnimLoop",
+    "ExitAnimEnd",
+    "Field_3_3_5_12213_027",
+    "PassengerPitch",
+    "Field_3_3_5_12213_029",
+    "PassengerAttachmentID",
+    "VehicleEnterAnim",
+    "VehicleExitAnim",
+    "VehicleRideAnimLoop",
+    "Field_3_3_5_12213_034",
+    "VehicleExitAnimBone",
+    "VehicleEnterAnimBone",
+    "Field_3_3_5_12213_037",
+    "Field_3_3_5_12213_038",
+    "VehicleAbilityDisplay",
+    "EnterUISoundID",
+    "Field_3_3_5_12213_041",
+    "UiSkin",
+    "Field_3_3_5_12213_043",
+    "Field_3_3_5_12213_044",
+    "Field_3_3_5_12213_045",
+    "Field_3_3_5_12213_046",
+    "Field_3_3_5_12213_047",
+    "Field_3_3_5_12213_048",
+    "Field_3_3_5_12213_049",
+    "Field_3_3_5_12213_050",
+    "Field_3_3_5_12213_051",
+    "Field_3_3_5_12213_052",
+    "Field_3_3_5_12213_053",
+    "Field_3_3_5_12213_054",
+    "Field_3_3_5_12213_055"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Field_3_3_5_12213_001": {
+      "type": "float",
+      "offset": 4
+    },
+    "AttachmentID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "AttachmentOffset_1": {
+      "type": "float",
+      "offset": 12
+    },
+    "AttachmentOffset_2": {
+      "type": "float",
+      "offset": 16
+    },
+    "AttachmentOffset_3": {
+      "type": "float",
+      "offset": 20
+    },
+    "Field_3_3_5_12213_004": {
+      "type": "float",
+      "offset": 24
+    },
+    "EnterSpeed": {
+      "type": "float",
+      "offset": 28
+    },
+    "EnterGravity": {
+      "type": "float",
+      "offset": 32
+    },
+    "EnterMinDuration": {
+      "type": "float",
+      "offset": 36
+    },
+    "EnterMaxDuration": {
+      "type": "float",
+      "offset": 40
+    },
+    "EnterMinArcHeight": {
+      "type": "float",
+      "offset": 44
+    },
+    "EnterMaxArcHeight": {
+      "type": "float",
+      "offset": 48
+    },
+    "EnterAnimStart": {
+      "type": "int32",
+      "offset": 52
+    },
+    "EnterAnimLoop": {
+      "type": "int32",
+      "offset": 56
+    },
+    "RideAnimStart": {
+      "type": "int32",
+      "offset": 60
+    },
+    "RideAnimLoop": {
+      "type": "int32",
+      "offset": 64
+    },
+    "RideUpperAnimStart": {
+      "type": "int32",
+      "offset": 68
+    },
+    "RideUpperAnimLoop": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Field_3_3_5_12213_017": {
+      "type": "float",
+      "offset": 76
+    },
+    "ExitSpeed": {
+      "type": "float",
+      "offset": 80
+    },
+    "ExitGravity": {
+      "type": "float",
+      "offset": 84
+    },
+    "ExitMinDuration": {
+      "type": "float",
+      "offset": 88
+    },
+    "ExitMaxDuration": {
+      "type": "float",
+      "offset": 92
+    },
+    "ExitMinArcHeight": {
+      "type": "float",
+      "offset": 96
+    },
+    "ExitMaxArcHeight": {
+      "type": "float",
+      "offset": 100
+    },
+    "ExitAnimStart": {
+      "type": "int32",
+      "offset": 104
+    },
+    "ExitAnimLoop": {
+      "type": "int32",
+      "offset": 108
+    },
+    "ExitAnimEnd": {
+      "type": "int32",
+      "offset": 112
+    },
+    "Field_3_3_5_12213_027": {
+      "type": "float",
+      "offset": 116
+    },
+    "PassengerPitch": {
+      "type": "float",
+      "offset": 120
+    },
+    "Field_3_3_5_12213_029": {
+      "type": "float",
+      "offset": 124
+    },
+    "PassengerAttachmentID": {
+      "type": "int32",
+      "offset": 128
+    },
+    "VehicleEnterAnim": {
+      "type": "int32",
+      "offset": 132
+    },
+    "VehicleExitAnim": {
+      "type": "int32",
+      "offset": 136
+    },
+    "VehicleRideAnimLoop": {
+      "type": "int32",
+      "offset": 140
+    },
+    "Field_3_3_5_12213_034": {
+      "type": "int32",
+      "offset": 144
+    },
+    "VehicleExitAnimBone": {
+      "type": "int32",
+      "offset": 148
+    },
+    "VehicleEnterAnimBone": {
+      "type": "int32",
+      "offset": 152
+    },
+    "Field_3_3_5_12213_037": {
+      "type": "float",
+      "offset": 156
+    },
+    "Field_3_3_5_12213_038": {
+      "type": "float",
+      "offset": 160
+    },
+    "VehicleAbilityDisplay": {
+      "type": "int32",
+      "offset": 164
+    },
+    "EnterUISoundID": {
+      "type": "int32",
+      "offset": 168
+    },
+    "Field_3_3_5_12213_041": {
+      "type": "int32",
+      "offset": 172
+    },
+    "UiSkin": {
+      "type": "int32",
+      "offset": 176
+    },
+    "Field_3_3_5_12213_043": {
+      "type": "float",
+      "offset": 180
+    },
+    "Field_3_3_5_12213_044": {
+      "type": "float",
+      "offset": 184
+    },
+    "Field_3_3_5_12213_045": {
+      "type": "float",
+      "offset": 188
+    },
+    "Field_3_3_5_12213_046": {
+      "type": "int32",
+      "offset": 192
+    },
+    "Field_3_3_5_12213_047": {
+      "type": "float",
+      "offset": 196
+    },
+    "Field_3_3_5_12213_048": {
+      "type": "float",
+      "offset": 200
+    },
+    "Field_3_3_5_12213_049": {
+      "type": "float",
+      "offset": 204
+    },
+    "Field_3_3_5_12213_050": {
+      "type": "float",
+      "offset": 208
+    },
+    "Field_3_3_5_12213_051": {
+      "type": "float",
+      "offset": 212
+    },
+    "Field_3_3_5_12213_052": {
+      "type": "float",
+      "offset": 216
+    },
+    "Field_3_3_5_12213_053": {
+      "type": "float",
+      "offset": 220
+    },
+    "Field_3_3_5_12213_054": {
+      "type": "float",
+      "offset": 224
+    },
+    "Field_3_3_5_12213_055": {
+      "type": "float",
+      "offset": 228
+    }
+  }
+}

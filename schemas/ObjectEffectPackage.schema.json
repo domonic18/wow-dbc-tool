@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ObjectEffectPackage Physical Schema",
+  "description": "ObjectEffectPackage.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ObjectEffectPackage",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 2,
+  "field_order": [
+    "ID",
+    "Name"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name": {
+      "type": "string",
+      "offset": 4
+    }
+  }
+}

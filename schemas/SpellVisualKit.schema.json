@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellVisualKit Physical Schema",
+  "description": "SpellVisualKit.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellVisualKit",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 38,
+  "field_order": [
+    "ID",
+    "StartAnimID",
+    "AnimID",
+    "HeadEffect",
+    "ChestEffect",
+    "BaseEffect",
+    "LeftHandEffect",
+    "RightHandEffect",
+    "BreathEffect",
+    "LeftWeaponEffect",
+    "RightWeaponEffect",
+    "SpecialEffect_1",
+    "SpecialEffect_2",
+    "SpecialEffect_3",
+    "WorldEffect",
+    "SoundID",
+    "ShakeID",
+    "CharProc_1",
+    "CharProc_2",
+    "CharProc_3",
+    "CharProc_4",
+    "CharParamZero_1",
+    "CharParamZero_2",
+    "CharParamZero_3",
+    "CharParamZero_4",
+    "CharParamOne_1",
+    "CharParamOne_2",
+    "CharParamOne_3",
+    "CharParamOne_4",
+    "CharParamTwo_1",
+    "CharParamTwo_2",
+    "CharParamTwo_3",
+    "CharParamTwo_4",
+    "CharParamThree_1",
+    "CharParamThree_2",
+    "CharParamThree_3",
+    "CharParamThree_4",
+    "Flags"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "StartAnimID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "AnimID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "HeadEffect": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ChestEffect": {
+      "type": "int32",
+      "offset": 16
+    },
+    "BaseEffect": {
+      "type": "int32",
+      "offset": 20
+    },
+    "LeftHandEffect": {
+      "type": "int32",
+      "offset": 24
+    },
+    "RightHandEffect": {
+      "type": "int32",
+      "offset": 28
+    },
+    "BreathEffect": {
+      "type": "int32",
+      "offset": 32
+    },
+    "LeftWeaponEffect": {
+      "type": "int32",
+      "offset": 36
+    },
+    "RightWeaponEffect": {
+      "type": "int32",
+      "offset": 40
+    },
+    "SpecialEffect_1": {
+      "type": "int32",
+      "offset": 44
+    },
+    "SpecialEffect_2": {
+      "type": "int32",
+      "offset": 48
+    },
+    "SpecialEffect_3": {
+      "type": "int32",
+      "offset": 52
+    },
+    "WorldEffect": {
+      "type": "int32",
+      "offset": 56
+    },
+    "SoundID": {
+      "type": "int32",
+      "offset": 60
+    },
+    "ShakeID": {
+      "type": "int32",
+      "offset": 64
+    },
+    "CharProc_1": {
+      "type": "int32",
+      "offset": 68
+    },
+    "CharProc_2": {
+      "type": "int32",
+      "offset": 72
+    },
+    "CharProc_3": {
+      "type": "int32",
+      "offset": 76
+    },
+    "CharProc_4": {
+      "type": "int32",
+      "offset": 80
+    },
+    "CharParamZero_1": {
+      "type": "float",
+      "offset": 84
+    },
+    "CharParamZero_2": {
+      "type": "float",
+      "offset": 88
+    },
+    "CharParamZero_3": {
+      "type": "float",
+      "offset": 92
+    },
+    "CharParamZero_4": {
+      "type": "float",
+      "offset": 96
+    },
+    "CharParamOne_1": {
+      "type": "float",
+      "offset": 100
+    },
+    "CharParamOne_2": {
+      "type": "float",
+      "offset": 104
+    },
+    "CharParamOne_3": {
+      "type": "float",
+      "offset": 108
+    },
+    "CharParamOne_4": {
+      "type": "float",
+      "offset": 112
+    },
+    "CharParamTwo_1": {
+      "type": "float",
+      "offset": 116
+    },
+    "CharParamTwo_2": {
+      "type": "float",
+      "offset": 120
+    },
+    "CharParamTwo_3": {
+      "type": "float",
+      "offset": 124
+    },
+    "CharParamTwo_4": {
+      "type": "float",
+      "offset": 128
+    },
+    "CharParamThree_1": {
+      "type": "float",
+      "offset": 132
+    },
+    "CharParamThree_2": {
+      "type": "float",
+      "offset": 136
+    },
+    "CharParamThree_3": {
+      "type": "float",
+      "offset": 140
+    },
+    "CharParamThree_4": {
+      "type": "float",
+      "offset": 144
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 148
+    }
+  }
+}

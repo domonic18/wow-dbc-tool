@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OverrideSpellData Physical Schema",
+  "description": "OverrideSpellData.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "OverrideSpellData",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 12,
+  "field_order": [
+    "ID",
+    "Spells_1",
+    "Spells_2",
+    "Spells_3",
+    "Spells_4",
+    "Spells_5",
+    "Spells_6",
+    "Spells_7",
+    "Spells_8",
+    "Spells_9",
+    "Spells_10",
+    "Flags"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Spells_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Spells_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Spells_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Spells_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Spells_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Spells_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Spells_7": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Spells_8": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Spells_9": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Spells_10": {
+      "type": "int32",
+      "offset": 40
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 44
+    }
+  }
+}

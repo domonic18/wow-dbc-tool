@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SoundEntriesAdvanced Physical Schema",
+  "description": "SoundEntriesAdvanced.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SoundEntriesAdvanced",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 24,
+  "field_order": [
+    "ID",
+    "SoundEntryID",
+    "InnerRadius2D",
+    "TimeA",
+    "TimeB",
+    "TimeC",
+    "TimeD",
+    "RandomOffsetRange",
+    "Usage",
+    "TimeIntervalMin",
+    "TimeIntervalMax",
+    "VolumeSliderCategory",
+    "DuckToSFX",
+    "DuckToMusic",
+    "DuckToAmbience",
+    "InnerRadiusOfInfluence",
+    "OuterRadiusOfInfluence",
+    "TimeToDuck",
+    "TimeToUnduck",
+    "InsideAngle",
+    "OutsideAngle",
+    "OutsideVolume",
+    "OuterRadius2D",
+    "Name"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SoundEntryID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "InnerRadius2D": {
+      "type": "float",
+      "offset": 8
+    },
+    "TimeA": {
+      "type": "int32",
+      "offset": 12
+    },
+    "TimeB": {
+      "type": "int32",
+      "offset": 16
+    },
+    "TimeC": {
+      "type": "int32",
+      "offset": 20
+    },
+    "TimeD": {
+      "type": "int32",
+      "offset": 24
+    },
+    "RandomOffsetRange": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Usage": {
+      "type": "int32",
+      "offset": 32
+    },
+    "TimeIntervalMin": {
+      "type": "int32",
+      "offset": 36
+    },
+    "TimeIntervalMax": {
+      "type": "int32",
+      "offset": 40
+    },
+    "VolumeSliderCategory": {
+      "type": "int32",
+      "offset": 44
+    },
+    "DuckToSFX": {
+      "type": "float",
+      "offset": 48
+    },
+    "DuckToMusic": {
+      "type": "float",
+      "offset": 52
+    },
+    "DuckToAmbience": {
+      "type": "float",
+      "offset": 56
+    },
+    "InnerRadiusOfInfluence": {
+      "type": "float",
+      "offset": 60
+    },
+    "OuterRadiusOfInfluence": {
+      "type": "float",
+      "offset": 64
+    },
+    "TimeToDuck": {
+      "type": "int32",
+      "offset": 68
+    },
+    "TimeToUnduck": {
+      "type": "int32",
+      "offset": 72
+    },
+    "InsideAngle": {
+      "type": "float",
+      "offset": 76
+    },
+    "OutsideAngle": {
+      "type": "float",
+      "offset": 80
+    },
+    "OutsideVolume": {
+      "type": "float",
+      "offset": 84
+    },
+    "OuterRadius2D": {
+      "type": "float",
+      "offset": 88
+    },
+    "Name": {
+      "type": "string",
+      "offset": 92
+    }
+  }
+}

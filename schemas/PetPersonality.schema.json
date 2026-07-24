@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PetPersonality Physical Schema",
+  "description": "PetPersonality.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "PetPersonality",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 24,
+  "field_order": [
+    "ID",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask",
+    "HappinessThreshold_1",
+    "HappinessThreshold_2",
+    "HappinessThreshold_3",
+    "HappinessDamage_1",
+    "HappinessDamage_2",
+    "HappinessDamage_3"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 4
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 8
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 12
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 16
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 20
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 24
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 28
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 32
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 36
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 40
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 44
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 48
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 52
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 68
+    },
+    "HappinessThreshold_1": {
+      "type": "int32",
+      "offset": 72
+    },
+    "HappinessThreshold_2": {
+      "type": "int32",
+      "offset": 76
+    },
+    "HappinessThreshold_3": {
+      "type": "int32",
+      "offset": 80
+    },
+    "HappinessDamage_1": {
+      "type": "float",
+      "offset": 84
+    },
+    "HappinessDamage_2": {
+      "type": "float",
+      "offset": 88
+    },
+    "HappinessDamage_3": {
+      "type": "float",
+      "offset": 92
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TransportRotation Physical Schema",
+  "description": "TransportRotation.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "TransportRotation",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 7,
+  "field_order": [
+    "ID",
+    "GameObjectsID",
+    "TimeIndex",
+    "Rot_1",
+    "Rot_2",
+    "Rot_3",
+    "Rot_4"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "GameObjectsID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "TimeIndex": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Rot_1": {
+      "type": "float",
+      "offset": 12
+    },
+    "Rot_2": {
+      "type": "float",
+      "offset": 16
+    },
+    "Rot_3": {
+      "type": "float",
+      "offset": 20
+    },
+    "Rot_4": {
+      "type": "float",
+      "offset": 24
+    }
+  }
+}

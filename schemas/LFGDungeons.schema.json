@@ -1,0 +1,259 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LFGDungeons Physical Schema",
+  "description": "LFGDungeons.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "LFGDungeons",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 49,
+  "field_order": [
+    "ID",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask",
+    "MinLevel",
+    "MaxLevel",
+    "Target_level",
+    "Target_level_min",
+    "Target_level_max",
+    "MapID",
+    "Difficulty",
+    "Flags",
+    "TypeID",
+    "Faction",
+    "TextureFilename",
+    "ExpansionLevel",
+    "Order_index",
+    "Group_ID",
+    "Description_Lang_enUS",
+    "Description_Lang_enGB",
+    "Description_Lang_koKR",
+    "Description_Lang_frFR",
+    "Description_Lang_deDE",
+    "Description_Lang_enCN",
+    "Description_Lang_zhCN",
+    "Description_Lang_enTW",
+    "Description_Lang_zhTW",
+    "Description_Lang_esES",
+    "Description_Lang_esMX",
+    "Description_Lang_ruRU",
+    "Description_Lang_ptPT",
+    "Description_Lang_ptBR",
+    "Description_Lang_itIT",
+    "Description_Lang_Unk",
+    "Description_Lang_Mask"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 4
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 8
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 12
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 16
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 20
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 24
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 28
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 32
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 36
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 40
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 44
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 48
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 52
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 68
+    },
+    "MinLevel": {
+      "type": "int32",
+      "offset": 72
+    },
+    "MaxLevel": {
+      "type": "int32",
+      "offset": 76
+    },
+    "Target_level": {
+      "type": "int32",
+      "offset": 80
+    },
+    "Target_level_min": {
+      "type": "int32",
+      "offset": 84
+    },
+    "Target_level_max": {
+      "type": "int32",
+      "offset": 88
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 92
+    },
+    "Difficulty": {
+      "type": "int32",
+      "offset": 96
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 100
+    },
+    "TypeID": {
+      "type": "int32",
+      "offset": 104
+    },
+    "Faction": {
+      "type": "int32",
+      "offset": 108
+    },
+    "TextureFilename": {
+      "type": "string",
+      "offset": 112
+    },
+    "ExpansionLevel": {
+      "type": "int32",
+      "offset": 116
+    },
+    "Order_index": {
+      "type": "int32",
+      "offset": 120
+    },
+    "Group_ID": {
+      "type": "int32",
+      "offset": 124
+    },
+    "Description_Lang_enUS": {
+      "type": "string",
+      "offset": 128
+    },
+    "Description_Lang_enGB": {
+      "type": "string",
+      "offset": 132
+    },
+    "Description_Lang_koKR": {
+      "type": "string",
+      "offset": 136
+    },
+    "Description_Lang_frFR": {
+      "type": "string",
+      "offset": 140
+    },
+    "Description_Lang_deDE": {
+      "type": "string",
+      "offset": 144
+    },
+    "Description_Lang_enCN": {
+      "type": "string",
+      "offset": 148
+    },
+    "Description_Lang_zhCN": {
+      "type": "string",
+      "offset": 152
+    },
+    "Description_Lang_enTW": {
+      "type": "string",
+      "offset": 156
+    },
+    "Description_Lang_zhTW": {
+      "type": "string",
+      "offset": 160
+    },
+    "Description_Lang_esES": {
+      "type": "string",
+      "offset": 164
+    },
+    "Description_Lang_esMX": {
+      "type": "string",
+      "offset": 168
+    },
+    "Description_Lang_ruRU": {
+      "type": "string",
+      "offset": 172
+    },
+    "Description_Lang_ptPT": {
+      "type": "string",
+      "offset": 176
+    },
+    "Description_Lang_ptBR": {
+      "type": "string",
+      "offset": 180
+    },
+    "Description_Lang_itIT": {
+      "type": "string",
+      "offset": 184
+    },
+    "Description_Lang_Unk": {
+      "type": "string",
+      "offset": 188
+    },
+    "Description_Lang_Mask": {
+      "type": "uint32",
+      "offset": 192
+    }
+  }
+}
