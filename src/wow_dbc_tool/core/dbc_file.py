@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from wow_dbc_tool.core.dbc_record import DBCRecord
-from wow_dbc_tool.core.exceptions import DBCNotLoadedError, DBCQueryError, DBCSchemaError
+from wow_dbc_tool.core.exceptions import DBCError, DBCNotLoadedError, DBCQueryError, DBCSchemaError
 from wow_dbc_tool.parser.header import DBCHeader
 from wow_dbc_tool.parser.reader import DBCReader
 from wow_dbc_tool.parser.writer import DBCWriter
@@ -51,6 +51,7 @@ class DBCFile:
         """
         self.path = Path(path)
         self._schema = schema
+        self._schema_registered = schema is not None
         self.header: DBCHeader | None = None
         self.records: list[DBCRecord] = []
         self._string_block: bytes = b""
@@ -205,13 +206,26 @@ class DBCFile:
     def save(self, path: str | Path | None = None) -> None:
         """保存到文件.
 
-        自动重建字符串块（去重 + 排序）。
+        自动重建字符串块（去重 + 排序）。字符串块以规范的空字符串
+        开头（offset 0 = ""），与官方/MCC 工具导出的格式保持一致，
+        保证 load→save 往返字节稳定。
 
         Args:
             path: 输出路径，None 使用原路径
+
+        Raises:
+            DBCError: schema 为推断结果且原文件含字符串时拒绝保存，
+                避免字符串字段缺失导致字符串块清空、引用悬空。
         """
         self._ensure_loaded()
         assert self.header is not None
+
+        if not self._schema_registered and len(self._string_block) > 1:
+            raise DBCError(
+                f"未找到 {self.path.name} 的注册 schema（当前使用推断 schema），"
+                "拒绝保存：推断 schema 缺少字符串字段定义，保存会清空字符串块"
+                "并使所有字符串引用悬空。请先通过 SchemaRegistry 注册该 DBC 的字段定义。"
+            )
 
         output_path = Path(path) if path else self.path
 
@@ -227,9 +241,9 @@ class DBCFile:
             ),
         )
 
-        # 收集所有字符串并去重
-        string_offsets: dict[str, int] = {}
-        string_block = bytearray()
+        # 收集所有字符串并去重；offset 0 恒为空字符串（规范约定）
+        string_offsets: dict[str, int] = {"": 0}
+        string_block = bytearray(b"\x00")
 
         for record in self.records:
             # 处理 pending strings（由 set() 设置的字符串）
@@ -305,7 +319,10 @@ class DBCFile:
         # 尝试内置/自定义定义
         schema = SchemaRegistry.get(dbc_name)
         if schema is not None:
+            self._schema_registered = True
             return schema
+
+        self._schema_registered = False
 
         # 尝试推断
         if self.header:

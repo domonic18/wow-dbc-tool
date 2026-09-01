@@ -9,7 +9,12 @@ import pytest
 
 from wow_dbc_tool.core.dbc_file import DBCFile
 from wow_dbc_tool.core.dbc_record import DBCRecord
-from wow_dbc_tool.core.exceptions import DBCNotLoadedError, DBCQueryError, DBCSchemaError
+from wow_dbc_tool.core.exceptions import (
+    DBCError,
+    DBCNotLoadedError,
+    DBCQueryError,
+    DBCSchemaError,
+)
 from wow_dbc_tool.schema.field_def import FieldDef
 
 
@@ -384,3 +389,57 @@ class TestDBCFile:
         dbc = DBCFile("test.dbc")
         r = repr(dbc)
         assert "not loaded" in r
+
+
+class TestDBCSaveSafety:
+    """save() 规范化与安全防护回归测试."""
+
+    def test_save_canonical_leading_null_byte(
+        self, minimal_dbc: Path, sample_schema, tmp_path: Path
+    ):
+        """字符串块以规范的前导 \\x00 开头（offset 0 = 空字符串）."""
+        dbc = DBCFile(minimal_dbc, schema=sample_schema)
+        dbc.load()
+
+        output = tmp_path / "saved.dbc"
+        dbc.save(output)
+
+        data = output.read_bytes()
+        string_block_size = struct.unpack("<I", data[16:20])[0]
+        string_block = data[len(data) - string_block_size :]
+        assert string_block.startswith(b"\x00")
+        # 原 offset 0 的 "Hello" 应后移至 offset 1
+        record = dbc.get(ID=1)
+        assert record.raw[4:8] == struct.pack("<I", 1)
+        assert record.get("Name") == "Hello"
+
+    def test_save_idempotent(self, minimal_dbc: Path, sample_schema, tmp_path: Path):
+        """save(load(save(x))) == save(x)."""
+        out1 = tmp_path / "gen1.dbc"
+        DBCFile(minimal_dbc, schema=sample_schema).load().save(out1)
+        out2 = tmp_path / "gen2.dbc"
+        DBCFile(out1, schema=sample_schema).load().save(out2)
+        assert out1.read_bytes() == out2.read_bytes()
+
+    def test_save_rejects_inferred_schema_with_strings(self, minimal_dbc: Path, tmp_path: Path):
+        """未注册 schema 且含字符串块时拒绝保存，避免字符串悬空."""
+        dbc = DBCFile(minimal_dbc)
+        dbc.load()
+        assert not dbc._schema_registered
+
+        with pytest.raises(DBCError):
+            dbc.save(tmp_path / "rejected.dbc")
+
+    def test_save_allows_inferred_schema_without_strings(
+        self, minimal_dbc_no_strings: Path, tmp_path: Path
+    ):
+        """无字符串字段的文件即使走推断 schema 也允许保存."""
+        dbc = DBCFile(minimal_dbc_no_strings)
+        dbc.load()
+
+        output = tmp_path / "allowed.dbc"
+        dbc.save(output)
+
+        dbc2 = DBCFile(output).load()
+        assert len(dbc2.records) == 2
+        assert dbc2.query(field_0=1)[0].get("field_2") == 10
