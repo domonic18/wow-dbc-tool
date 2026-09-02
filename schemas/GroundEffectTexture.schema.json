@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GroundEffectTexture Physical Schema",
+  "description": "GroundEffectTexture.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "GroundEffectTexture",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 11,
+  "field_order": [
+    "ID",
+    "DoodadID_1",
+    "DoodadID_2",
+    "DoodadID_3",
+    "DoodadID_4",
+    "DoodadWeight_1",
+    "DoodadWeight_2",
+    "DoodadWeight_3",
+    "DoodadWeight_4",
+    "Density",
+    "Sound"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "DoodadID_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "DoodadID_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "DoodadID_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "DoodadID_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "DoodadWeight_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "DoodadWeight_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "DoodadWeight_3": {
+      "type": "int32",
+      "offset": 28
+    },
+    "DoodadWeight_4": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Density": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Sound": {
+      "type": "int32",
+      "offset": 40
+    }
+  }
+}

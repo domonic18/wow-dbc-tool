@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ObjectEffect Physical Schema",
+  "description": "ObjectEffect.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ObjectEffect",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 12,
+  "field_order": [
+    "ID",
+    "Name",
+    "ObjectEffectGroupID",
+    "TriggerType",
+    "EventType",
+    "EffectRecType",
+    "EffectRecID",
+    "Attachment",
+    "Offset_1",
+    "Offset_2",
+    "Offset_3",
+    "ObjectEffectModifierID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name": {
+      "type": "string",
+      "offset": 4
+    },
+    "ObjectEffectGroupID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "TriggerType": {
+      "type": "int32",
+      "offset": 12
+    },
+    "EventType": {
+      "type": "int32",
+      "offset": 16
+    },
+    "EffectRecType": {
+      "type": "int32",
+      "offset": 20
+    },
+    "EffectRecID": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Attachment": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Offset_1": {
+      "type": "float",
+      "offset": 32
+    },
+    "Offset_2": {
+      "type": "float",
+      "offset": 36
+    },
+    "Offset_3": {
+      "type": "float",
+      "offset": 40
+    },
+    "ObjectEffectModifierID": {
+      "type": "int32",
+      "offset": 44
+    }
+  }
+}

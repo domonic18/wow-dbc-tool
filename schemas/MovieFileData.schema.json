@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MovieFileData Physical Schema",
+  "description": "MovieFileData.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "MovieFileData",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 2,
+  "field_order": [
+    "FileDataID",
+    "Resolution"
+  ],
+  "properties": {
+    "FileDataID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Resolution": {
+      "type": "int32",
+      "offset": 4
+    }
+  }
+}

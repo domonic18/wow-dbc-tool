@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Light Physical Schema",
+  "description": "Light.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "Light",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 15,
+  "field_order": [
+    "ID",
+    "ContinentID",
+    "GameCoords_1",
+    "GameCoords_2",
+    "GameCoords_3",
+    "GameFalloffStart",
+    "GameFalloffEnd",
+    "LightParamsID_1",
+    "LightParamsID_2",
+    "LightParamsID_3",
+    "LightParamsID_4",
+    "LightParamsID_5",
+    "LightParamsID_6",
+    "LightParamsID_7",
+    "LightParamsID_8"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ContinentID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "GameCoords_1": {
+      "type": "float",
+      "offset": 8
+    },
+    "GameCoords_2": {
+      "type": "float",
+      "offset": 12
+    },
+    "GameCoords_3": {
+      "type": "float",
+      "offset": 16
+    },
+    "GameFalloffStart": {
+      "type": "float",
+      "offset": 20
+    },
+    "GameFalloffEnd": {
+      "type": "float",
+      "offset": 24
+    },
+    "LightParamsID_1": {
+      "type": "int32",
+      "offset": 28
+    },
+    "LightParamsID_2": {
+      "type": "int32",
+      "offset": 32
+    },
+    "LightParamsID_3": {
+      "type": "int32",
+      "offset": 36
+    },
+    "LightParamsID_4": {
+      "type": "int32",
+      "offset": 40
+    },
+    "LightParamsID_5": {
+      "type": "int32",
+      "offset": 44
+    },
+    "LightParamsID_6": {
+      "type": "int32",
+      "offset": 48
+    },
+    "LightParamsID_7": {
+      "type": "int32",
+      "offset": 52
+    },
+    "LightParamsID_8": {
+      "type": "int32",
+      "offset": 56
+    }
+  }
+}

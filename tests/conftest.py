@@ -145,6 +145,16 @@ def minimal_dbc(tmp_path: Path) -> Path:
 
 
 @pytest.fixture
+def minimal_dbc_no_strings(tmp_path: Path) -> Path:
+    """无字符串块的最小测试 DBC fixture.
+
+    供 CLI CRUD 等通过推断 schema 保存的测试使用：
+    推断 schema 无字符串字段定义，save() 会拒绝含字符串块的文件。
+    """
+    return create_minimal_dbc(tmp_path / "minimal.dbc", strings=[])
+
+
+@pytest.fixture
 def sample_schema():
     """示例字段定义 fixture."""
     from wow_dbc_tool.schema.field_def import FieldDef

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CurrencyTypes Physical Schema",
+  "description": "CurrencyTypes.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CurrencyTypes",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 4,
+  "field_order": [
+    "ID",
+    "ItemID",
+    "CategoryID",
+    "BitIndex"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ItemID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "CategoryID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "BitIndex": {
+      "type": "int32",
+      "offset": 12
+    }
+  }
+}

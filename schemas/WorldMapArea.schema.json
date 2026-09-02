@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldMapArea Physical Schema",
+  "description": "WorldMapArea.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "WorldMapArea",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 11,
+  "field_order": [
+    "ID",
+    "MapID",
+    "AreaID",
+    "AreaName",
+    "LocLeft",
+    "LocRight",
+    "LocTop",
+    "LocBottom",
+    "DisplayMapID",
+    "DefaultDungeonFloor",
+    "ParentWorldMapID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "AreaID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "AreaName": {
+      "type": "string",
+      "offset": 12
+    },
+    "LocLeft": {
+      "type": "float",
+      "offset": 16
+    },
+    "LocRight": {
+      "type": "float",
+      "offset": 20
+    },
+    "LocTop": {
+      "type": "float",
+      "offset": 24
+    },
+    "LocBottom": {
+      "type": "float",
+      "offset": 28
+    },
+    "DisplayMapID": {
+      "type": "int32",
+      "offset": 32
+    },
+    "DefaultDungeonFloor": {
+      "type": "int32",
+      "offset": 36
+    },
+    "ParentWorldMapID": {
+      "type": "int32",
+      "offset": 40
+    }
+  }
+}

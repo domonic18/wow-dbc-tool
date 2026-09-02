@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Spell Physical Schema",
   "description": "Spell.dbc 物理字段定义 (版本 3.3.5.12340)",
-  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "source": "https://github.com/wowdev/WoWDBDefs",
   "table_name": "Spell",
   "version": "3.3.5.12340",
   "type": "object",
-  "field_count": 230,
+  "field_count": 234,
   "field_order": [
     "ID",
     "Category",
@@ -20,8 +20,10 @@
     "AttributesExE",
     "AttributesExF",
     "AttributesExG",
-    "ShapeshiftMask",
-    "ShapeshiftExclude",
+    "ShapeshiftMask_1",
+    "ShapeshiftMask_2",
+    "ShapeshiftExclude_1",
+    "ShapeshiftExclude_2",
     "Targets",
     "TargetCreatureType",
     "RequiresSpellFocus",
@@ -107,9 +109,9 @@
     "EffectAuraPeriod_1",
     "EffectAuraPeriod_2",
     "EffectAuraPeriod_3",
-    "EffectMultipleValue_1",
-    "EffectMultipleValue_2",
-    "EffectMultipleValue_3",
+    "EffectAmplitude_1",
+    "EffectAmplitude_2",
+    "EffectAmplitude_3",
     "EffectChainTargets_1",
     "EffectChainTargets_2",
     "EffectChainTargets_3",
@@ -235,9 +237,11 @@
     "RuneCostID",
     "SpellMissileID",
     "PowerDisplayID",
-    "Field227",
-    "Field228",
-    "Field229"
+    "EffectBonusCoefficient_1",
+    "EffectBonusCoefficient_2",
+    "EffectBonusCoefficient_3",
+    "DescriptionVariablesID",
+    "Difficulty"
   ],
   "properties": {
     "ID": {
@@ -245,19 +249,19 @@
       "offset": 0
     },
     "Category": {
-      "type": "string",
+      "type": "int32",
       "offset": 4
     },
     "DispelType": {
-      "type": "string",
+      "type": "int32",
       "offset": 8
     },
     "Mechanic": {
-      "type": "string",
+      "type": "int32",
       "offset": 12
     },
     "Attributes": {
-      "type": "string",
+      "type": "int32",
       "offset": 16
     },
     "AttributesEx": {
@@ -288,877 +292,893 @@
       "type": "int32",
       "offset": 44
     },
-    "ShapeshiftMask": {
+    "ShapeshiftMask_1": {
       "type": "int32",
       "offset": 48
     },
-    "ShapeshiftExclude": {
+    "ShapeshiftMask_2": {
       "type": "int32",
       "offset": 52
     },
-    "Targets": {
+    "ShapeshiftExclude_1": {
       "type": "int32",
       "offset": 56
     },
-    "TargetCreatureType": {
+    "ShapeshiftExclude_2": {
       "type": "int32",
       "offset": 60
     },
-    "RequiresSpellFocus": {
+    "Targets": {
       "type": "int32",
       "offset": 64
     },
-    "FacingCasterFlags": {
+    "TargetCreatureType": {
       "type": "int32",
       "offset": 68
     },
-    "CasterAuraState": {
+    "RequiresSpellFocus": {
       "type": "int32",
       "offset": 72
     },
-    "TargetAuraState": {
+    "FacingCasterFlags": {
       "type": "int32",
       "offset": 76
     },
-    "ExcludeCasterAuraState": {
+    "CasterAuraState": {
       "type": "int32",
       "offset": 80
     },
-    "ExcludeTargetAuraState": {
+    "TargetAuraState": {
       "type": "int32",
       "offset": 84
     },
-    "CasterAuraSpell": {
+    "ExcludeCasterAuraState": {
       "type": "int32",
       "offset": 88
     },
-    "TargetAuraSpell": {
+    "ExcludeTargetAuraState": {
       "type": "int32",
       "offset": 92
     },
-    "ExcludeCasterAuraSpell": {
+    "CasterAuraSpell": {
       "type": "int32",
       "offset": 96
     },
-    "ExcludeTargetAuraSpell": {
+    "TargetAuraSpell": {
       "type": "int32",
       "offset": 100
     },
-    "CastingTimeIndex": {
+    "ExcludeCasterAuraSpell": {
       "type": "int32",
       "offset": 104
     },
-    "RecoveryTime": {
+    "ExcludeTargetAuraSpell": {
       "type": "int32",
       "offset": 108
     },
-    "CategoryRecoveryTime": {
+    "CastingTimeIndex": {
       "type": "int32",
       "offset": 112
     },
-    "InterruptFlags": {
+    "RecoveryTime": {
       "type": "int32",
       "offset": 116
     },
-    "AuraInterruptFlags": {
+    "CategoryRecoveryTime": {
       "type": "int32",
       "offset": 120
     },
-    "ChannelInterruptFlags": {
+    "InterruptFlags": {
       "type": "int32",
       "offset": 124
     },
-    "ProcTypeMask": {
+    "AuraInterruptFlags": {
       "type": "int32",
       "offset": 128
     },
-    "ProcChance": {
+    "ChannelInterruptFlags": {
       "type": "int32",
       "offset": 132
     },
-    "ProcCharges": {
+    "ProcTypeMask": {
       "type": "int32",
       "offset": 136
     },
-    "MaxLevel": {
+    "ProcChance": {
       "type": "int32",
       "offset": 140
     },
-    "BaseLevel": {
+    "ProcCharges": {
       "type": "int32",
       "offset": 144
     },
-    "SpellLevel": {
+    "MaxLevel": {
       "type": "int32",
       "offset": 148
     },
-    "DurationIndex": {
+    "BaseLevel": {
       "type": "int32",
       "offset": 152
     },
-    "PowerType": {
+    "SpellLevel": {
       "type": "int32",
       "offset": 156
     },
-    "ManaCost": {
+    "DurationIndex": {
       "type": "int32",
       "offset": 160
     },
-    "ManaCostPerLevel": {
+    "PowerType": {
       "type": "int32",
       "offset": 164
     },
-    "ManaPerSecond": {
+    "ManaCost": {
       "type": "int32",
       "offset": 168
     },
-    "ManaPerSecondPerLevel": {
+    "ManaCostPerLevel": {
       "type": "int32",
       "offset": 172
     },
-    "RangeIndex": {
+    "ManaPerSecond": {
       "type": "int32",
       "offset": 176
     },
-    "Speed": {
+    "ManaPerSecondPerLevel": {
       "type": "int32",
       "offset": 180
     },
-    "ModalNextSpell": {
+    "RangeIndex": {
       "type": "int32",
       "offset": 184
     },
-    "CumulativeAura": {
-      "type": "int32",
+    "Speed": {
+      "type": "float",
       "offset": 188
     },
-    "Totem_1": {
+    "ModalNextSpell": {
       "type": "int32",
       "offset": 192
     },
-    "Totem_2": {
+    "CumulativeAura": {
       "type": "int32",
       "offset": 196
     },
-    "Reagent_1": {
+    "Totem_1": {
       "type": "int32",
       "offset": 200
     },
-    "Reagent_2": {
+    "Totem_2": {
       "type": "int32",
       "offset": 204
     },
-    "Reagent_3": {
+    "Reagent_1": {
       "type": "int32",
       "offset": 208
     },
-    "Reagent_4": {
+    "Reagent_2": {
       "type": "int32",
       "offset": 212
     },
-    "Reagent_5": {
+    "Reagent_3": {
       "type": "int32",
       "offset": 216
     },
-    "Reagent_6": {
+    "Reagent_4": {
       "type": "int32",
       "offset": 220
     },
-    "Reagent_7": {
+    "Reagent_5": {
       "type": "int32",
       "offset": 224
     },
-    "Reagent_8": {
+    "Reagent_6": {
       "type": "int32",
       "offset": 228
     },
-    "ReagentCount_1": {
+    "Reagent_7": {
       "type": "int32",
       "offset": 232
     },
-    "ReagentCount_2": {
+    "Reagent_8": {
       "type": "int32",
       "offset": 236
     },
-    "ReagentCount_3": {
+    "ReagentCount_1": {
       "type": "int32",
       "offset": 240
     },
-    "ReagentCount_4": {
+    "ReagentCount_2": {
       "type": "int32",
       "offset": 244
     },
-    "ReagentCount_5": {
+    "ReagentCount_3": {
       "type": "int32",
       "offset": 248
     },
-    "ReagentCount_6": {
+    "ReagentCount_4": {
       "type": "int32",
       "offset": 252
     },
-    "ReagentCount_7": {
+    "ReagentCount_5": {
       "type": "int32",
       "offset": 256
     },
-    "ReagentCount_8": {
+    "ReagentCount_6": {
       "type": "int32",
       "offset": 260
     },
-    "EquippedItemClass": {
+    "ReagentCount_7": {
       "type": "int32",
       "offset": 264
     },
-    "EquippedItemSubclass": {
+    "ReagentCount_8": {
       "type": "int32",
       "offset": 268
     },
-    "EquippedItemInvTypes": {
-      "type": "float",
+    "EquippedItemClass": {
+      "type": "int32",
       "offset": 272
     },
-    "Effect_1": {
+    "EquippedItemSubclass": {
       "type": "int32",
       "offset": 276
     },
-    "Effect_2": {
+    "EquippedItemInvTypes": {
       "type": "int32",
       "offset": 280
     },
-    "Effect_3": {
+    "Effect_1": {
       "type": "int32",
       "offset": 284
     },
-    "EffectDieSides_1": {
+    "Effect_2": {
       "type": "int32",
       "offset": 288
     },
-    "EffectDieSides_2": {
+    "Effect_3": {
       "type": "int32",
       "offset": 292
     },
-    "EffectDieSides_3": {
+    "EffectDieSides_1": {
       "type": "int32",
       "offset": 296
     },
-    "EffectRealPointsPerLevel_1": {
+    "EffectDieSides_2": {
       "type": "int32",
       "offset": 300
     },
-    "EffectRealPointsPerLevel_2": {
+    "EffectDieSides_3": {
       "type": "int32",
       "offset": 304
     },
-    "EffectRealPointsPerLevel_3": {
-      "type": "int32",
+    "EffectRealPointsPerLevel_1": {
+      "type": "float",
       "offset": 308
     },
-    "EffectBasePoints_1": {
-      "type": "int32",
+    "EffectRealPointsPerLevel_2": {
+      "type": "float",
       "offset": 312
     },
-    "EffectBasePoints_2": {
+    "EffectRealPointsPerLevel_3": {
       "type": "float",
       "offset": 316
     },
-    "EffectBasePoints_3": {
+    "EffectBasePoints_1": {
       "type": "int32",
       "offset": 320
     },
-    "EffectMechanic_1": {
+    "EffectBasePoints_2": {
       "type": "int32",
       "offset": 324
     },
-    "EffectMechanic_2": {
+    "EffectBasePoints_3": {
       "type": "int32",
       "offset": 328
     },
-    "EffectMechanic_3": {
+    "EffectMechanic_1": {
       "type": "int32",
       "offset": 332
     },
-    "ImplicitTargetA_1": {
+    "EffectMechanic_2": {
       "type": "int32",
       "offset": 336
     },
-    "ImplicitTargetA_2": {
+    "EffectMechanic_3": {
       "type": "int32",
       "offset": 340
     },
-    "ImplicitTargetA_3": {
+    "ImplicitTargetA_1": {
       "type": "int32",
       "offset": 344
     },
-    "ImplicitTargetB_1": {
+    "ImplicitTargetA_2": {
       "type": "int32",
       "offset": 348
     },
-    "ImplicitTargetB_2": {
-      "type": "float",
+    "ImplicitTargetA_3": {
+      "type": "int32",
       "offset": 352
     },
-    "ImplicitTargetB_3": {
+    "ImplicitTargetB_1": {
       "type": "int32",
       "offset": 356
     },
-    "EffectRadiusIndex_1": {
+    "ImplicitTargetB_2": {
       "type": "int32",
       "offset": 360
     },
-    "EffectRadiusIndex_2": {
+    "ImplicitTargetB_3": {
       "type": "int32",
       "offset": 364
     },
-    "EffectRadiusIndex_3": {
+    "EffectRadiusIndex_1": {
       "type": "int32",
       "offset": 368
     },
-    "EffectAura_1": {
+    "EffectRadiusIndex_2": {
       "type": "int32",
       "offset": 372
     },
-    "EffectAura_2": {
-      "type": "float",
+    "EffectRadiusIndex_3": {
+      "type": "int32",
       "offset": 376
     },
-    "EffectAura_3": {
+    "EffectAura_1": {
       "type": "int32",
       "offset": 380
     },
-    "EffectAuraPeriod_1": {
+    "EffectAura_2": {
       "type": "int32",
       "offset": 384
     },
-    "EffectAuraPeriod_2": {
+    "EffectAura_3": {
       "type": "int32",
       "offset": 388
     },
-    "EffectAuraPeriod_3": {
+    "EffectAuraPeriod_1": {
       "type": "int32",
       "offset": 392
     },
-    "EffectMultipleValue_1": {
+    "EffectAuraPeriod_2": {
       "type": "int32",
       "offset": 396
     },
-    "EffectMultipleValue_2": {
+    "EffectAuraPeriod_3": {
       "type": "int32",
       "offset": 400
     },
-    "EffectMultipleValue_3": {
-      "type": "int32",
+    "EffectAmplitude_1": {
+      "type": "float",
       "offset": 404
+    },
+    "EffectAmplitude_2": {
+      "type": "float",
+      "offset": 408
+    },
+    "EffectAmplitude_3": {
+      "type": "float",
+      "offset": 412
     },
     "EffectChainTargets_1": {
       "type": "int32",
-      "offset": 408
+      "offset": 416
     },
     "EffectChainTargets_2": {
       "type": "int32",
-      "offset": 412
+      "offset": 420
     },
     "EffectChainTargets_3": {
       "type": "int32",
-      "offset": 416
+      "offset": 424
     },
     "EffectItemType_1": {
       "type": "int32",
-      "offset": 420
+      "offset": 428
     },
     "EffectItemType_2": {
       "type": "int32",
-      "offset": 424
+      "offset": 432
     },
     "EffectItemType_3": {
       "type": "int32",
-      "offset": 428
+      "offset": 436
     },
     "EffectMiscValue_1": {
       "type": "int32",
-      "offset": 432
+      "offset": 440
     },
     "EffectMiscValue_2": {
       "type": "int32",
-      "offset": 436
+      "offset": 444
     },
     "EffectMiscValue_3": {
       "type": "int32",
-      "offset": 440
-    },
-    "EffectMiscValueB_1": {
-      "type": "float",
-      "offset": 444
-    },
-    "EffectMiscValueB_2": {
-      "type": "int32",
       "offset": 448
     },
-    "EffectMiscValueB_3": {
+    "EffectMiscValueB_1": {
       "type": "int32",
       "offset": 452
     },
-    "EffectTriggerSpell_1": {
+    "EffectMiscValueB_2": {
       "type": "int32",
       "offset": 456
     },
-    "EffectTriggerSpell_2": {
+    "EffectMiscValueB_3": {
       "type": "int32",
       "offset": 460
     },
-    "EffectTriggerSpell_3": {
+    "EffectTriggerSpell_1": {
       "type": "int32",
       "offset": 464
     },
-    "EffectPointsPerCombo_1": {
+    "EffectTriggerSpell_2": {
       "type": "int32",
       "offset": 468
     },
-    "EffectPointsPerCombo_2": {
+    "EffectTriggerSpell_3": {
       "type": "int32",
       "offset": 472
     },
-    "EffectPointsPerCombo_3": {
+    "EffectPointsPerCombo_1": {
       "type": "float",
       "offset": 476
     },
-    "EffectSpellClassMaskA_1": {
-      "type": "int32",
+    "EffectPointsPerCombo_2": {
+      "type": "float",
       "offset": 480
     },
-    "EffectSpellClassMaskA_2": {
-      "type": "int32",
+    "EffectPointsPerCombo_3": {
+      "type": "float",
       "offset": 484
     },
-    "EffectSpellClassMaskA_3": {
+    "EffectSpellClassMaskA_1": {
       "type": "int32",
       "offset": 488
     },
-    "EffectSpellClassMaskB_1": {
+    "EffectSpellClassMaskA_2": {
       "type": "int32",
       "offset": 492
     },
-    "EffectSpellClassMaskB_2": {
+    "EffectSpellClassMaskA_3": {
       "type": "int32",
       "offset": 496
     },
-    "EffectSpellClassMaskB_3": {
+    "EffectSpellClassMaskB_1": {
       "type": "int32",
       "offset": 500
     },
-    "EffectSpellClassMaskC_1": {
+    "EffectSpellClassMaskB_2": {
       "type": "int32",
       "offset": 504
     },
-    "EffectSpellClassMaskC_2": {
+    "EffectSpellClassMaskB_3": {
       "type": "int32",
       "offset": 508
     },
-    "EffectSpellClassMaskC_3": {
+    "EffectSpellClassMaskC_1": {
       "type": "int32",
       "offset": 512
     },
-    "SpellVisualID_1": {
+    "EffectSpellClassMaskC_2": {
       "type": "int32",
       "offset": 516
     },
-    "SpellVisualID_2": {
+    "EffectSpellClassMaskC_3": {
       "type": "int32",
       "offset": 520
     },
-    "SpellIconID": {
+    "SpellVisualID_1": {
       "type": "int32",
       "offset": 524
     },
-    "ActiveIconID": {
+    "SpellVisualID_2": {
       "type": "int32",
       "offset": 528
     },
-    "SpellPriority": {
+    "SpellIconID": {
       "type": "int32",
       "offset": 532
     },
-    "Name_Lang_enUS": {
+    "ActiveIconID": {
       "type": "int32",
       "offset": 536
     },
-    "Name_Lang_enGB": {
+    "SpellPriority": {
       "type": "int32",
       "offset": 540
     },
-    "Name_Lang_koKR": {
-      "type": "int32",
+    "Name_Lang_enUS": {
+      "type": "string",
       "offset": 544
     },
-    "Name_Lang_frFR": {
-      "type": "float",
+    "Name_Lang_enGB": {
+      "type": "string",
       "offset": 548
     },
-    "Name_Lang_deDE": {
-      "type": "int32",
+    "Name_Lang_koKR": {
+      "type": "string",
       "offset": 552
     },
-    "Name_Lang_enCN": {
-      "type": "int32",
+    "Name_Lang_frFR": {
+      "type": "string",
       "offset": 556
     },
-    "Name_Lang_zhCN": {
-      "type": "int32",
+    "Name_Lang_deDE": {
+      "type": "string",
       "offset": 560
     },
-    "Name_Lang_enTW": {
-      "type": "int32",
+    "Name_Lang_enCN": {
+      "type": "string",
       "offset": 564
     },
-    "Name_Lang_zhTW": {
-      "type": "int32",
+    "Name_Lang_zhCN": {
+      "type": "string",
       "offset": 568
     },
-    "Name_Lang_esES": {
-      "type": "int32",
+    "Name_Lang_enTW": {
+      "type": "string",
       "offset": 572
     },
-    "Name_Lang_esMX": {
-      "type": "int32",
+    "Name_Lang_zhTW": {
+      "type": "string",
       "offset": 576
     },
-    "Name_Lang_ruRU": {
+    "Name_Lang_esES": {
       "type": "string",
       "offset": 580
     },
-    "Name_Lang_ptPT": {
+    "Name_Lang_esMX": {
       "type": "string",
       "offset": 584
     },
-    "Name_Lang_ptBR": {
+    "Name_Lang_ruRU": {
       "type": "string",
       "offset": 588
     },
-    "Name_Lang_itIT": {
+    "Name_Lang_ptPT": {
       "type": "string",
       "offset": 592
     },
-    "Name_Lang_Unk": {
+    "Name_Lang_ptBR": {
       "type": "string",
       "offset": 596
     },
-    "Name_Lang_Mask": {
+    "Name_Lang_itIT": {
       "type": "string",
       "offset": 600
     },
-    "NameSubtext_Lang_enUS": {
+    "Name_Lang_Unk": {
       "type": "string",
       "offset": 604
     },
-    "NameSubtext_Lang_enGB": {
-      "type": "string",
+    "Name_Lang_Mask": {
+      "type": "uint32",
       "offset": 608
     },
-    "NameSubtext_Lang_koKR": {
+    "NameSubtext_Lang_enUS": {
       "type": "string",
       "offset": 612
     },
-    "NameSubtext_Lang_frFR": {
+    "NameSubtext_Lang_enGB": {
       "type": "string",
       "offset": 616
     },
-    "NameSubtext_Lang_deDE": {
+    "NameSubtext_Lang_koKR": {
       "type": "string",
       "offset": 620
     },
-    "NameSubtext_Lang_enCN": {
+    "NameSubtext_Lang_frFR": {
       "type": "string",
       "offset": 624
     },
-    "NameSubtext_Lang_zhCN": {
+    "NameSubtext_Lang_deDE": {
       "type": "string",
       "offset": 628
     },
-    "NameSubtext_Lang_enTW": {
+    "NameSubtext_Lang_enCN": {
       "type": "string",
       "offset": 632
     },
-    "NameSubtext_Lang_zhTW": {
+    "NameSubtext_Lang_zhCN": {
       "type": "string",
       "offset": 636
     },
-    "NameSubtext_Lang_esES": {
+    "NameSubtext_Lang_enTW": {
       "type": "string",
       "offset": 640
     },
-    "NameSubtext_Lang_esMX": {
+    "NameSubtext_Lang_zhTW": {
       "type": "string",
       "offset": 644
     },
-    "NameSubtext_Lang_ruRU": {
+    "NameSubtext_Lang_esES": {
       "type": "string",
       "offset": 648
     },
-    "NameSubtext_Lang_ptPT": {
+    "NameSubtext_Lang_esMX": {
       "type": "string",
       "offset": 652
     },
-    "NameSubtext_Lang_ptBR": {
+    "NameSubtext_Lang_ruRU": {
       "type": "string",
       "offset": 656
     },
-    "NameSubtext_Lang_itIT": {
+    "NameSubtext_Lang_ptPT": {
       "type": "string",
       "offset": 660
     },
-    "NameSubtext_Lang_Unk": {
+    "NameSubtext_Lang_ptBR": {
       "type": "string",
       "offset": 664
     },
-    "NameSubtext_Lang_Mask": {
+    "NameSubtext_Lang_itIT": {
       "type": "string",
       "offset": 668
     },
-    "Description_Lang_enUS": {
+    "NameSubtext_Lang_Unk": {
       "type": "string",
       "offset": 672
     },
-    "Description_Lang_enGB": {
-      "type": "string",
+    "NameSubtext_Lang_Mask": {
+      "type": "uint32",
       "offset": 676
     },
-    "Description_Lang_koKR": {
+    "Description_Lang_enUS": {
       "type": "string",
       "offset": 680
     },
-    "Description_Lang_frFR": {
+    "Description_Lang_enGB": {
       "type": "string",
       "offset": 684
     },
-    "Description_Lang_deDE": {
+    "Description_Lang_koKR": {
       "type": "string",
       "offset": 688
     },
-    "Description_Lang_enCN": {
+    "Description_Lang_frFR": {
       "type": "string",
       "offset": 692
     },
-    "Description_Lang_zhCN": {
+    "Description_Lang_deDE": {
       "type": "string",
       "offset": 696
     },
-    "Description_Lang_enTW": {
+    "Description_Lang_enCN": {
       "type": "string",
       "offset": 700
     },
-    "Description_Lang_zhTW": {
+    "Description_Lang_zhCN": {
       "type": "string",
       "offset": 704
     },
-    "Description_Lang_esES": {
+    "Description_Lang_enTW": {
       "type": "string",
       "offset": 708
     },
-    "Description_Lang_esMX": {
+    "Description_Lang_zhTW": {
       "type": "string",
       "offset": 712
     },
-    "Description_Lang_ruRU": {
+    "Description_Lang_esES": {
       "type": "string",
       "offset": 716
     },
-    "Description_Lang_ptPT": {
+    "Description_Lang_esMX": {
       "type": "string",
       "offset": 720
     },
-    "Description_Lang_ptBR": {
+    "Description_Lang_ruRU": {
       "type": "string",
       "offset": 724
     },
-    "Description_Lang_itIT": {
+    "Description_Lang_ptPT": {
       "type": "string",
       "offset": 728
     },
-    "Description_Lang_Unk": {
+    "Description_Lang_ptBR": {
       "type": "string",
       "offset": 732
     },
-    "Description_Lang_Mask": {
+    "Description_Lang_itIT": {
       "type": "string",
       "offset": 736
     },
-    "AuraDescription_Lang_enUS": {
+    "Description_Lang_Unk": {
       "type": "string",
       "offset": 740
     },
-    "AuraDescription_Lang_enGB": {
-      "type": "string",
+    "Description_Lang_Mask": {
+      "type": "uint32",
       "offset": 744
     },
-    "AuraDescription_Lang_koKR": {
+    "AuraDescription_Lang_enUS": {
       "type": "string",
       "offset": 748
     },
-    "AuraDescription_Lang_frFR": {
+    "AuraDescription_Lang_enGB": {
       "type": "string",
       "offset": 752
     },
-    "AuraDescription_Lang_deDE": {
+    "AuraDescription_Lang_koKR": {
       "type": "string",
       "offset": 756
     },
-    "AuraDescription_Lang_enCN": {
+    "AuraDescription_Lang_frFR": {
       "type": "string",
       "offset": 760
     },
-    "AuraDescription_Lang_zhCN": {
+    "AuraDescription_Lang_deDE": {
       "type": "string",
       "offset": 764
     },
-    "AuraDescription_Lang_enTW": {
+    "AuraDescription_Lang_enCN": {
       "type": "string",
       "offset": 768
     },
-    "AuraDescription_Lang_zhTW": {
+    "AuraDescription_Lang_zhCN": {
       "type": "string",
       "offset": 772
     },
-    "AuraDescription_Lang_esES": {
+    "AuraDescription_Lang_enTW": {
       "type": "string",
       "offset": 776
     },
-    "AuraDescription_Lang_esMX": {
+    "AuraDescription_Lang_zhTW": {
       "type": "string",
       "offset": 780
     },
-    "AuraDescription_Lang_ruRU": {
+    "AuraDescription_Lang_esES": {
       "type": "string",
       "offset": 784
     },
-    "AuraDescription_Lang_ptPT": {
+    "AuraDescription_Lang_esMX": {
       "type": "string",
       "offset": 788
     },
-    "AuraDescription_Lang_ptBR": {
+    "AuraDescription_Lang_ruRU": {
       "type": "string",
       "offset": 792
     },
-    "AuraDescription_Lang_itIT": {
+    "AuraDescription_Lang_ptPT": {
       "type": "string",
       "offset": 796
     },
-    "AuraDescription_Lang_Unk": {
+    "AuraDescription_Lang_ptBR": {
       "type": "string",
       "offset": 800
     },
-    "AuraDescription_Lang_Mask": {
+    "AuraDescription_Lang_itIT": {
       "type": "string",
       "offset": 804
     },
-    "ManaCostPct": {
-      "type": "int32",
+    "AuraDescription_Lang_Unk": {
+      "type": "string",
       "offset": 808
     },
-    "StartRecoveryCategory": {
-      "type": "int32",
+    "AuraDescription_Lang_Mask": {
+      "type": "uint32",
       "offset": 812
     },
-    "StartRecoveryTime": {
+    "ManaCostPct": {
       "type": "int32",
       "offset": 816
     },
-    "MaxTargetLevel": {
+    "StartRecoveryCategory": {
       "type": "int32",
       "offset": 820
     },
-    "SpellClassSet": {
+    "StartRecoveryTime": {
       "type": "int32",
       "offset": 824
     },
-    "SpellClassMask_1": {
+    "MaxTargetLevel": {
       "type": "int32",
       "offset": 828
     },
-    "SpellClassMask_2": {
+    "SpellClassSet": {
       "type": "int32",
       "offset": 832
     },
-    "SpellClassMask_3": {
+    "SpellClassMask_1": {
       "type": "int32",
       "offset": 836
     },
-    "MaxTargets": {
+    "SpellClassMask_2": {
       "type": "int32",
       "offset": 840
     },
-    "DefenseType": {
+    "SpellClassMask_3": {
       "type": "int32",
       "offset": 844
     },
-    "PreventionType": {
+    "MaxTargets": {
       "type": "int32",
       "offset": 848
     },
-    "StanceBarOrder": {
+    "DefenseType": {
       "type": "int32",
       "offset": 852
     },
-    "EffectChainAmplitude_1": {
+    "PreventionType": {
       "type": "int32",
       "offset": 856
     },
-    "EffectChainAmplitude_2": {
+    "StanceBarOrder": {
       "type": "int32",
       "offset": 860
     },
-    "EffectChainAmplitude_3": {
-      "type": "int32",
+    "EffectChainAmplitude_1": {
+      "type": "float",
       "offset": 864
+    },
+    "EffectChainAmplitude_2": {
+      "type": "float",
+      "offset": 868
+    },
+    "EffectChainAmplitude_3": {
+      "type": "float",
+      "offset": 872
     },
     "MinFactionID": {
       "type": "int32",
-      "offset": 868
+      "offset": 876
     },
     "MinReputation": {
       "type": "int32",
-      "offset": 872
+      "offset": 880
     },
     "RequiredAuraVision": {
       "type": "int32",
-      "offset": 876
+      "offset": 884
     },
     "RequiredTotemCategoryID_1": {
       "type": "int32",
-      "offset": 880
+      "offset": 888
     },
     "RequiredTotemCategoryID_2": {
       "type": "int32",
-      "offset": 884
+      "offset": 892
     },
     "RequiredAreasID": {
       "type": "int32",
-      "offset": 888
+      "offset": 896
     },
     "SchoolMask": {
       "type": "int32",
-      "offset": 892
+      "offset": 900
     },
     "RuneCostID": {
       "type": "int32",
-      "offset": 896
+      "offset": 904
     },
     "SpellMissileID": {
       "type": "int32",
-      "offset": 900
+      "offset": 908
     },
     "PowerDisplayID": {
       "type": "int32",
-      "offset": 904
-    },
-    "Field227": {
-      "type": "int32",
-      "offset": 908
-    },
-    "Field228": {
-      "type": "int32",
       "offset": 912
     },
-    "Field229": {
-      "type": "int32",
+    "EffectBonusCoefficient_1": {
+      "type": "float",
       "offset": 916
+    },
+    "EffectBonusCoefficient_2": {
+      "type": "float",
+      "offset": 920
+    },
+    "EffectBonusCoefficient_3": {
+      "type": "float",
+      "offset": 924
+    },
+    "DescriptionVariablesID": {
+      "type": "int32",
+      "offset": 928
+    },
+    "Difficulty": {
+      "type": "int32",
+      "offset": 932
     }
   }
 }

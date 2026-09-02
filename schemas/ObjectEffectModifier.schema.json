@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ObjectEffectModifier Physical Schema",
+  "description": "ObjectEffectModifier.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ObjectEffectModifier",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "InputType",
+    "MapType",
+    "OutputType",
+    "Param_1",
+    "Param_2",
+    "Param_3",
+    "Param_4"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "InputType": {
+      "type": "int32",
+      "offset": 4
+    },
+    "MapType": {
+      "type": "int32",
+      "offset": 8
+    },
+    "OutputType": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Param_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "Param_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "Param_3": {
+      "type": "float",
+      "offset": 24
+    },
+    "Param_4": {
+      "type": "float",
+      "offset": 28
+    }
+  }
+}

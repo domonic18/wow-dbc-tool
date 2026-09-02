@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldMapContinent Physical Schema",
+  "description": "WorldMapContinent.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "WorldMapContinent",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 14,
+  "field_order": [
+    "ID",
+    "MapID",
+    "LeftBoundary",
+    "RightBoundary",
+    "TopBoundary",
+    "BottomBoundary",
+    "ContinentOffset_1",
+    "ContinentOffset_2",
+    "Scale",
+    "TaxiMin_1",
+    "TaxiMin_2",
+    "TaxiMax_1",
+    "TaxiMax_2",
+    "WorldMapID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "LeftBoundary": {
+      "type": "int32",
+      "offset": 8
+    },
+    "RightBoundary": {
+      "type": "int32",
+      "offset": 12
+    },
+    "TopBoundary": {
+      "type": "int32",
+      "offset": 16
+    },
+    "BottomBoundary": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ContinentOffset_1": {
+      "type": "float",
+      "offset": 24
+    },
+    "ContinentOffset_2": {
+      "type": "float",
+      "offset": 28
+    },
+    "Scale": {
+      "type": "float",
+      "offset": 32
+    },
+    "TaxiMin_1": {
+      "type": "float",
+      "offset": 36
+    },
+    "TaxiMin_2": {
+      "type": "float",
+      "offset": 40
+    },
+    "TaxiMax_1": {
+      "type": "float",
+      "offset": 44
+    },
+    "TaxiMax_2": {
+      "type": "float",
+      "offset": 48
+    },
+    "WorldMapID": {
+      "type": "int32",
+      "offset": 52
+    }
+  }
+}

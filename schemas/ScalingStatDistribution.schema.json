@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ScalingStatDistribution Physical Schema",
+  "description": "ScalingStatDistribution.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ScalingStatDistribution",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 22,
+  "field_order": [
+    "ID",
+    "StatID_1",
+    "StatID_2",
+    "StatID_3",
+    "StatID_4",
+    "StatID_5",
+    "StatID_6",
+    "StatID_7",
+    "StatID_8",
+    "StatID_9",
+    "StatID_10",
+    "Bonus_1",
+    "Bonus_2",
+    "Bonus_3",
+    "Bonus_4",
+    "Bonus_5",
+    "Bonus_6",
+    "Bonus_7",
+    "Bonus_8",
+    "Bonus_9",
+    "Bonus_10",
+    "Maxlevel"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "StatID_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "StatID_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "StatID_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "StatID_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "StatID_5": {
+      "type": "int32",
+      "offset": 20
+    },
+    "StatID_6": {
+      "type": "int32",
+      "offset": 24
+    },
+    "StatID_7": {
+      "type": "int32",
+      "offset": 28
+    },
+    "StatID_8": {
+      "type": "int32",
+      "offset": 32
+    },
+    "StatID_9": {
+      "type": "int32",
+      "offset": 36
+    },
+    "StatID_10": {
+      "type": "int32",
+      "offset": 40
+    },
+    "Bonus_1": {
+      "type": "int32",
+      "offset": 44
+    },
+    "Bonus_2": {
+      "type": "int32",
+      "offset": 48
+    },
+    "Bonus_3": {
+      "type": "int32",
+      "offset": 52
+    },
+    "Bonus_4": {
+      "type": "int32",
+      "offset": 56
+    },
+    "Bonus_5": {
+      "type": "int32",
+      "offset": 60
+    },
+    "Bonus_6": {
+      "type": "int32",
+      "offset": 64
+    },
+    "Bonus_7": {
+      "type": "int32",
+      "offset": 68
+    },
+    "Bonus_8": {
+      "type": "int32",
+      "offset": 72
+    },
+    "Bonus_9": {
+      "type": "int32",
+      "offset": 76
+    },
+    "Bonus_10": {
+      "type": "int32",
+      "offset": 80
+    },
+    "Maxlevel": {
+      "type": "int32",
+      "offset": 84
+    }
+  }
+}

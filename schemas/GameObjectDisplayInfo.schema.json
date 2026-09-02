@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GameObjectDisplayInfo Physical Schema",
+  "description": "GameObjectDisplayInfo.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "GameObjectDisplayInfo",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 19,
+  "field_order": [
+    "ID",
+    "ModelName",
+    "Sound_1",
+    "Sound_2",
+    "Sound_3",
+    "Sound_4",
+    "Sound_5",
+    "Sound_6",
+    "Sound_7",
+    "Sound_8",
+    "Sound_9",
+    "Sound_10",
+    "GeoBoxMin_1",
+    "GeoBoxMin_2",
+    "GeoBoxMin_3",
+    "GeoBoxMax_1",
+    "GeoBoxMax_2",
+    "GeoBoxMax_3",
+    "ObjectEffectPackageID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ModelName": {
+      "type": "string",
+      "offset": 4
+    },
+    "Sound_1": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Sound_2": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Sound_3": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Sound_4": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Sound_5": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Sound_6": {
+      "type": "int32",
+      "offset": 28
+    },
+    "Sound_7": {
+      "type": "int32",
+      "offset": 32
+    },
+    "Sound_8": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Sound_9": {
+      "type": "int32",
+      "offset": 40
+    },
+    "Sound_10": {
+      "type": "int32",
+      "offset": 44
+    },
+    "GeoBoxMin_1": {
+      "type": "float",
+      "offset": 48
+    },
+    "GeoBoxMin_2": {
+      "type": "float",
+      "offset": 52
+    },
+    "GeoBoxMin_3": {
+      "type": "float",
+      "offset": 56
+    },
+    "GeoBoxMax_1": {
+      "type": "float",
+      "offset": 60
+    },
+    "GeoBoxMax_2": {
+      "type": "float",
+      "offset": 64
+    },
+    "GeoBoxMax_3": {
+      "type": "float",
+      "offset": 68
+    },
+    "ObjectEffectPackageID": {
+      "type": "int32",
+      "offset": 72
+    }
+  }
+}

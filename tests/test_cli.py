@@ -106,14 +106,14 @@ class TestCLI:
         data = json.loads(result.stdout)
         assert data["count"] == 1
 
-    def test_cli_edit(self, wow_dbc_tool, minimal_dbc: Path, tmp_path: Path):
+    def test_cli_edit(self, wow_dbc_tool, minimal_dbc_no_strings: Path, tmp_path: Path):
         """测试 edit 命令."""
         output = tmp_path / "edited.dbc"
         result = subprocess.run(
             wow_dbc_tool
             + [
                 "edit",
-                str(minimal_dbc),
+                str(minimal_dbc_no_strings),
                 "--filter",
                 "field_0=1",
                 "--set",
@@ -146,14 +146,14 @@ class TestCLI:
                 assert record["field_2"] == 999
                 break
 
-    def test_cli_delete(self, wow_dbc_tool, minimal_dbc: Path, tmp_path: Path):
+    def test_cli_delete(self, wow_dbc_tool, minimal_dbc_no_strings: Path, tmp_path: Path):
         """测试 delete 命令."""
         output = tmp_path / "deleted.dbc"
         result = subprocess.run(
             wow_dbc_tool
             + [
                 "delete",
-                str(minimal_dbc),
+                str(minimal_dbc_no_strings),
                 "--filter",
                 "field_0=1",
                 "--output",
@@ -170,14 +170,14 @@ class TestCLI:
         assert data["deleted"] == 1
         assert data["remaining"] == 1
 
-    def test_cli_add(self, wow_dbc_tool, minimal_dbc: Path, tmp_path: Path):
+    def test_cli_add(self, wow_dbc_tool, minimal_dbc_no_strings: Path, tmp_path: Path):
         """测试 add 命令."""
         output = tmp_path / "added.dbc"
         result = subprocess.run(
             wow_dbc_tool
             + [
                 "add",
-                str(minimal_dbc),
+                str(minimal_dbc_no_strings),
                 "--field",
                 "field_0=3",
                 "--field",

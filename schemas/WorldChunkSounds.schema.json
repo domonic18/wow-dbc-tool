@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldChunkSounds Physical Schema",
+  "description": "WorldChunkSounds.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "WorldChunkSounds",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 9,
+  "field_order": [
+    "ID",
+    "ChunkX",
+    "ChunkY",
+    "SubchunkX",
+    "SubchunkY",
+    "ZoneIntroMusicID",
+    "ZoneMusicID",
+    "SoundAmbienceID",
+    "SoundProviderPreferencesID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ChunkX": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ChunkY": {
+      "type": "int32",
+      "offset": 8
+    },
+    "SubchunkX": {
+      "type": "int32",
+      "offset": 12
+    },
+    "SubchunkY": {
+      "type": "int32",
+      "offset": 16
+    },
+    "ZoneIntroMusicID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ZoneMusicID": {
+      "type": "int32",
+      "offset": 24
+    },
+    "SoundAmbienceID": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SoundProviderPreferencesID": {
+      "type": "int32",
+      "offset": 32
+    }
+  }
+}

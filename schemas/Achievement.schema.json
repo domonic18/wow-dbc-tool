@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Achievement Physical Schema",
   "description": "Achievement.dbc 物理字段定义 (版本 3.3.5.12340)",
-  "source": "https://github.com/wowdev/WoWDBDefs + CSV header",
+  "source": "https://github.com/wowdev/WoWDBDefs",
   "table_name": "Achievement",
   "version": "3.3.5.12340",
   "type": "object",
@@ -10,7 +10,7 @@
   "field_order": [
     "ID",
     "Faction",
-    "Instance_Id",
+    "Instance_ID",
     "Supercedes",
     "Title_Lang_enUS",
     "Title_Lang_enGB",
@@ -48,7 +48,7 @@
     "Description_Lang_Mask",
     "Category",
     "Points",
-    "Ui_Order",
+    "Ui_order",
     "Flags",
     "IconID",
     "Reward_Lang_enUS",
@@ -68,8 +68,8 @@
     "Reward_Lang_itIT",
     "Reward_Lang_Unk",
     "Reward_Lang_Mask",
-    "Minimum_Criteria",
-    "Shares_Criteria"
+    "Minimum_criteria",
+    "Shares_criteria"
   ],
   "properties": {
     "ID": {
@@ -80,7 +80,7 @@
       "type": "int32",
       "offset": 4
     },
-    "Instance_Id": {
+    "Instance_ID": {
       "type": "int32",
       "offset": 8
     },
@@ -153,7 +153,7 @@
       "offset": 76
     },
     "Title_Lang_Mask": {
-      "type": "int32",
+      "type": "uint32",
       "offset": 80
     },
     "Description_Lang_enUS": {
@@ -221,7 +221,7 @@
       "offset": 144
     },
     "Description_Lang_Mask": {
-      "type": "int32",
+      "type": "uint32",
       "offset": 148
     },
     "Category": {
@@ -232,7 +232,7 @@
       "type": "int32",
       "offset": 156
     },
-    "Ui_Order": {
+    "Ui_order": {
       "type": "int32",
       "offset": 160
     },
@@ -309,14 +309,14 @@
       "offset": 232
     },
     "Reward_Lang_Mask": {
-      "type": "int32",
+      "type": "uint32",
       "offset": 236
     },
-    "Minimum_Criteria": {
+    "Minimum_criteria": {
       "type": "int32",
       "offset": 240
     },
-    "Shares_Criteria": {
+    "Shares_criteria": {
       "type": "int32",
       "offset": 244
     }

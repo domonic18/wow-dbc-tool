@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillLineAbility Physical Schema",
+  "description": "SkillLineAbility.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SkillLineAbility",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 14,
+  "field_order": [
+    "ID",
+    "SkillLine",
+    "Spell",
+    "RaceMask",
+    "ClassMask",
+    "ExcludeRace",
+    "ExcludeClass",
+    "MinSkillLineRank",
+    "SupercededBySpell",
+    "AcquireMethod",
+    "TrivialSkillLineRankHigh",
+    "TrivialSkillLineRankLow",
+    "CharacterPoints_1",
+    "CharacterPoints_2"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SkillLine": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Spell": {
+      "type": "int32",
+      "offset": 8
+    },
+    "RaceMask": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ClassMask": {
+      "type": "int32",
+      "offset": 16
+    },
+    "ExcludeRace": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ExcludeClass": {
+      "type": "int32",
+      "offset": 24
+    },
+    "MinSkillLineRank": {
+      "type": "int32",
+      "offset": 28
+    },
+    "SupercededBySpell": {
+      "type": "int32",
+      "offset": 32
+    },
+    "AcquireMethod": {
+      "type": "int32",
+      "offset": 36
+    },
+    "TrivialSkillLineRankHigh": {
+      "type": "int32",
+      "offset": 40
+    },
+    "TrivialSkillLineRankLow": {
+      "type": "int32",
+      "offset": 44
+    },
+    "CharacterPoints_1": {
+      "type": "int32",
+      "offset": 48
+    },
+    "CharacterPoints_2": {
+      "type": "int32",
+      "offset": 52
+    }
+  }
+}

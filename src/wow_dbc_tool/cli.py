@@ -512,7 +512,7 @@ def cmd_schema(args: argparse.Namespace) -> int:
     elif args.schema_command == "generate":
         from wow_dbc_tool.schema.generator import generate_schemas
 
-        csv_dir = args.csv_dir or Path("tables")
+        csv_dir = args.csv_dir
         dbd_dir = args.dbd_dir or (
             Path(__file__).parent.parent.parent / "third-party" / "WoWDBDefs" / "definitions"
         )
@@ -529,6 +529,7 @@ def cmd_schema(args: argparse.Namespace) -> int:
             output_dir=output_dir,
             tables=tables,
             target_version=args.target_version,
+            dbc_dir=args.dbc_src_dir,
         )
         _output_json(result, pretty=not args.compact)
 
@@ -699,10 +700,21 @@ def main() -> int:
     )
     schema_parser.add_argument("file", type=Path, nargs="?", help="DBC 文件路径")
     schema_parser.add_argument("--schema-file", type=Path, help="字段定义文件")
-    schema_parser.add_argument("--csv-dir", type=Path, help="CSV 输入目录（generate 用）")
+    schema_parser.add_argument("--csv-dir", type=Path, help="CSV 输入目录（generate 用，可选）")
     schema_parser.add_argument("--dbd-dir", type=Path, help="WoWDBDefs 定义目录（generate 用）")
+    schema_parser.add_argument(
+        "--dbc-src-dir", type=Path, help="原始 DBC 文件目录（generate 用，按 DBC 文件名输出）"
+    )
     schema_parser.add_argument("--table", type=str, help="仅生成指定表（generate 用）")
-    schema_parser.add_argument("--target-version", type=str, default="3.3.5.12340", help="目标版本（generate 用，默认: 3.3.5.12340)")
+    schema_parser.add_argument(
+        "--target-version",
+        "--build",
+        "-b",
+        type=str,
+        default="3.3.5.12340",
+        dest="target_version",
+        help="目标版本（generate 用，默认: 3.3.5.12340)",
+    )
     schema_parser.set_defaults(func=cmd_schema)
 
     # help

@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BannedAddOns Physical Schema",
+  "description": "BannedAddOns.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "BannedAddOns",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 11,
+  "field_order": [
+    "ID",
+    "NameMD5_1",
+    "NameMD5_2",
+    "NameMD5_3",
+    "NameMD5_4",
+    "VersionMD5_1",
+    "VersionMD5_2",
+    "VersionMD5_3",
+    "VersionMD5_4",
+    "LastModified",
+    "Flags"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "NameMD5_1": {
+      "type": "int32",
+      "offset": 4
+    },
+    "NameMD5_2": {
+      "type": "int32",
+      "offset": 8
+    },
+    "NameMD5_3": {
+      "type": "int32",
+      "offset": 12
+    },
+    "NameMD5_4": {
+      "type": "int32",
+      "offset": 16
+    },
+    "VersionMD5_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "VersionMD5_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "VersionMD5_3": {
+      "type": "int32",
+      "offset": 28
+    },
+    "VersionMD5_4": {
+      "type": "int32",
+      "offset": 32
+    },
+    "LastModified": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 40
+    }
+  }
+}

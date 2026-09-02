@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellVisualKitModelAttach Physical Schema",
+  "description": "SpellVisualKitModelAttach.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellVisualKitModelAttach",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 10,
+  "field_order": [
+    "ID",
+    "ParentSpellVisualKitID",
+    "SpellVisualEffectNameID",
+    "AttachmentID",
+    "Offset_1",
+    "Offset_2",
+    "Offset_3",
+    "Yaw",
+    "Pitch",
+    "Roll"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "ParentSpellVisualKitID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "SpellVisualEffectNameID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "AttachmentID": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Offset_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "Offset_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "Offset_3": {
+      "type": "float",
+      "offset": 24
+    },
+    "Yaw": {
+      "type": "float",
+      "offset": 28
+    },
+    "Pitch": {
+      "type": "float",
+      "offset": 32
+    },
+    "Roll": {
+      "type": "float",
+      "offset": 36
+    }
+  }
+}

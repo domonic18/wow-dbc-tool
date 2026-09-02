@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CharSections Physical Schema",
+  "description": "CharSections.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CharSections",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 10,
+  "field_order": [
+    "ID",
+    "RaceID",
+    "SexID",
+    "BaseSection",
+    "TextureName_1",
+    "TextureName_2",
+    "TextureName_3",
+    "Flags",
+    "VariationIndex",
+    "ColorIndex"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "RaceID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "SexID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "BaseSection": {
+      "type": "int32",
+      "offset": 12
+    },
+    "TextureName_1": {
+      "type": "string",
+      "offset": 16
+    },
+    "TextureName_2": {
+      "type": "string",
+      "offset": 20
+    },
+    "TextureName_3": {
+      "type": "string",
+      "offset": 24
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 28
+    },
+    "VariationIndex": {
+      "type": "int32",
+      "offset": 32
+    },
+    "ColorIndex": {
+      "type": "int32",
+      "offset": 36
+    }
+  }
+}

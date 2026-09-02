@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GMSurveyAnswers Physical Schema",
+  "description": "GMSurveyAnswers.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "GMSurveyAnswers",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 20,
+  "field_order": [
+    "ID",
+    "Sort_Index",
+    "GMSurveyQuestionID",
+    "Answer_Lang_enUS",
+    "Answer_Lang_enGB",
+    "Answer_Lang_koKR",
+    "Answer_Lang_frFR",
+    "Answer_Lang_deDE",
+    "Answer_Lang_enCN",
+    "Answer_Lang_zhCN",
+    "Answer_Lang_enTW",
+    "Answer_Lang_zhTW",
+    "Answer_Lang_esES",
+    "Answer_Lang_esMX",
+    "Answer_Lang_ruRU",
+    "Answer_Lang_ptPT",
+    "Answer_Lang_ptBR",
+    "Answer_Lang_itIT",
+    "Answer_Lang_Unk",
+    "Answer_Lang_Mask"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Sort_Index": {
+      "type": "int32",
+      "offset": 4
+    },
+    "GMSurveyQuestionID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Answer_Lang_enUS": {
+      "type": "string",
+      "offset": 12
+    },
+    "Answer_Lang_enGB": {
+      "type": "string",
+      "offset": 16
+    },
+    "Answer_Lang_koKR": {
+      "type": "string",
+      "offset": 20
+    },
+    "Answer_Lang_frFR": {
+      "type": "string",
+      "offset": 24
+    },
+    "Answer_Lang_deDE": {
+      "type": "string",
+      "offset": 28
+    },
+    "Answer_Lang_enCN": {
+      "type": "string",
+      "offset": 32
+    },
+    "Answer_Lang_zhCN": {
+      "type": "string",
+      "offset": 36
+    },
+    "Answer_Lang_enTW": {
+      "type": "string",
+      "offset": 40
+    },
+    "Answer_Lang_zhTW": {
+      "type": "string",
+      "offset": 44
+    },
+    "Answer_Lang_esES": {
+      "type": "string",
+      "offset": 48
+    },
+    "Answer_Lang_esMX": {
+      "type": "string",
+      "offset": 52
+    },
+    "Answer_Lang_ruRU": {
+      "type": "string",
+      "offset": 56
+    },
+    "Answer_Lang_ptPT": {
+      "type": "string",
+      "offset": 60
+    },
+    "Answer_Lang_ptBR": {
+      "type": "string",
+      "offset": 64
+    },
+    "Answer_Lang_itIT": {
+      "type": "string",
+      "offset": 68
+    },
+    "Answer_Lang_Unk": {
+      "type": "string",
+      "offset": 72
+    },
+    "Answer_Lang_Mask": {
+      "type": "uint32",
+      "offset": 76
+    }
+  }
+}

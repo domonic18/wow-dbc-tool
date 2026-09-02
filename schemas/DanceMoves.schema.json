@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DanceMoves Physical Schema",
+  "description": "DanceMoves.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "DanceMoves",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 7,
+  "field_order": [
+    "ID",
+    "Type",
+    "Param",
+    "Fallback",
+    "Racemask",
+    "Internal_name",
+    "LockID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Type": {
+      "type": "int32",
+      "offset": 4
+    },
+    "Param": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Fallback": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Racemask": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Internal_name": {
+      "type": "string",
+      "offset": 20
+    },
+    "LockID": {
+      "type": "int32",
+      "offset": 24
+    }
+  }
+}

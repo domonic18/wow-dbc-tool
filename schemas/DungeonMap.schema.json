@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DungeonMap Physical Schema",
+  "description": "DungeonMap.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "DungeonMap",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "ID",
+    "MapID",
+    "FloorIndex",
+    "MinX",
+    "MaxX",
+    "MinY",
+    "MaxY",
+    "ParentWorldMapID"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "FloorIndex": {
+      "type": "int32",
+      "offset": 8
+    },
+    "MinX": {
+      "type": "float",
+      "offset": 12
+    },
+    "MaxX": {
+      "type": "float",
+      "offset": 16
+    },
+    "MinY": {
+      "type": "float",
+      "offset": 20
+    },
+    "MaxY": {
+      "type": "float",
+      "offset": 24
+    },
+    "ParentWorldMapID": {
+      "type": "int32",
+      "offset": 28
+    }
+  }
+}

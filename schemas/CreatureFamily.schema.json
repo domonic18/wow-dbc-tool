@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreatureFamily Physical Schema",
+  "description": "CreatureFamily.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CreatureFamily",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 28,
+  "field_order": [
+    "ID",
+    "MinScale",
+    "MinScaleLevel",
+    "MaxScale",
+    "MaxScaleLevel",
+    "SkillLine_1",
+    "SkillLine_2",
+    "PetFoodMask",
+    "PetTalentType",
+    "CategoryEnumID",
+    "Name_Lang_enUS",
+    "Name_Lang_enGB",
+    "Name_Lang_koKR",
+    "Name_Lang_frFR",
+    "Name_Lang_deDE",
+    "Name_Lang_enCN",
+    "Name_Lang_zhCN",
+    "Name_Lang_enTW",
+    "Name_Lang_zhTW",
+    "Name_Lang_esES",
+    "Name_Lang_esMX",
+    "Name_Lang_ruRU",
+    "Name_Lang_ptPT",
+    "Name_Lang_ptBR",
+    "Name_Lang_itIT",
+    "Name_Lang_Unk",
+    "Name_Lang_Mask",
+    "IconFile"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MinScale": {
+      "type": "float",
+      "offset": 4
+    },
+    "MinScaleLevel": {
+      "type": "int32",
+      "offset": 8
+    },
+    "MaxScale": {
+      "type": "float",
+      "offset": 12
+    },
+    "MaxScaleLevel": {
+      "type": "int32",
+      "offset": 16
+    },
+    "SkillLine_1": {
+      "type": "int32",
+      "offset": 20
+    },
+    "SkillLine_2": {
+      "type": "int32",
+      "offset": 24
+    },
+    "PetFoodMask": {
+      "type": "int32",
+      "offset": 28
+    },
+    "PetTalentType": {
+      "type": "int32",
+      "offset": 32
+    },
+    "CategoryEnumID": {
+      "type": "int32",
+      "offset": 36
+    },
+    "Name_Lang_enUS": {
+      "type": "string",
+      "offset": 40
+    },
+    "Name_Lang_enGB": {
+      "type": "string",
+      "offset": 44
+    },
+    "Name_Lang_koKR": {
+      "type": "string",
+      "offset": 48
+    },
+    "Name_Lang_frFR": {
+      "type": "string",
+      "offset": 52
+    },
+    "Name_Lang_deDE": {
+      "type": "string",
+      "offset": 56
+    },
+    "Name_Lang_enCN": {
+      "type": "string",
+      "offset": 60
+    },
+    "Name_Lang_zhCN": {
+      "type": "string",
+      "offset": 64
+    },
+    "Name_Lang_enTW": {
+      "type": "string",
+      "offset": 68
+    },
+    "Name_Lang_zhTW": {
+      "type": "string",
+      "offset": 72
+    },
+    "Name_Lang_esES": {
+      "type": "string",
+      "offset": 76
+    },
+    "Name_Lang_esMX": {
+      "type": "string",
+      "offset": 80
+    },
+    "Name_Lang_ruRU": {
+      "type": "string",
+      "offset": 84
+    },
+    "Name_Lang_ptPT": {
+      "type": "string",
+      "offset": 88
+    },
+    "Name_Lang_ptBR": {
+      "type": "string",
+      "offset": 92
+    },
+    "Name_Lang_itIT": {
+      "type": "string",
+      "offset": 96
+    },
+    "Name_Lang_Unk": {
+      "type": "string",
+      "offset": 100
+    },
+    "Name_Lang_Mask": {
+      "type": "uint32",
+      "offset": 104
+    },
+    "IconFile": {
+      "type": "string",
+      "offset": 108
+    }
+  }
+}

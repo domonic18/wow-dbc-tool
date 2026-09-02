@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ScalingStatValues Physical Schema",
+  "description": "ScalingStatValues.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ScalingStatValues",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 24,
+  "field_order": [
+    "ID",
+    "Charlevel",
+    "ShoulderBudget",
+    "TrinketBudget",
+    "WeaponBudget1H",
+    "RangedBudget",
+    "ClothShoulderArmor",
+    "LeatherShoulderArmor",
+    "MailShoulderArmor",
+    "PlateShoulderArmor",
+    "WeaponDPS1H",
+    "WeaponDPS2H",
+    "SpellcasterDPS1H",
+    "SpellcasterDPS2H",
+    "RangedDPS",
+    "WandDPS",
+    "SpellPower",
+    "PrimaryBudget",
+    "TertiaryBudget",
+    "ClothCloakArmor",
+    "ClothChestArmor",
+    "LeatherChestArmor",
+    "MailChestArmor",
+    "PlateChestArmor"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Charlevel": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ShoulderBudget": {
+      "type": "int32",
+      "offset": 8
+    },
+    "TrinketBudget": {
+      "type": "int32",
+      "offset": 12
+    },
+    "WeaponBudget1H": {
+      "type": "int32",
+      "offset": 16
+    },
+    "RangedBudget": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ClothShoulderArmor": {
+      "type": "int32",
+      "offset": 24
+    },
+    "LeatherShoulderArmor": {
+      "type": "int32",
+      "offset": 28
+    },
+    "MailShoulderArmor": {
+      "type": "int32",
+      "offset": 32
+    },
+    "PlateShoulderArmor": {
+      "type": "int32",
+      "offset": 36
+    },
+    "WeaponDPS1H": {
+      "type": "int32",
+      "offset": 40
+    },
+    "WeaponDPS2H": {
+      "type": "int32",
+      "offset": 44
+    },
+    "SpellcasterDPS1H": {
+      "type": "int32",
+      "offset": 48
+    },
+    "SpellcasterDPS2H": {
+      "type": "int32",
+      "offset": 52
+    },
+    "RangedDPS": {
+      "type": "int32",
+      "offset": 56
+    },
+    "WandDPS": {
+      "type": "int32",
+      "offset": 60
+    },
+    "SpellPower": {
+      "type": "int32",
+      "offset": 64
+    },
+    "PrimaryBudget": {
+      "type": "int32",
+      "offset": 68
+    },
+    "TertiaryBudget": {
+      "type": "int32",
+      "offset": 72
+    },
+    "ClothCloakArmor": {
+      "type": "int32",
+      "offset": 76
+    },
+    "ClothChestArmor": {
+      "type": "int32",
+      "offset": 80
+    },
+    "LeatherChestArmor": {
+      "type": "int32",
+      "offset": 84
+    },
+    "MailChestArmor": {
+      "type": "int32",
+      "offset": 88
+    },
+    "PlateChestArmor": {
+      "type": "int32",
+      "offset": 92
+    }
+  }
+}

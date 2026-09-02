@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellMissile Physical Schema",
+  "description": "SpellMissile.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellMissile",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 15,
+  "field_order": [
+    "ID",
+    "Flags",
+    "DefaultPitchMin",
+    "DefaultPitchMax",
+    "DefaultSpeedMin",
+    "DefaultSpeedMax",
+    "RandomizeFacingMin",
+    "RandomizeFacingMax",
+    "RandomizePitchMin",
+    "RandomizePitchMax",
+    "RandomizeSpeedMin",
+    "RandomizeSpeedMax",
+    "Gravity",
+    "MaxDuration",
+    "CollisionRadius"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 4
+    },
+    "DefaultPitchMin": {
+      "type": "float",
+      "offset": 8
+    },
+    "DefaultPitchMax": {
+      "type": "float",
+      "offset": 12
+    },
+    "DefaultSpeedMin": {
+      "type": "float",
+      "offset": 16
+    },
+    "DefaultSpeedMax": {
+      "type": "float",
+      "offset": 20
+    },
+    "RandomizeFacingMin": {
+      "type": "float",
+      "offset": 24
+    },
+    "RandomizeFacingMax": {
+      "type": "float",
+      "offset": 28
+    },
+    "RandomizePitchMin": {
+      "type": "float",
+      "offset": 32
+    },
+    "RandomizePitchMax": {
+      "type": "float",
+      "offset": 36
+    },
+    "RandomizeSpeedMin": {
+      "type": "float",
+      "offset": 40
+    },
+    "RandomizeSpeedMax": {
+      "type": "float",
+      "offset": 44
+    },
+    "Gravity": {
+      "type": "float",
+      "offset": 48
+    },
+    "MaxDuration": {
+      "type": "float",
+      "offset": 52
+    },
+    "CollisionRadius": {
+      "type": "float",
+      "offset": 56
+    }
+  }
+}

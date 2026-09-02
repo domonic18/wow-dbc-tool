@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SoundFilterElem Physical Schema",
+  "description": "SoundFilterElem.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SoundFilterElem",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 13,
+  "field_order": [
+    "ID",
+    "SoundFilterID",
+    "OrderIndex",
+    "FilterType",
+    "Params_1",
+    "Params_2",
+    "Params_3",
+    "Params_4",
+    "Params_5",
+    "Params_6",
+    "Params_7",
+    "Params_8",
+    "Params_9"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SoundFilterID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "OrderIndex": {
+      "type": "int32",
+      "offset": 8
+    },
+    "FilterType": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Params_1": {
+      "type": "float",
+      "offset": 16
+    },
+    "Params_2": {
+      "type": "float",
+      "offset": 20
+    },
+    "Params_3": {
+      "type": "float",
+      "offset": 24
+    },
+    "Params_4": {
+      "type": "float",
+      "offset": 28
+    },
+    "Params_5": {
+      "type": "float",
+      "offset": 32
+    },
+    "Params_6": {
+      "type": "float",
+      "offset": 36
+    },
+    "Params_7": {
+      "type": "float",
+      "offset": 40
+    },
+    "Params_8": {
+      "type": "float",
+      "offset": 44
+    },
+    "Params_9": {
+      "type": "float",
+      "offset": 48
+    }
+  }
+}

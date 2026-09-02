@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SpellChainEffects Physical Schema",
+  "description": "SpellChainEffects.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "SpellChainEffects",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 48,
+  "field_order": [
+    "ID",
+    "AvgSegLen",
+    "Width",
+    "NoiseScale",
+    "TexCoordScale",
+    "SegDuration",
+    "SegDelay",
+    "Texture",
+    "Flags",
+    "JointCount",
+    "JointOffsetRadius",
+    "JointsPerMinorJoint",
+    "MinorJointsPerMajorJoint",
+    "MinorJointScale",
+    "MajorJointScale",
+    "JointMoveSpeed",
+    "JointSmoothness",
+    "MinDurationBetweenJointJumps",
+    "MaxDurationBetweenJointJumps",
+    "WaveHeight",
+    "WaveFreq",
+    "WaveSpeed",
+    "MinWaveAngle",
+    "MaxWaveAngle",
+    "MinWaveSpin",
+    "MaxWaveSpin",
+    "ArcHeight",
+    "MinArcAngle",
+    "MaxArcAngle",
+    "MinArcSpin",
+    "MaxArcSpin",
+    "DelayBetweenEffects",
+    "MinFlickerOnDuration",
+    "MaxFlickerOnDuration",
+    "MinFlickerOffDuration",
+    "MaxFlickerOffDuration",
+    "PulseSpeed",
+    "PulseOnLength",
+    "PulseFadeLength",
+    "Alpha",
+    "Red",
+    "Green",
+    "Blue",
+    "BlendMode",
+    "Combo",
+    "RenderLayer",
+    "TextureLength",
+    "WavePhase"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "AvgSegLen": {
+      "type": "float",
+      "offset": 4
+    },
+    "Width": {
+      "type": "float",
+      "offset": 8
+    },
+    "NoiseScale": {
+      "type": "float",
+      "offset": 12
+    },
+    "TexCoordScale": {
+      "type": "float",
+      "offset": 16
+    },
+    "SegDuration": {
+      "type": "int32",
+      "offset": 20
+    },
+    "SegDelay": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Texture": {
+      "type": "string",
+      "offset": 28
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 32
+    },
+    "JointCount": {
+      "type": "int32",
+      "offset": 36
+    },
+    "JointOffsetRadius": {
+      "type": "float",
+      "offset": 40
+    },
+    "JointsPerMinorJoint": {
+      "type": "int32",
+      "offset": 44
+    },
+    "MinorJointsPerMajorJoint": {
+      "type": "int32",
+      "offset": 48
+    },
+    "MinorJointScale": {
+      "type": "float",
+      "offset": 52
+    },
+    "MajorJointScale": {
+      "type": "float",
+      "offset": 56
+    },
+    "JointMoveSpeed": {
+      "type": "float",
+      "offset": 60
+    },
+    "JointSmoothness": {
+      "type": "float",
+      "offset": 64
+    },
+    "MinDurationBetweenJointJumps": {
+      "type": "float",
+      "offset": 68
+    },
+    "MaxDurationBetweenJointJumps": {
+      "type": "float",
+      "offset": 72
+    },
+    "WaveHeight": {
+      "type": "float",
+      "offset": 76
+    },
+    "WaveFreq": {
+      "type": "float",
+      "offset": 80
+    },
+    "WaveSpeed": {
+      "type": "float",
+      "offset": 84
+    },
+    "MinWaveAngle": {
+      "type": "float",
+      "offset": 88
+    },
+    "MaxWaveAngle": {
+      "type": "float",
+      "offset": 92
+    },
+    "MinWaveSpin": {
+      "type": "float",
+      "offset": 96
+    },
+    "MaxWaveSpin": {
+      "type": "float",
+      "offset": 100
+    },
+    "ArcHeight": {
+      "type": "float",
+      "offset": 104
+    },
+    "MinArcAngle": {
+      "type": "float",
+      "offset": 108
+    },
+    "MaxArcAngle": {
+      "type": "float",
+      "offset": 112
+    },
+    "MinArcSpin": {
+      "type": "float",
+      "offset": 116
+    },
+    "MaxArcSpin": {
+      "type": "float",
+      "offset": 120
+    },
+    "DelayBetweenEffects": {
+      "type": "float",
+      "offset": 124
+    },
+    "MinFlickerOnDuration": {
+      "type": "float",
+      "offset": 128
+    },
+    "MaxFlickerOnDuration": {
+      "type": "float",
+      "offset": 132
+    },
+    "MinFlickerOffDuration": {
+      "type": "float",
+      "offset": 136
+    },
+    "MaxFlickerOffDuration": {
+      "type": "float",
+      "offset": 140
+    },
+    "PulseSpeed": {
+      "type": "float",
+      "offset": 144
+    },
+    "PulseOnLength": {
+      "type": "float",
+      "offset": 148
+    },
+    "PulseFadeLength": {
+      "type": "float",
+      "offset": 152
+    },
+    "Alpha": {
+      "type": "int32",
+      "offset": 156
+    },
+    "Red": {
+      "type": "int32",
+      "offset": 160
+    },
+    "Green": {
+      "type": "int32",
+      "offset": 164
+    },
+    "Blue": {
+      "type": "int32",
+      "offset": 168
+    },
+    "BlendMode": {
+      "type": "int32",
+      "offset": 172
+    },
+    "Combo": {
+      "type": "string",
+      "offset": 176
+    },
+    "RenderLayer": {
+      "type": "int32",
+      "offset": 180
+    },
+    "TextureLength": {
+      "type": "float",
+      "offset": 184
+    },
+    "WavePhase": {
+      "type": "float",
+      "offset": 188
+    }
+  }
+}

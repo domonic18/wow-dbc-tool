@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CharacterFacialHairStyles Physical Schema",
+  "description": "CharacterFacialHairStyles.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "CharacterFacialHairStyles",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 8,
+  "field_order": [
+    "RaceID",
+    "SexID",
+    "VariationID",
+    "Geoset_1",
+    "Geoset_2",
+    "Geoset_3",
+    "Geoset_4",
+    "Geoset_5"
+  ],
+  "properties": {
+    "RaceID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "SexID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "VariationID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "Geoset_1": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Geoset_2": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Geoset_3": {
+      "type": "int32",
+      "offset": 20
+    },
+    "Geoset_4": {
+      "type": "int32",
+      "offset": 24
+    },
+    "Geoset_5": {
+      "type": "int32",
+      "offset": 28
+    }
+  }
+}

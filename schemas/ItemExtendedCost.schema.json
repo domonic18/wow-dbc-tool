@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ItemExtendedCost Physical Schema",
+  "description": "ItemExtendedCost.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "ItemExtendedCost",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 16,
+  "field_order": [
+    "ID",
+    "HonorPoints",
+    "ArenaPoints",
+    "ArenaBracket",
+    "ItemID_1",
+    "ItemID_2",
+    "ItemID_3",
+    "ItemID_4",
+    "ItemID_5",
+    "ItemCount_1",
+    "ItemCount_2",
+    "ItemCount_3",
+    "ItemCount_4",
+    "ItemCount_5",
+    "RequiredArenaRating",
+    "ItemPurchaseGroup"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "HonorPoints": {
+      "type": "int32",
+      "offset": 4
+    },
+    "ArenaPoints": {
+      "type": "int32",
+      "offset": 8
+    },
+    "ArenaBracket": {
+      "type": "int32",
+      "offset": 12
+    },
+    "ItemID_1": {
+      "type": "int32",
+      "offset": 16
+    },
+    "ItemID_2": {
+      "type": "int32",
+      "offset": 20
+    },
+    "ItemID_3": {
+      "type": "int32",
+      "offset": 24
+    },
+    "ItemID_4": {
+      "type": "int32",
+      "offset": 28
+    },
+    "ItemID_5": {
+      "type": "int32",
+      "offset": 32
+    },
+    "ItemCount_1": {
+      "type": "int32",
+      "offset": 36
+    },
+    "ItemCount_2": {
+      "type": "int32",
+      "offset": 40
+    },
+    "ItemCount_3": {
+      "type": "int32",
+      "offset": 44
+    },
+    "ItemCount_4": {
+      "type": "int32",
+      "offset": 48
+    },
+    "ItemCount_5": {
+      "type": "int32",
+      "offset": 52
+    },
+    "RequiredArenaRating": {
+      "type": "int32",
+      "offset": 56
+    },
+    "ItemPurchaseGroup": {
+      "type": "int32",
+      "offset": 60
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BankBagSlotPrices Physical Schema",
+  "description": "BankBagSlotPrices.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "BankBagSlotPrices",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 0,
+  "field_order": [],
+  "properties": {}
+}

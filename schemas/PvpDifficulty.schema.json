@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PvpDifficulty Physical Schema",
+  "description": "PvpDifficulty.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "PvpDifficulty",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 6,
+  "field_order": [
+    "ID",
+    "MapID",
+    "RangeIndex",
+    "MinLevel",
+    "MaxLevel",
+    "Difficulty"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "RangeIndex": {
+      "type": "int32",
+      "offset": 8
+    },
+    "MinLevel": {
+      "type": "int32",
+      "offset": 12
+    },
+    "MaxLevel": {
+      "type": "int32",
+      "offset": 16
+    },
+    "Difficulty": {
+      "type": "int32",
+      "offset": 20
+    }
+  }
+}

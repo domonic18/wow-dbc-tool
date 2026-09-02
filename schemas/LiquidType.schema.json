@@ -1,0 +1,239 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LiquidType Physical Schema",
+  "description": "LiquidType.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "LiquidType",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 45,
+  "field_order": [
+    "ID",
+    "Name",
+    "Flags",
+    "SoundBank",
+    "SoundID",
+    "SpellID",
+    "MaxDarkenDepth",
+    "FogDarkenIntensity",
+    "AmbDarkenIntensity",
+    "DirDarkenIntensity",
+    "LightID",
+    "ParticleScale",
+    "ParticleMovement",
+    "ParticleTexSlots",
+    "MaterialID",
+    "Texture_1",
+    "Texture_2",
+    "Texture_3",
+    "Texture_4",
+    "Texture_5",
+    "Texture_6",
+    "Color_1",
+    "Color_2",
+    "Float_1",
+    "Float_2",
+    "Float_3",
+    "Float_4",
+    "Float_5",
+    "Float_6",
+    "Float_7",
+    "Float_8",
+    "Float_9",
+    "Float_10",
+    "Float_11",
+    "Float_12",
+    "Float_13",
+    "Float_14",
+    "Float_15",
+    "Float_16",
+    "Float_17",
+    "Float_18",
+    "Int_1",
+    "Int_2",
+    "Int_3",
+    "Int_4"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "Name": {
+      "type": "string",
+      "offset": 4
+    },
+    "Flags": {
+      "type": "int32",
+      "offset": 8
+    },
+    "SoundBank": {
+      "type": "int32",
+      "offset": 12
+    },
+    "SoundID": {
+      "type": "int32",
+      "offset": 16
+    },
+    "SpellID": {
+      "type": "int32",
+      "offset": 20
+    },
+    "MaxDarkenDepth": {
+      "type": "float",
+      "offset": 24
+    },
+    "FogDarkenIntensity": {
+      "type": "float",
+      "offset": 28
+    },
+    "AmbDarkenIntensity": {
+      "type": "float",
+      "offset": 32
+    },
+    "DirDarkenIntensity": {
+      "type": "float",
+      "offset": 36
+    },
+    "LightID": {
+      "type": "int32",
+      "offset": 40
+    },
+    "ParticleScale": {
+      "type": "float",
+      "offset": 44
+    },
+    "ParticleMovement": {
+      "type": "int32",
+      "offset": 48
+    },
+    "ParticleTexSlots": {
+      "type": "int32",
+      "offset": 52
+    },
+    "MaterialID": {
+      "type": "int32",
+      "offset": 56
+    },
+    "Texture_1": {
+      "type": "string",
+      "offset": 60
+    },
+    "Texture_2": {
+      "type": "string",
+      "offset": 64
+    },
+    "Texture_3": {
+      "type": "string",
+      "offset": 68
+    },
+    "Texture_4": {
+      "type": "string",
+      "offset": 72
+    },
+    "Texture_5": {
+      "type": "string",
+      "offset": 76
+    },
+    "Texture_6": {
+      "type": "string",
+      "offset": 80
+    },
+    "Color_1": {
+      "type": "int32",
+      "offset": 84
+    },
+    "Color_2": {
+      "type": "int32",
+      "offset": 88
+    },
+    "Float_1": {
+      "type": "float",
+      "offset": 92
+    },
+    "Float_2": {
+      "type": "float",
+      "offset": 96
+    },
+    "Float_3": {
+      "type": "float",
+      "offset": 100
+    },
+    "Float_4": {
+      "type": "float",
+      "offset": 104
+    },
+    "Float_5": {
+      "type": "float",
+      "offset": 108
+    },
+    "Float_6": {
+      "type": "float",
+      "offset": 112
+    },
+    "Float_7": {
+      "type": "float",
+      "offset": 116
+    },
+    "Float_8": {
+      "type": "float",
+      "offset": 120
+    },
+    "Float_9": {
+      "type": "float",
+      "offset": 124
+    },
+    "Float_10": {
+      "type": "float",
+      "offset": 128
+    },
+    "Float_11": {
+      "type": "float",
+      "offset": 132
+    },
+    "Float_12": {
+      "type": "float",
+      "offset": 136
+    },
+    "Float_13": {
+      "type": "float",
+      "offset": 140
+    },
+    "Float_14": {
+      "type": "float",
+      "offset": 144
+    },
+    "Float_15": {
+      "type": "float",
+      "offset": 148
+    },
+    "Float_16": {
+      "type": "float",
+      "offset": 152
+    },
+    "Float_17": {
+      "type": "float",
+      "offset": 156
+    },
+    "Float_18": {
+      "type": "float",
+      "offset": 160
+    },
+    "Int_1": {
+      "type": "int32",
+      "offset": 164
+    },
+    "Int_2": {
+      "type": "int32",
+      "offset": 168
+    },
+    "Int_3": {
+      "type": "int32",
+      "offset": 172
+    },
+    "Int_4": {
+      "type": "int32",
+      "offset": 176
+    }
+  }
+}

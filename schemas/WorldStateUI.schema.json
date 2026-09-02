@@ -1,0 +1,329 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorldStateUI Physical Schema",
+  "description": "WorldStateUI.dbc 物理字段定义 (版本 3.3.5.12340)",
+  "source": "https://github.com/wowdev/WoWDBDefs",
+  "table_name": "WorldStateUI",
+  "version": "3.3.5.12340",
+  "type": "object",
+  "field_count": 63,
+  "field_order": [
+    "ID",
+    "MapID",
+    "AreaID",
+    "PhaseShift",
+    "Icon",
+    "String_Lang_enUS",
+    "String_Lang_enGB",
+    "String_Lang_koKR",
+    "String_Lang_frFR",
+    "String_Lang_deDE",
+    "String_Lang_enCN",
+    "String_Lang_zhCN",
+    "String_Lang_enTW",
+    "String_Lang_zhTW",
+    "String_Lang_esES",
+    "String_Lang_esMX",
+    "String_Lang_ruRU",
+    "String_Lang_ptPT",
+    "String_Lang_ptBR",
+    "String_Lang_itIT",
+    "String_Lang_Unk",
+    "String_Lang_Mask",
+    "Tooltip_Lang_enUS",
+    "Tooltip_Lang_enGB",
+    "Tooltip_Lang_koKR",
+    "Tooltip_Lang_frFR",
+    "Tooltip_Lang_deDE",
+    "Tooltip_Lang_enCN",
+    "Tooltip_Lang_zhCN",
+    "Tooltip_Lang_enTW",
+    "Tooltip_Lang_zhTW",
+    "Tooltip_Lang_esES",
+    "Tooltip_Lang_esMX",
+    "Tooltip_Lang_ruRU",
+    "Tooltip_Lang_ptPT",
+    "Tooltip_Lang_ptBR",
+    "Tooltip_Lang_itIT",
+    "Tooltip_Lang_Unk",
+    "Tooltip_Lang_Mask",
+    "StateVariable",
+    "Type",
+    "DynamicIcon",
+    "DynamicTooltip_Lang_enUS",
+    "DynamicTooltip_Lang_enGB",
+    "DynamicTooltip_Lang_koKR",
+    "DynamicTooltip_Lang_frFR",
+    "DynamicTooltip_Lang_deDE",
+    "DynamicTooltip_Lang_enCN",
+    "DynamicTooltip_Lang_zhCN",
+    "DynamicTooltip_Lang_enTW",
+    "DynamicTooltip_Lang_zhTW",
+    "DynamicTooltip_Lang_esES",
+    "DynamicTooltip_Lang_esMX",
+    "DynamicTooltip_Lang_ruRU",
+    "DynamicTooltip_Lang_ptPT",
+    "DynamicTooltip_Lang_ptBR",
+    "DynamicTooltip_Lang_itIT",
+    "DynamicTooltip_Lang_Unk",
+    "DynamicTooltip_Lang_Mask",
+    "ExtendedUI",
+    "ExtendedUIStateVariable_1",
+    "ExtendedUIStateVariable_2",
+    "ExtendedUIStateVariable_3"
+  ],
+  "properties": {
+    "ID": {
+      "type": "int32",
+      "offset": 0
+    },
+    "MapID": {
+      "type": "int32",
+      "offset": 4
+    },
+    "AreaID": {
+      "type": "int32",
+      "offset": 8
+    },
+    "PhaseShift": {
+      "type": "int32",
+      "offset": 12
+    },
+    "Icon": {
+      "type": "string",
+      "offset": 16
+    },
+    "String_Lang_enUS": {
+      "type": "string",
+      "offset": 20
+    },
+    "String_Lang_enGB": {
+      "type": "string",
+      "offset": 24
+    },
+    "String_Lang_koKR": {
+      "type": "string",
+      "offset": 28
+    },
+    "String_Lang_frFR": {
+      "type": "string",
+      "offset": 32
+    },
+    "String_Lang_deDE": {
+      "type": "string",
+      "offset": 36
+    },
+    "String_Lang_enCN": {
+      "type": "string",
+      "offset": 40
+    },
+    "String_Lang_zhCN": {
+      "type": "string",
+      "offset": 44
+    },
+    "String_Lang_enTW": {
+      "type": "string",
+      "offset": 48
+    },
+    "String_Lang_zhTW": {
+      "type": "string",
+      "offset": 52
+    },
+    "String_Lang_esES": {
+      "type": "string",
+      "offset": 56
+    },
+    "String_Lang_esMX": {
+      "type": "string",
+      "offset": 60
+    },
+    "String_Lang_ruRU": {
+      "type": "string",
+      "offset": 64
+    },
+    "String_Lang_ptPT": {
+      "type": "string",
+      "offset": 68
+    },
+    "String_Lang_ptBR": {
+      "type": "string",
+      "offset": 72
+    },
+    "String_Lang_itIT": {
+      "type": "string",
+      "offset": 76
+    },
+    "String_Lang_Unk": {
+      "type": "string",
+      "offset": 80
+    },
+    "String_Lang_Mask": {
+      "type": "uint32",
+      "offset": 84
+    },
+    "Tooltip_Lang_enUS": {
+      "type": "string",
+      "offset": 88
+    },
+    "Tooltip_Lang_enGB": {
+      "type": "string",
+      "offset": 92
+    },
+    "Tooltip_Lang_koKR": {
+      "type": "string",
+      "offset": 96
+    },
+    "Tooltip_Lang_frFR": {
+      "type": "string",
+      "offset": 100
+    },
+    "Tooltip_Lang_deDE": {
+      "type": "string",
+      "offset": 104
+    },
+    "Tooltip_Lang_enCN": {
+      "type": "string",
+      "offset": 108
+    },
+    "Tooltip_Lang_zhCN": {
+      "type": "string",
+      "offset": 112
+    },
+    "Tooltip_Lang_enTW": {
+      "type": "string",
+      "offset": 116
+    },
+    "Tooltip_Lang_zhTW": {
+      "type": "string",
+      "offset": 120
+    },
+    "Tooltip_Lang_esES": {
+      "type": "string",
+      "offset": 124
+    },
+    "Tooltip_Lang_esMX": {
+      "type": "string",
+      "offset": 128
+    },
+    "Tooltip_Lang_ruRU": {
+      "type": "string",
+      "offset": 132
+    },
+    "Tooltip_Lang_ptPT": {
+      "type": "string",
+      "offset": 136
+    },
+    "Tooltip_Lang_ptBR": {
+      "type": "string",
+      "offset": 140
+    },
+    "Tooltip_Lang_itIT": {
+      "type": "string",
+      "offset": 144
+    },
+    "Tooltip_Lang_Unk": {
+      "type": "string",
+      "offset": 148
+    },
+    "Tooltip_Lang_Mask": {
+      "type": "uint32",
+      "offset": 152
+    },
+    "StateVariable": {
+      "type": "int32",
+      "offset": 156
+    },
+    "Type": {
+      "type": "int32",
+      "offset": 160
+    },
+    "DynamicIcon": {
+      "type": "string",
+      "offset": 164
+    },
+    "DynamicTooltip_Lang_enUS": {
+      "type": "string",
+      "offset": 168
+    },
+    "DynamicTooltip_Lang_enGB": {
+      "type": "string",
+      "offset": 172
+    },
+    "DynamicTooltip_Lang_koKR": {
+      "type": "string",
+      "offset": 176
+    },
+    "DynamicTooltip_Lang_frFR": {
+      "type": "string",
+      "offset": 180
+    },
+    "DynamicTooltip_Lang_deDE": {
+      "type": "string",
+      "offset": 184
+    },
+    "DynamicTooltip_Lang_enCN": {
+      "type": "string",
+      "offset": 188
+    },
+    "DynamicTooltip_Lang_zhCN": {
+      "type": "string",
+      "offset": 192
+    },
+    "DynamicTooltip_Lang_enTW": {
+      "type": "string",
+      "offset": 196
+    },
+    "DynamicTooltip_Lang_zhTW": {
+      "type": "string",
+      "offset": 200
+    },
+    "DynamicTooltip_Lang_esES": {
+      "type": "string",
+      "offset": 204
+    },
+    "DynamicTooltip_Lang_esMX": {
+      "type": "string",
+      "offset": 208
+    },
+    "DynamicTooltip_Lang_ruRU": {
+      "type": "string",
+      "offset": 212
+    },
+    "DynamicTooltip_Lang_ptPT": {
+      "type": "string",
+      "offset": 216
+    },
+    "DynamicTooltip_Lang_ptBR": {
+      "type": "string",
+      "offset": 220
+    },
+    "DynamicTooltip_Lang_itIT": {
+      "type": "string",
+      "offset": 224
+    },
+    "DynamicTooltip_Lang_Unk": {
+      "type": "string",
+      "offset": 228
+    },
+    "DynamicTooltip_Lang_Mask": {
+      "type": "uint32",
+      "offset": 232
+    },
+    "ExtendedUI": {
+      "type": "string",
+      "offset": 236
+    },
+    "ExtendedUIStateVariable_1": {
+      "type": "int32",
+      "offset": 240
+    },
+    "ExtendedUIStateVariable_2": {
+      "type": "int32",
+      "offset": 244
+    },
+    "ExtendedUIStateVariable_3": {
+      "type": "int32",
+      "offset": 248
+    }
+  }
+}
